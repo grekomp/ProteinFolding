@@ -417,6 +417,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 568184385}
+  - {fileID: 1937513408}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1043,6 +1044,16 @@ MonoBehaviour:
       debugVariableReplacements: 1
       debugFailedVariableReplacements: 0
       debugChanges: 1
+    setOnLateUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
     setOnValidate:
       useConstant: 1
       constantValue: 1
@@ -1159,10 +1170,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55729b1d14cea4542b54c3e3b549047a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input:
+  inputString:
     useConstant: 0
     constantValue: 
     variable: {fileID: 11400000, guid: 88138aa50d68fa74fbebf0677961eec2, type: 2}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  pruningProbability01:
+    useConstant: 1
+    constantValue: 0.5
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  pruningProbability02:
+    useConstant: 1
+    constantValue: 0.1
+    variable: {fileID: 0}
     _usesTemporaryVariable: 0
     debugEnabled: 0
     debugLogAll: 1
@@ -1179,6 +1210,24 @@ MonoBehaviour:
     debugVariableReplacements: 1
     debugFailedVariableReplacements: 0
     debugChanges: 1
+  energyValuesCount: 0
+  bestEnergyValue: 0
+  averageEnergyValue: 0
+  outputLattice:
+    useConstant: 0
+    constantValue:
+      energy: 0
+    variable: {fileID: 11400000, guid: 6c047ba8ce785e341a7efc71acb309c4, type: 2}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  parsedInput: 
+  currentMonomerIndex: 0
+  prunedTrees01: 0
+  prunedTrees02: 0
 --- !u!4 &1494294019
 Transform:
   m_ObjectHideFlags: 0
@@ -1292,3 +1341,273 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1937513407
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1937513408}
+  - component: {fileID: 1937513409}
+  - component: {fileID: 1937513410}
+  m_Layer: 5
+  m_Name: LatticeVisualizer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1937513408
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937513407}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 444111402}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1000, y: 1000}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1937513409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937513407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366405e99f4ef1a4296aa5895220fd8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    setOnAwake:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnStart:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnEnable:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnLateUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValidate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnReplaceVariable:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValueChanged:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setInEditMode:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    debugEnabled:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+  output:
+    useConstant: 1
+    constantValue:
+      dataBundles: []
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  outputUpdated:
+    inspectedEvent: {fileID: 0}
+  lattice:
+    useConstant: 0
+    constantValue:
+      energy: 0
+    variable: {fileID: 11400000, guid: 6c047ba8ce785e341a7efc71acb309c4, type: 2}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  gridSpacing:
+    useConstant: 1
+    constantValue: 10
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  pointEnabledKey:
+    variable: {fileID: 11400000, guid: 21fd04467eaa77e429536a532f5d4548, type: 2}
+    keyString: 
+  pointIsPolarKey:
+    variable: {fileID: 11400000, guid: 2371be3aa1f2adb4da8b1df28029b088, type: 2}
+    keyString: 
+  rightBindingEnabledKey:
+    variable: {fileID: 11400000, guid: 99b19106ab5660344a141fcbcc3f3ca6, type: 2}
+    keyString: 
+  downwardsBindingEnabledKey:
+    variable: {fileID: 11400000, guid: e38d0b3b73634cb4abcd93754403390d, type: 2}
+    keyString: 
+  pointPositionKey:
+    variable: {fileID: 11400000, guid: e79f68a58b40f9f42bd0b4c0cc20637d, type: 2}
+    keyString: 
+--- !u!114 &1937513410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937513407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306b0879b36b2884daa364bb23c76613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attemptToUseDataSource:
+    useConstant: 1
+    constantValue: 1
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  dataSource: {fileID: 0}
+  dataBundleCollection:
+    useConstant: 1
+    constantValue:
+      dataBundles: []
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  childPrefab:
+    useConstant: 1
+    constantValue: {fileID: 6163700851791069167, guid: 4cf39df6b2b5be244bc0e5675bc7cb34,
+      type: 3}
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  spawnedChildren: []
+  pooledObjects: []
+  objectsReturningToPool: []
+  enableObjectPooling:
+    useConstant: 1
+    constantValue: 0
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  logUpdates:
+    useConstant: 1
+    constantValue: 0
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  autonumberingKey:
+    variable: {fileID: 0}
+    keyString: _Index

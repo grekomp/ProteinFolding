@@ -1,0 +1,1193 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6163700851312147297
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6163700851312147296}
+  - component: {fileID: 6163700851312147298}
+  - component: {fileID: 6163700851312147299}
+  m_Layer: 5
+  m_Name: PointInner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6163700851312147296
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163700851312147297}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6163700852811084349}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 8, y: 8}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &6163700851312147298
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163700851312147297}
+  m_CullTransparentMesh: 0
+--- !u!114 &6163700851312147299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163700851312147297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 40a0326c16a6e9349baa5ec4e8d10c8e, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &6163700851791069161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6163700851791069160}
+  - component: {fileID: 6163700851791069167}
+  - component: {fileID: 6163700851791069163}
+  - component: {fileID: 6163700851791069162}
+  - component: {fileID: 6163700851791069165}
+  - component: {fileID: 6163700851791069164}
+  - component: {fileID: 7530371035358879630}
+  m_Layer: 5
+  m_Name: Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6163700851791069160
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163700851791069161}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6163700852560323428}
+  - {fileID: 6163700852945029422}
+  - {fileID: 6163700852811084349}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 10, y: 10}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6163700851791069167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163700851791069161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16d0f60e081d9a7498cf5a0c9a90ce47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataEntries:
+  - key:
+      useConstant: 1
+      constantValue: RightBindingEnabled
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    variableToReplace: {fileID: 11400000, guid: 99b19106ab5660344a141fcbcc3f3ca6,
+      type: 2}
+    replacementVariable: {fileID: 0}
+  - key:
+      useConstant: 1
+      constantValue: DownBindingEnabled
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    variableToReplace: {fileID: 11400000, guid: e38d0b3b73634cb4abcd93754403390d,
+      type: 2}
+    replacementVariable: {fileID: 0}
+  - key:
+      useConstant: 1
+      constantValue: PointEnabled
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    variableToReplace: {fileID: 11400000, guid: 21fd04467eaa77e429536a532f5d4548,
+      type: 2}
+    replacementVariable: {fileID: 0}
+  - key:
+      useConstant: 1
+      constantValue: PointIsPolar
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    variableToReplace: {fileID: 11400000, guid: 2371be3aa1f2adb4da8b1df28029b088,
+      type: 2}
+    replacementVariable: {fileID: 0}
+  - key:
+      useConstant: 1
+      constantValue: PointPosition
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    variableToReplace: {fileID: 11400000, guid: e79f68a58b40f9f42bd0b4c0cc20637d,
+      type: 2}
+    replacementVariable: {fileID: 0}
+  gameEventEntries: []
+  injectedDataBundle:
+    useConstant: 1
+    constantValue: {fileID: 0}
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+--- !u!114 &6163700851791069163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163700851791069161}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80a92a8059598244ea12bbfee1c63a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    setOnAwake:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnStart:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnEnable:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnLateUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValidate:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnReplaceVariable:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValueChanged:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setInEditMode:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    debugEnabled:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+  value:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 99b19106ab5660344a141fcbcc3f3ca6, type: 2}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  onlySetIfValueDiffers:
+    useConstant: 1
+    constantValue: 1
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  onValueChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6163700852560323429}
+        m_MethodName: SetActive
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onValueTrue:
+    m_PersistentCalls:
+      m_Calls: []
+  onValueFalse:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &6163700851791069162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163700851791069161}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80a92a8059598244ea12bbfee1c63a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    setOnAwake:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnStart:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnEnable:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnLateUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValidate:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnReplaceVariable:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValueChanged:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setInEditMode:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    debugEnabled:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+  value:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: e38d0b3b73634cb4abcd93754403390d, type: 2}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  onlySetIfValueDiffers:
+    useConstant: 1
+    constantValue: 1
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  onValueChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6163700852945029423}
+        m_MethodName: SetActive
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onValueTrue:
+    m_PersistentCalls:
+      m_Calls: []
+  onValueFalse:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &6163700851791069165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163700851791069161}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80a92a8059598244ea12bbfee1c63a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    setOnAwake:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnStart:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnEnable:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnLateUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValidate:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnReplaceVariable:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValueChanged:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setInEditMode:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    debugEnabled:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+  value:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 21fd04467eaa77e429536a532f5d4548, type: 2}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  onlySetIfValueDiffers:
+    useConstant: 1
+    constantValue: 1
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  onValueChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6163700852811084346}
+        m_MethodName: SetActive
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onValueTrue:
+    m_PersistentCalls:
+      m_Calls: []
+  onValueFalse:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &6163700851791069164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163700851791069161}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80a92a8059598244ea12bbfee1c63a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    setOnAwake:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnStart:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnEnable:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnLateUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValidate:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnReplaceVariable:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValueChanged:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setInEditMode:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    debugEnabled:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+  value:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 2371be3aa1f2adb4da8b1df28029b088, type: 2}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  onlySetIfValueDiffers:
+    useConstant: 1
+    constantValue: 1
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  onValueChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6163700851312147297}
+        m_MethodName: SetActive
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onValueTrue:
+    m_PersistentCalls:
+      m_Calls: []
+  onValueFalse:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &7530371035358879630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163700851791069161}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef1ba05dfb56a64d8fe62957549cc3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    setOnAwake:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnStart:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnEnable:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnLateUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValidate:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnReplaceVariable:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValueChanged:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setInEditMode:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    debugEnabled:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+  position:
+    useConstant: 0
+    constantValue: {x: 0, y: 0, z: 0}
+    variable: {fileID: 11400000, guid: e79f68a58b40f9f42bd0b4c0cc20637d, type: 2}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  rotation:
+    useConstant: 1
+    constantValue: {x: 0, y: 0, z: 0}
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  localScale:
+    useConstant: 1
+    constantValue: {x: 1, y: 1, z: 1}
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  useLocalPosition:
+    useConstant: 1
+    constantValue: 1
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+--- !u!1 &6163700852560323429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6163700852560323428}
+  - component: {fileID: 6163700852560323430}
+  - component: {fileID: 6163700852560323431}
+  m_Layer: 5
+  m_Name: RightBinding
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6163700852560323428
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163700852560323429}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6163700851791069160}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 20, y: 2}
+  m_Pivot: {x: 0, y: 0.5}
+--- !u!222 &6163700852560323430
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163700852560323429}
+  m_CullTransparentMesh: 0
+--- !u!114 &6163700852560323431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163700852560323429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &6163700852811084346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6163700852811084349}
+  - component: {fileID: 6163700852811084351}
+  - component: {fileID: 6163700852811084348}
+  m_Layer: 5
+  m_Name: PointOuter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6163700852811084349
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163700852811084346}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6163700851312147296}
+  m_Father: {fileID: 6163700851791069160}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 10, y: 10}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &6163700852811084351
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163700852811084346}
+  m_CullTransparentMesh: 0
+--- !u!114 &6163700852811084348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163700852811084346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 40a0326c16a6e9349baa5ec4e8d10c8e, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &6163700852945029423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6163700852945029422}
+  - component: {fileID: 6163700852945029408}
+  - component: {fileID: 6163700852945029409}
+  m_Layer: 5
+  m_Name: DownBinding
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6163700852945029422
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163700852945029423}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6163700851791069160}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 2, y: 20}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!222 &6163700852945029408
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163700852945029423}
+  m_CullTransparentMesh: 0
+--- !u!114 &6163700852945029409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163700852945029423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1

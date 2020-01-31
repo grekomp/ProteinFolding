@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1bcb49cb705c47478f9e66cccf4fec7, type: 3}
-  m_Name: InputString
+  m_Script: {fileID: 11500000, guid: 4cb162fa422d3ae43a143d6206382471, type: 3}
+  m_Name: CurrentLattice
   m_EditorClassIdentifier: 
-  baseValue: 
-  value: phhphhp
+  baseValue:
+    energy: 0
+  value:
+    energy: 0
   resetValueOnStartup: 0
   logValueGet: 0
   logValueSet: 0

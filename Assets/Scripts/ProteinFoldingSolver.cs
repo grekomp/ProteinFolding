@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 namespace ProteinFolding
@@ -8,48 +9,162 @@ namespace ProteinFolding
 	public class ProteinFoldingSolver : MonoBehaviour
 	{
 		[Header("Input Variables")]
-		public StringReference input;
+		public StringReference inputString;
+		[Space]
+		public FloatReference pruningProbability01;
+		public FloatReference pruningProbability02;
 
 		[Header("Output Variables")]
 		public IntReference outputEnergy;
+		[Space]
+		public int energyValuesCount;
+		public int bestEnergyValue;
+		public float averageEnergyValue;
+		public LatticeReference outputLattice;
+		[Space]
+		public List<bool> parsedInput;
 
+		public List<LatticePlacementProposition> placementPropositions = new List<LatticePlacementProposition>();
+		public int currentMonomerIndex = 0;
+
+		public int prunedTrees01 = 0;
+		public int prunedTrees02 = 0;
+
+		[ContextMenu("Execute")]
 		public void Execute()
 		{
 			// Parse input
+			parsedInput = ParseInput();
 
+			// Init
+			energyValuesCount = 0;
+			bestEnergyValue = 1;
+			averageEnergyValue = 0;
+			prunedTrees01 = 0;
+			prunedTrees02 = 0;
+			placementPropositions.Clear();
 
 			// Create initial lattice
 			// Place first two monomers arbitrarily
-			Lattice initialLattice = new Lattice(2 * input.Value.Length);
-			//initialLattice.TryPlacePoint(input.Value.Length, input.Value.Length - 1, GetLatticePointFor(0, BondDirection.None));
-			//initialLattice.TryPlacePoint(input.Value.Length - 1, input.Value.Length - 1, GetLatticePointFor(1, BondDirection.Down));
+			if (parsedInput.Count == 0) return;
+			int latticeSize = 2 * parsedInput.Count + 2;
+			Lattice initialLattice = new Lattice(latticeSize);
+			initialLattice.PlacePoint(latticeSize / 2, latticeSize / 2, parsedInput[0], Direction.None);
 
-			initialLattice.ConsoleLog();
+			if (parsedInput.Count == 1) return;
+			var secondCoords = initialLattice.GetAdjacentCoordinates(latticeSize / 2, latticeSize / 2, Direction.Up);
+			initialLattice.PlacePoint(secondCoords.Item1, secondCoords.Item2, parsedInput[1], Direction.Down);
 
-			// Run recursive placement method
+			if (parsedInput.Count == 2) return;
+			placementPropositions.AddRange(LatticePlacementProposition.GetLatticePlacementPropositions(initialLattice, secondCoords.Item1, secondCoords.Item2, parsedInput[2]));
 
 
-			outputEnergy.Value = initialLattice.GetEnergy();
+			// Place the rest of points
+			currentMonomerIndex = 2;
+			PlaceNext();
+
+			Debug.Log("Finished");
 		}
 
-		private LatticePoint GetLatticePointFor(int inputIndex, BondSourceDirection direction)
+		[ContextMenu("PlaceNext")]
+		private void PlaceNext()
 		{
-			switch (input.Value[inputIndex])
+			if (currentMonomerIndex >= parsedInput.Count)
 			{
-				case 'H':
-				case 'h':
-					return new LatticePoint(PointType.Hydrophobic, direction);
-				case 'P':
-				case 'p':
-					return new LatticePoint(PointType.Polar, direction);
-				default:
-					return new LatticePoint(PointType.None, direction);
+				Debug.Log("All monomers placed");
+				return;
+			}
+
+			bestEnergyValue = 1;
+			averageEnergyValue = 0;
+			energyValuesCount = 0;
+
+			List<LatticePlacementProposition> lastPlacementPropositions = new List<LatticePlacementProposition>(placementPropositions);
+			placementPropositions.Clear();
+			foreach (var placementProposition in lastPlacementPropositions)
+			{
+				EvaluatePlacementProposition(placementProposition);
+			}
+
+			outputEnergy.Value = outputLattice.Value.energy;
+			currentMonomerIndex++;
+		}
+
+		private void EvaluatePlacementProposition(LatticePlacementProposition placementProposition)
+		{
+			if (placementProposition.IsValid == false)
+			{
+				return;
+			}
+
+			bool addCurrentPlacement = false;
+
+			if (placementProposition.Energy <= bestEnergyValue)
+			{
+				addCurrentPlacement = true;
+			}
+			else
+			{
+				if (placementProposition.Energy < averageEnergyValue)
+				{
+					if (UnityEngine.Random.Range(0f, 1f) >= pruningProbability02)
+					{
+						addCurrentPlacement = true;
+					}
+					else
+					{
+						prunedTrees02++;
+					}
+				}
+				else
+				{
+					if (UnityEngine.Random.Range(0f, 1f) >= pruningProbability01)
+					{
+						addCurrentPlacement = true;
+					}
+					else
+					{
+						prunedTrees01++;
+					}
+				}
+			}
+
+			if (addCurrentPlacement)
+			{
+				UpdateEnergyValues(placementProposition);
+
+				// Queue next
+				if (currentMonomerIndex < parsedInput.Count - 1)
+				{
+					placementPropositions.AddRange(placementProposition.GetChildLatticePlacementPropositions(parsedInput[currentMonomerIndex + 1]));
+				}
 			}
 		}
 
-		private void PlaceNext(int index, Lattice lattice)
+		private void UpdateEnergyValues(LatticePlacementProposition placementProposition)
 		{
+			if (placementProposition.Energy < bestEnergyValue)
+			{
+				bestEnergyValue = placementProposition.Energy;
+				outputLattice.Value = placementProposition.GetResultingLattice();
+			}
 
+			averageEnergyValue = ((averageEnergyValue * energyValuesCount) + placementProposition.Energy) / (energyValuesCount + 1);
+			energyValuesCount++;
+		}
+
+		private List<bool> ParseInput()
+		{
+			List<bool> result = new List<bool>();
+
+			string cleanedUpInput = inputString.Value.Trim().ToLower();
+			foreach (char ch in cleanedUpInput)
+			{
+				if (ch == 'h') result.Add(true);
+				if (ch == 'p') result.Add(false);
+			}
+
+			return result;
 		}
 	}
 }
