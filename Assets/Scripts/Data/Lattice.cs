@@ -10,28 +10,25 @@ namespace ProteinFolding
 	[Serializable]
 	public class Lattice
 	{
-		/// <summary>
-		/// An array of lattice points, represented in the 4 lowest bits of the byte as follows:
-		/// xx00 / xx01 - Empty point
-		/// xx10 - Polar particle
-		/// xx11 - Hydrophobic particle
-		/// 
-		/// 00xx - No bonds to the right and downwards
-		/// 01xx - One bond to the right
-		/// 10xx - One bond downwards
-		/// 11xx - Both bonds to the right and downwards
-		/// </summary>
-		public byte[,] points;
+		public int[,] points;
+		public bool[,] pointIsHydrophobic;
+
 		public int Size {
 			get {
 				return points.GetLength(0);
 			}
 		}
 		public int energy = 0;
+		public int lastIndex = 0;
 
+		public int lastX = -1;
+		public int lastY = -1;
+
+		#region Creating Lattices
 		public Lattice(int size)
 		{
-			points = new byte[size, size];
+			points = new int[size, size];
+			pointIsHydrophobic = new bool[size, size];
 		}
 
 		public Lattice Copy()
@@ -43,76 +40,95 @@ namespace ProteinFolding
 				for (int j = 0; j < points.GetLength(1); j++)
 				{
 					newLattice.points[i, j] = points[i, j];
+					newLattice.pointIsHydrophobic[i, j] = pointIsHydrophobic[i, j];
 				}
 			}
 
 			newLattice.energy = energy;
+			newLattice.lastIndex = lastIndex;
+
+			newLattice.lastX = lastX;
+			newLattice.lastY = lastY;
+
 			return newLattice;
 		}
+		#endregion
 
-		public void PlacePoint(int x, int y, bool isHydrophobic, Direction bondDirection)
+
+		#region Placing points
+		public void PlaceInitPoint(bool isHydrophobic)
 		{
-			// Place point
-			byte point = 0;
-			point |= isHydrophobic ? (byte)0b0011 : (byte)0b0010;
+			int initX, initY;
+			initX = initY = Size / 2;
 
-			if (bondDirection == Direction.Down) point |= 0b1000;
-			if (bondDirection == Direction.Right) point |= 0b0100;
+			points[initX, initY] = ++lastIndex;
+			pointIsHydrophobic[initX, initY] = isHydrophobic;
 
-			points[x, y] = point;
-
-			// Update bindings
-			if (bondDirection == Direction.Up)
-			{
-				var adjacentCoords = GetAdjacentCoordinates(x, y, bondDirection);
-				points[adjacentCoords.Item1, adjacentCoords.Item2] |= 0b1000;
-			}
-			if (bondDirection == Direction.Left)
-			{
-				var adjacentCoords = GetAdjacentCoordinates(x, y, bondDirection);
-				points[adjacentCoords.Item1, adjacentCoords.Item2] |= 0b0100;
-			}
+			energy = 0;
+			lastX = initX;
+			lastY = initY;
 		}
 
+		public void PlacePoint(bool isHydrophobic, Direction direction, bool calculateEnergy = true)
+		{
+			// Place point
+			PlacePoint(GetAdjacentX(lastX, direction), GetAdjacentY(lastY, direction), isHydrophobic);
+
+			// Calculating energy
+			if (calculateEnergy)
+			{
+				energy += GetEnergyPoint(lastX, lastY, isHydrophobic);
+			}
+		}
+		protected void PlacePoint(int x, int y, bool isHydrophobic)
+		{
+			lastX = x;
+			lastY = y;
+
+			points[x, y] = ++lastIndex;
+			pointIsHydrophobic[x, y] = isHydrophobic;
+		}
+		public void ApplyPlacementProposition(LatticePlacementProposition placementProposition)
+		{
+			PlacePoint(placementProposition.x, placementProposition.y, placementProposition.isHydrophobic);
+			energy = placementProposition.Energy;
+		}
+		#endregion
+
+
+		#region Lattice Placement Propositions
+		public LatticePlacementProposition[] GetPlacementPropositions(bool isHydrophobic)
+		{
+			LatticePlacementProposition[] result = new LatticePlacementProposition[4];
+
+			result[0] = GetPlacementProposition(isHydrophobic, Direction.Up);
+			result[1] = GetPlacementProposition(isHydrophobic, Direction.Right);
+			result[2] = GetPlacementProposition(isHydrophobic, Direction.Down);
+			result[3] = GetPlacementProposition(isHydrophobic, Direction.Left);
+
+			return result;
+		}
+
+		private LatticePlacementProposition GetPlacementProposition(bool isHydrophobic, Direction direction)
+		{
+			int adjacentX = GetAdjacentX(lastX, direction);
+			int adjacentY = GetAdjacentY(lastY, direction);
+
+			if (IsOccupied(adjacentX, adjacentY)) return null;
+
+			return new LatticePlacementProposition(this, adjacentX, adjacentY, isHydrophobic);
+		}
+		#endregion
 
 
 		#region Helper methods
-		public Tuple<int, int> GetAdjacentCoordinates(int x, int y, Direction direction)
-		{
-			switch (direction)
-			{
-				case Direction.Up:
-					y--;
-					break;
-				case Direction.Right:
-					x++;
-					break;
-				case Direction.Down:
-					y++;
-					break;
-				case Direction.Left:
-					x--;
-					break;
-			}
-
-			return new Tuple<int, int>(x, y);
-		}
-
 		public bool IsHydrophobic(int x, int y)
 		{
-			return (points[x, y] & 0b0011) == 0b0011;
+			return pointIsHydrophobic[x, y];
 		}
 		public bool IsOccupied(int x, int y)
 		{
-			return (points[x, y] & 0b0010) == 0b0010;
-		}
-		public bool HasDownBinding(int x, int y)
-		{
-			return (points[x, y] & 0b1000) == 0b1000;
-		}
-		public bool HasRightBinding(int x, int y)
-		{
-			return (points[x, y] & 0b0100) == 0b0100;
+			return points[x, y] > 0;
 		}
 
 		public Direction GetOppositeDirection(Direction direction)
@@ -146,17 +162,60 @@ namespace ProteinFolding
 			{
 				for (int y = 0; y < points.GetLength(1) - 1; y++)
 				{
-					if (IsHydrophobic(x, y))
-					{
-						var downCoords = GetAdjacentCoordinates(x, y, Direction.Down);
-						var rightCoords = GetAdjacentCoordinates(x, y, Direction.Right);
-						if (HasDownBinding(x, y) == false && IsHydrophobic(downCoords.Item1, downCoords.Item2)) calculatedEnergy--;
-						if (HasRightBinding(x, y) == false && IsHydrophobic(rightCoords.Item1, rightCoords.Item2)) calculatedEnergy--;
-					}
+					calculatedEnergy += GetEnergyPoint(x, y, IsHydrophobic(x, y));
 				}
 			}
 
-			return calculatedEnergy;
+			return calculatedEnergy / 2;
+		}
+
+		public int GetEnergyPoint(int x, int y, bool isHydrophobic)
+		{
+			int pointEnergy = 0;
+			pointEnergy += GetEnergySingleDirection(x, y, Direction.Up, isHydrophobic);
+			pointEnergy += GetEnergySingleDirection(x, y, Direction.Right, isHydrophobic);
+			pointEnergy += GetEnergySingleDirection(x, y, Direction.Down, isHydrophobic);
+			pointEnergy += GetEnergySingleDirection(x, y, Direction.Left, isHydrophobic);
+			return pointEnergy;
+		}
+		public int GetEnergySingleDirection(int x, int y, Direction direction, bool isHydrophobic)
+		{
+			if (isHydrophobic == false) return 0;
+
+			int adjacentX = GetAdjacentX(x, direction);
+			int adjacentY = GetAdjacentY(y, direction);
+			if (pointIsHydrophobic[adjacentX, adjacentY] && Math.Abs(points[x, y] - points[adjacentX, adjacentY]) > 1) return -1;
+
+			return 0;
+		}
+
+		public static int GetAdjacentX(int x, Direction direction)
+		{
+			switch (direction)
+			{
+				case Direction.Left:
+					x--;
+					break;
+				case Direction.Right:
+					x++;
+					break;
+			}
+
+			return x;
+		}
+		public static int GetAdjacentY(int y, Direction direction)
+		{
+			switch (direction)
+			{
+				case Direction.Up:
+					y--;
+					break;
+				case Direction.Down:
+					y++;
+					break;
+			}
+
+			return y;
 		}
 		#endregion
 	}

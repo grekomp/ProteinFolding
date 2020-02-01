@@ -36,6 +36,7 @@ namespace ProteinFolding
 			// Parse input
 			parsedInput = ParseInput();
 
+
 			// Init
 			energyValuesCount = 0;
 			bestEnergyValue = 1;
@@ -44,30 +45,29 @@ namespace ProteinFolding
 			prunedTrees02 = 0;
 			placementPropositions.Clear();
 
+
 			// Create initial lattice
 			// Place first two monomers arbitrarily
 			if (parsedInput.Count == 0) return;
 			int latticeSize = 2 * parsedInput.Count + 2;
 			Lattice initialLattice = new Lattice(latticeSize);
-			initialLattice.PlacePoint(latticeSize / 2, latticeSize / 2, parsedInput[0], Direction.None);
+			initialLattice.PlaceInitPoint(parsedInput[0]);
 
 			if (parsedInput.Count == 1) return;
-			var secondCoords = initialLattice.GetAdjacentCoordinates(latticeSize / 2, latticeSize / 2, Direction.Up);
-			initialLattice.PlacePoint(secondCoords.Item1, secondCoords.Item2, parsedInput[1], Direction.Down);
+			initialLattice.PlacePoint(parsedInput[1], Direction.Down);
 
 			if (parsedInput.Count == 2) return;
-			placementPropositions.AddRange(LatticePlacementProposition.GetLatticePlacementPropositions(initialLattice, secondCoords.Item1, secondCoords.Item2, parsedInput[2]));
+			placementPropositions.AddRange(initialLattice.GetPlacementPropositions(parsedInput[2]));
 
 
 			// Place the rest of points
 			currentMonomerIndex = 2;
-			PlaceNext();
 
-			Debug.Log("Finished");
+			Debug.Log("Started execution");
 		}
 
 		[ContextMenu("PlaceNext")]
-		private void PlaceNext()
+		private async void PlaceNext()
 		{
 			if (currentMonomerIndex >= parsedInput.Count)
 			{
@@ -166,5 +166,8 @@ namespace ProteinFolding
 
 			return result;
 		}
+
+
+
 	}
 }

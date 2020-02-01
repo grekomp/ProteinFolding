@@ -10,12 +10,15 @@ namespace Tests
 		[Test]
 		public void AdjacentCoordsTest()
 		{
-			Lattice lattice = new Lattice(10);
+			Assert.AreEqual(Lattice.GetAdjacentX(5, Direction.Up), 5);
+			Assert.AreEqual(Lattice.GetAdjacentX(5, Direction.Left), 4);
+			Assert.AreEqual(Lattice.GetAdjacentX(5, Direction.Down), 5);
+			Assert.AreEqual(Lattice.GetAdjacentX(5, Direction.Right), 6);
 
-			Assert.AreEqual(lattice.GetAdjacentCoordinates(5, 5, Direction.Up), new System.Tuple<int, int>(5, 4));
-			Assert.AreEqual(lattice.GetAdjacentCoordinates(5, 5, Direction.Down), new System.Tuple<int, int>(5, 6));
-			Assert.AreEqual(lattice.GetAdjacentCoordinates(5, 5, Direction.Left), new System.Tuple<int, int>(4, 5));
-			Assert.AreEqual(lattice.GetAdjacentCoordinates(5, 5, Direction.Right), new System.Tuple<int, int>(6, 5));
+			Assert.AreEqual(Lattice.GetAdjacentY(5, Direction.Up), 4);
+			Assert.AreEqual(Lattice.GetAdjacentY(5, Direction.Left), 5);
+			Assert.AreEqual(Lattice.GetAdjacentY(5, Direction.Down), 6);
+			Assert.AreEqual(Lattice.GetAdjacentY(5, Direction.Right), 5);
 		}
 	}
 }

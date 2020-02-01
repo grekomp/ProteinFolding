@@ -25,11 +25,11 @@ public class LatticeVisualizer : DataSource
 			{
 				DataBundle pointDataBundle = DataBundle.New((i * lattice.Value.Size + j).ToString());
 
-				pointDataBundle.Set(pointEnabledKey, BoolVariable.New(lattice.Value.IsOccupied(i, j)));
-				pointDataBundle.Set(pointIsPolarKey, BoolVariable.New(lattice.Value.IsHydrophobic(i, j) == false));
-				pointDataBundle.Set(rightBindingEnabledKey, BoolVariable.New(lattice.Value.HasRightBinding(i, j)));
-				pointDataBundle.Set(downwardsBindingEnabledKey, BoolVariable.New(lattice.Value.HasDownBinding(i, j)));
-				pointDataBundle.Set(pointPositionKey, Vector3Variable.New(new Vector3(i * gridSpacing, j * gridSpacing, 0)));
+				//pointDataBundle.Set(pointEnabledKey, BoolVariable.New(lattice.Value.IsOccupied(i, j)));
+				//pointDataBundle.Set(pointIsPolarKey, BoolVariable.New(lattice.Value.IsHydrophobic(i, j) == false));
+				//pointDataBundle.Set(rightBindingEnabledKey, BoolVariable.New(lattice.Value.HasRightBinding(i, j)));
+				//pointDataBundle.Set(downwardsBindingEnabledKey, BoolVariable.New(lattice.Value.HasDownBinding(i, j)));
+				//pointDataBundle.Set(pointPositionKey, Vector3Variable.New(new Vector3(i * gridSpacing, j * gridSpacing, 0)));
 
 				dataBundleCollection.Add(pointDataBundle);
 			}
