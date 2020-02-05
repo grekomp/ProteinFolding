@@ -8,7 +8,8 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 #endif
 
-public static class EditorPlaystateHelper {
+public static class EditorPlaystateHelper
+{
 	public static bool initialized = false;
 	public static bool cachedIsPlaying = false;
 #if UNITY_EDITOR
@@ -18,45 +19,49 @@ public static class EditorPlaystateHelper {
 		get {
 #if UNITY_EDITOR
 			return EditorApplication.isPlaying;
-#endif
+#else
 			return true;
+#endif
 		}
 	}
 	public static bool IsEditorQuittingPlay {
 		get {
 #if UNITY_EDITOR
 			return EditorApplication.isPlayingOrWillChangePlaymode == true && EditorApplication.isPlaying == true && Time.frameCount == 0;
-#endif
+#else
 			return false;
+#endif
 		}
 	}
 	public static bool IsEditorEnteringPlay {
 		get {
 #if UNITY_EDITOR
 			return EditorApplication.isPlayingOrWillChangePlaymode == true && EditorApplication.isPlaying == false;
-#endif
+#else
 			return false;
+#endif
 		}
 	}
 
 	#region Runtime scene change events
-	public static event UnityAction<Scene, LoadSceneMode> sceneLoaded;
-	public static event UnityAction<Scene> sceneUnloaded;
-	public static event UnityAction<Scene, Scene> activeSceneChanged;
+	public static event UnityAction<Scene, LoadSceneMode> SceneLoaded;
+	public static event UnityAction<Scene> SceneUnloaded;
+	public static event UnityAction<Scene, Scene> ActiveSceneChanged;
 	#endregion
 	#region Editor-only scene change events
-	public static event Action<Scene, string> sceneSaving;
-	public static event Action<Scene> sceneSaved;
-	public static event Action<Scene, bool> sceneClosing;
-	public static event Action<Scene> sceneClosed;
+	public static event Action<Scene, string> SceneSaving;
+	public static event Action<Scene> SceneSaved;
+	public static event Action<Scene, bool> SceneClosing;
+	public static event Action<Scene> SceneClosed;
 #if UNITY_EDITOR
-	public static event Action<string, OpenSceneMode> sceneOpening;
-	public static event Action<Scene, OpenSceneMode> sceneOpened;
+	public static event Action<string, OpenSceneMode> SceneOpening;
+	public static event Action<Scene, OpenSceneMode> SceneOpened;
 #endif
 	#endregion
 
 	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-	static void Initialize() {
+	static void Initialize()
+	{
 		initialized = true;
 #if UNITY_EDITOR
 		cachedIsPlaying = EditorApplication.isPlaying;
@@ -85,21 +90,23 @@ public static class EditorPlaystateHelper {
 
 	#region Event Handlers
 #if UNITY_EDITOR
-	private static void HandleSceneOpened(Scene scene, OpenSceneMode mode) => sceneOpened?.Invoke(scene, mode);
-	private static void HandleSceneOpening(string path, OpenSceneMode mode) => sceneOpening?.Invoke(path, mode);
-	private static void HandleSceneClosed(Scene scene) => sceneClosed?.Invoke(scene);
-	private static void HandleSceneClosing(Scene scene, bool removingScene) => sceneClosing?.Invoke(scene, removingScene);
-	private static void HandleSceneSaved(Scene scene) => sceneSaved?.Invoke(scene);
-	private static void HandleSceneSaving(Scene scene, string path) => sceneSaving?.Invoke(scene, path);
+	private static void HandleSceneOpened(Scene scene, OpenSceneMode mode) => SceneOpened?.Invoke(scene, mode);
+	private static void HandleSceneOpening(string path, OpenSceneMode mode) => SceneOpening?.Invoke(path, mode);
+	private static void HandleSceneClosed(Scene scene) => SceneClosed?.Invoke(scene);
+	private static void HandleSceneClosing(Scene scene, bool removingScene) => SceneClosing?.Invoke(scene, removingScene);
+	private static void HandleSceneSaved(Scene scene) => SceneSaved?.Invoke(scene);
+	private static void HandleSceneSaving(Scene scene, string path) => SceneSaving?.Invoke(scene, path);
 #endif
 
-	private static void HandleSceneLoaded(Scene scene, LoadSceneMode loadSceneMode) => sceneLoaded?.Invoke(scene, loadSceneMode);
-	private static void HandleSceneUnloaded(Scene scene) => sceneUnloaded?.Invoke(scene);
-	private static void HandleActiveSceneChanged(Scene scene1, Scene scene2) => activeSceneChanged?.Invoke(scene1, scene2);
+	private static void HandleSceneLoaded(Scene scene, LoadSceneMode loadSceneMode) => SceneLoaded?.Invoke(scene, loadSceneMode);
+	private static void HandleSceneUnloaded(Scene scene) => SceneUnloaded?.Invoke(scene);
+	private static void HandleActiveSceneChanged(Scene scene1, Scene scene2) => ActiveSceneChanged?.Invoke(scene1, scene2);
 
 #if UNITY_EDITOR
-	static void HandlePlayModeStateChange(PlayModeStateChange stateChange) {
-		switch (stateChange) {
+	static void HandlePlayModeStateChange(PlayModeStateChange stateChange)
+	{
+		switch (stateChange)
+		{
 			case PlayModeStateChange.EnteredEditMode:
 			case PlayModeStateChange.ExitingPlayMode:
 				cachedIsPlaying = false;

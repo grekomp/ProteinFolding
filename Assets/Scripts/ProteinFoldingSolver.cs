@@ -67,7 +67,7 @@ namespace ProteinFolding
 		}
 
 		[ContextMenu("PlaceNext")]
-		private async void PlaceNext()
+		private void PlaceNext()
 		{
 			if (currentMonomerIndex >= parsedInput.Count)
 			{

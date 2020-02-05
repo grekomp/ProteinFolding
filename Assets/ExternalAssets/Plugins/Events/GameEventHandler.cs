@@ -4,7 +4,8 @@ using System;
 using System.Collections.Generic;
 
 [Serializable]
-public class GameEventHandler : ISerializationCallbackReceiver {
+public class GameEventHandler : ISerializationCallbackReceiver
+{
 	protected GameEvent boundEvent = null;
 
 	[SerializeField]
@@ -24,43 +25,85 @@ public class GameEventHandler : ISerializationCallbackReceiver {
 	public List<Action<GameEventData>> OnEventDataRaised = new List<Action<GameEventData>>();
 
 	#region Raising Event
-	public void Raise() {
-		BoundEvent?.Raise();
+	public void Raise()
+	{
+		if (BoundEvent != null)
+		{
+			BoundEvent.Raise();
+		}
+		else
+		{
+			RaiseRegisteredHandlers();
+		}
 	}
-	public void Raise(object caller, object data = null) {
-		BoundEvent?.Raise(caller, data);
+	public void Raise(object caller, object data = null)
+	{
+		if (BoundEvent != null)
+		{
+			BoundEvent.Raise(caller, data);
+		}
+		else
+		{
+			RaiseRegisteredHandlers();
+			RaiseRegisteredDataHandlers(caller, data);
+		}
+	}
+
+	protected void RaiseRegisteredHandlers()
+	{
+		List<Action> OnEventRaisedCopy = new List<Action>(OnEventRaised);
+
+		foreach (var listener in OnEventRaisedCopy)
+		{
+			listener?.Invoke();
+		}
+	}
+	protected void RaiseRegisteredDataHandlers(object caller, object data)
+	{
+		List<Action<GameEventData>> OnEventDataRaisedCopy = new List<Action<GameEventData>>(OnEventDataRaised);
+
+		foreach (var listener in OnEventDataRaisedCopy)
+		{
+			listener?.Invoke(new GameEventData(null, data, caller));
+		}
 	}
 	#endregion
 
 	#region Registering Listeners
-	public void RegisterListenerOnce(Action handler) {
+	public void RegisterListenerOnce(Action handler)
+	{
 		DeregisterListener(handler);
 		RegisterListener(handler);
 	}
-	public void RegisterListener(Action handler) {
+	public void RegisterListener(Action handler)
+	{
 		OnEventRaised.Add(handler);
 
 		if (boundEvent)
 			boundEvent.RegisterListener(handler);
 	}
-	public void DeregisterListener(Action handler) {
+	public void DeregisterListener(Action handler)
+	{
 		if (OnEventRaised.Contains(handler))
 			OnEventRaised.Remove(handler);
 
 		if (boundEvent)
 			boundEvent.DeregisterListener(handler);
 	}
-	public void RegisterListenerOnce(Action<GameEventData> handler) {
+	public void RegisterListenerOnce(Action<GameEventData> handler)
+	{
 		DeregisterListener(handler);
 		RegisterListener(handler);
 	}
-	public void RegisterListener(Action<GameEventData> handler) {
+	public void RegisterListener(Action<GameEventData> handler)
+	{
 		OnEventDataRaised.Add(handler);
 
 		if (boundEvent)
 			boundEvent.RegisterListener(handler);
 	}
-	public void DeregisterListener(Action<GameEventData> handler) {
+	public void DeregisterListener(Action<GameEventData> handler)
+	{
 		if (OnEventDataRaised.Contains(handler))
 			OnEventDataRaised.Remove(handler);
 
@@ -70,13 +113,17 @@ public class GameEventHandler : ISerializationCallbackReceiver {
 	#endregion
 
 	#region Binding Events
-	protected void UnbindCurrentEvent() {
-		if (boundEvent) {
-			foreach (var handler in OnEventRaised) {
+	protected void UnbindCurrentEvent()
+	{
+		if (boundEvent)
+		{
+			foreach (var handler in OnEventRaised)
+			{
 				boundEvent.DeregisterListener(handler);
 			}
 
-			foreach (var handler in OnEventDataRaised) {
+			foreach (var handler in OnEventDataRaised)
+			{
 				boundEvent.DeregisterListener(handler);
 			}
 		}
@@ -84,24 +131,30 @@ public class GameEventHandler : ISerializationCallbackReceiver {
 		boundEvent = null;
 		inspectedEvent = boundEvent;
 	}
-	protected void BindEvent(GameEvent newGameEvent) {
+	protected void BindEvent(GameEvent newGameEvent)
+	{
 		if (boundEvent) UnbindCurrentEvent();
 
 		boundEvent = newGameEvent;
-		if (boundEvent) {
-			foreach (var handler in OnEventRaised) {
+		if (boundEvent)
+		{
+			foreach (var handler in OnEventRaised)
+			{
 				boundEvent.RegisterListener(handler);
 			}
 
-			foreach (var handler in OnEventDataRaised) {
+			foreach (var handler in OnEventDataRaised)
+			{
 				boundEvent.RegisterListener(handler);
 			}
 		}
 		inspectedEvent = boundEvent;
 	}
 
-	public bool ReplaceEvent(GameEvent from, GameEvent to) {
-		if (BoundEvent == from) {
+	public bool ReplaceEvent(GameEvent from, GameEvent to)
+	{
+		if (BoundEvent == from)
+		{
 			BoundEvent = to;
 			return true;
 		}
@@ -111,15 +164,19 @@ public class GameEventHandler : ISerializationCallbackReceiver {
 	#endregion
 
 	#region Editor Helpers
-	protected void OnValidate() {
-		if (inspectedEvent != boundEvent) {
+	protected void OnValidate()
+	{
+		if (inspectedEvent != boundEvent)
+		{
 			BoundEvent = inspectedEvent;
 		}
 	}
-	public void OnBeforeSerialize() {
+	public void OnBeforeSerialize()
+	{
 		OnValidate();
 	}
-	public void OnAfterDeserialize() {
+	public void OnAfterDeserialize()
+	{
 		OnValidate();
 	}
 	#endregion

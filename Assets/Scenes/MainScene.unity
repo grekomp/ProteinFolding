@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -707,7 +708,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2133996082
+    rgba: 2150773298
   m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 0.5}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1217,6 +1218,9 @@ MonoBehaviour:
     useConstant: 0
     constantValue:
       energy: 0
+      lastIndex: 0
+      lastX: 0
+      lastY: 0
     variable: {fileID: 11400000, guid: 6c047ba8ce785e341a7efc71acb309c4, type: 2}
     _usesTemporaryVariable: 0
     debugEnabled: 0
@@ -1351,7 +1355,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1937513408}
   - component: {fileID: 1937513409}
-  - component: {fileID: 1937513410}
   m_Layer: 5
   m_Name: LatticeVisualizer
   m_TagString: Untagged
@@ -1491,23 +1494,13 @@ MonoBehaviour:
       debugVariableReplacements: 1
       debugFailedVariableReplacements: 0
       debugChanges: 1
-  output:
-    useConstant: 1
-    constantValue:
-      dataBundles: []
-    variable: {fileID: 0}
-    _usesTemporaryVariable: 0
-    debugEnabled: 0
-    debugLogAll: 1
-    debugVariableReplacements: 1
-    debugFailedVariableReplacements: 0
-    debugChanges: 1
-  outputUpdated:
-    inspectedEvent: {fileID: 0}
   lattice:
     useConstant: 0
     constantValue:
       energy: 0
+      lastIndex: 0
+      lastX: 0
+      lastY: 0
     variable: {fileID: 11400000, guid: 6c047ba8ce785e341a7efc71acb309c4, type: 2}
     _usesTemporaryVariable: 0
     debugEnabled: 0
@@ -1525,89 +1518,4 @@ MonoBehaviour:
     debugVariableReplacements: 1
     debugFailedVariableReplacements: 0
     debugChanges: 1
-  pointEnabledKey:
-    variable: {fileID: 11400000, guid: 21fd04467eaa77e429536a532f5d4548, type: 2}
-    keyString: 
-  pointIsPolarKey:
-    variable: {fileID: 11400000, guid: 2371be3aa1f2adb4da8b1df28029b088, type: 2}
-    keyString: 
-  rightBindingEnabledKey:
-    variable: {fileID: 11400000, guid: 99b19106ab5660344a141fcbcc3f3ca6, type: 2}
-    keyString: 
-  downwardsBindingEnabledKey:
-    variable: {fileID: 11400000, guid: e38d0b3b73634cb4abcd93754403390d, type: 2}
-    keyString: 
-  pointPositionKey:
-    variable: {fileID: 11400000, guid: e79f68a58b40f9f42bd0b4c0cc20637d, type: 2}
-    keyString: 
---- !u!114 &1937513410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1937513407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306b0879b36b2884daa364bb23c76613, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attemptToUseDataSource:
-    useConstant: 1
-    constantValue: 1
-    variable: {fileID: 0}
-    _usesTemporaryVariable: 0
-    debugEnabled: 0
-    debugLogAll: 1
-    debugVariableReplacements: 1
-    debugFailedVariableReplacements: 0
-    debugChanges: 1
-  dataSource: {fileID: 0}
-  dataBundleCollection:
-    useConstant: 1
-    constantValue:
-      dataBundles: []
-    variable: {fileID: 0}
-    _usesTemporaryVariable: 0
-    debugEnabled: 0
-    debugLogAll: 1
-    debugVariableReplacements: 1
-    debugFailedVariableReplacements: 0
-    debugChanges: 1
-  childPrefab:
-    useConstant: 1
-    constantValue: {fileID: 6163700851791069167, guid: 4cf39df6b2b5be244bc0e5675bc7cb34,
-      type: 3}
-    variable: {fileID: 0}
-    _usesTemporaryVariable: 0
-    debugEnabled: 0
-    debugLogAll: 1
-    debugVariableReplacements: 1
-    debugFailedVariableReplacements: 0
-    debugChanges: 1
-  spawnedChildren: []
-  pooledObjects: []
-  objectsReturningToPool: []
-  enableObjectPooling:
-    useConstant: 1
-    constantValue: 0
-    variable: {fileID: 0}
-    _usesTemporaryVariable: 0
-    debugEnabled: 0
-    debugLogAll: 1
-    debugVariableReplacements: 1
-    debugFailedVariableReplacements: 0
-    debugChanges: 1
-  logUpdates:
-    useConstant: 1
-    constantValue: 0
-    variable: {fileID: 0}
-    _usesTemporaryVariable: 0
-    debugEnabled: 0
-    debugLogAll: 1
-    debugVariableReplacements: 1
-    debugFailedVariableReplacements: 0
-    debugChanges: 1
-  autonumberingKey:
-    variable: {fileID: 0}
-    keyString: _Index
+  latticePointPrefab: {fileID: 0}

@@ -1,0 +1,17 @@
+{
+    "name": "PluginsEditor",
+    "references": [
+        "GUID:30e220a220911954fbee26873ff0a160"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

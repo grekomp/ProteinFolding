@@ -52,6 +52,7 @@ namespace ProteinFolding
 
 			return newLattice;
 		}
+
 		#endregion
 
 
@@ -130,6 +131,19 @@ namespace ProteinFolding
 		{
 			return points[x, y] > 0;
 		}
+		public Direction BindingDirection(int x, int y)
+		{
+			if (IsOccupied(x, y) == false) return Direction.None;
+
+			int searchedIndex = points[x, y] - 1;
+			if (points[GetAdjacentX(x, Direction.Up), GetAdjacentY(y, Direction.Up)] == searchedIndex) return Direction.Up;
+			if (points[GetAdjacentX(x, Direction.Right), GetAdjacentY(y, Direction.Right)] == searchedIndex) return Direction.Right;
+			if (points[GetAdjacentX(x, Direction.Down), GetAdjacentY(y, Direction.Down)] == searchedIndex) return Direction.Down;
+			if (points[GetAdjacentX(x, Direction.Left), GetAdjacentY(y, Direction.Left)] == searchedIndex) return Direction.Left;
+
+			return Direction.None;
+		}
+
 
 		public Direction GetOppositeDirection(Direction direction)
 		{

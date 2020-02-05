@@ -5,7 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 
 [Serializable]
-public class GameEventHandlerGroup : ISerializationCallbackReceiver {
+public class GameEventHandlerGroup : ISerializationCallbackReceiver
+{
 	protected List<GameEvent> boundEvents = new List<GameEvent>();
 
 	[SerializeField]
@@ -20,24 +21,31 @@ public class GameEventHandlerGroup : ISerializationCallbackReceiver {
 	public List<Action> OnEventRaised = new List<Action>();
 	public List<Action<GameEventData>> OnEventDataRaised = new List<Action<GameEventData>>();
 
-	public void Raise() {
-		foreach (var boundEvent in boundEvents) {
+	public void Raise()
+	{
+		foreach (var boundEvent in BoundEvents)
+		{
 			boundEvent?.Raise();
 		}
 	}
-	public void Raise(object caller, object data = null) {
-		foreach (var boundEvent in boundEvents) {
+	public void Raise(object caller, object data = null)
+	{
+		foreach (var boundEvent in BoundEvents)
+		{
 			boundEvent?.Raise(caller, data);
 		}
 	}
 
-	public void RegisterListenerOnce(Action handler) {
+	public void RegisterListenerOnce(Action handler)
+	{
 		DeregisterListener(handler);
 		RegisterListener(handler);
 	}
 
-	public bool ReplaceEvent(GameEvent from, GameEvent to) {
-		if (boundEvents.Contains(from)) {
+	public bool ReplaceEvent(GameEvent from, GameEvent to)
+	{
+		if (boundEvents.Contains(from))
+		{
 			UnbindEvent(from);
 			BindEvent(to);
 
@@ -47,83 +55,106 @@ public class GameEventHandlerGroup : ISerializationCallbackReceiver {
 		return false;
 	}
 
-	public void RegisterListener(Action handler) {
+	public void RegisterListener(Action handler)
+	{
 		OnEventRaised.Add(handler);
 
-		foreach (var boundEvent in boundEvents) {
+		foreach (var boundEvent in boundEvents)
+		{
 			boundEvent.RegisterListener(handler);
 		}
 	}
-	public void DeregisterListener(Action handler) {
+	public void DeregisterListener(Action handler)
+	{
 		if (OnEventRaised.Contains(handler))
 			OnEventRaised.Remove(handler);
 
-		foreach (var boundEvent in boundEvents) {
+		foreach (var boundEvent in boundEvents)
+		{
 			boundEvent.DeregisterListener(handler);
 		}
 	}
-	public void RegisterListenerOnce(Action<GameEventData> handler) {
+	public void RegisterListenerOnce(Action<GameEventData> handler)
+	{
 		DeregisterListener(handler);
 		RegisterListener(handler);
 	}
-	public void RegisterListener(Action<GameEventData> handler) {
+	public void RegisterListener(Action<GameEventData> handler)
+	{
 		OnEventDataRaised.Add(handler);
 
-		foreach (var boundEvent in boundEvents) {
+		foreach (var boundEvent in boundEvents)
+		{
 			boundEvent.RegisterListener(handler);
 		}
 	}
-	public void DeregisterListener(Action<GameEventData> handler) {
+	public void DeregisterListener(Action<GameEventData> handler)
+	{
 		if (OnEventDataRaised.Contains(handler))
 			OnEventDataRaised.Remove(handler);
 
-		foreach (var boundEvent in boundEvents) {
+		foreach (var boundEvent in boundEvents)
+		{
 			boundEvent.DeregisterListener(handler);
 		}
 	}
 
-	protected void UnbindEvent(GameEvent boundEvent) {
-		if (boundEvents.Contains(boundEvent)) {
-			foreach (var handler in OnEventRaised) {
+	protected void UnbindEvent(GameEvent boundEvent)
+	{
+		if (boundEvents.Contains(boundEvent))
+		{
+			foreach (var handler in OnEventRaised)
+			{
 				boundEvent?.DeregisterListener(handler);
 			}
 
-			foreach (var handler in OnEventDataRaised) {
+			foreach (var handler in OnEventDataRaised)
+			{
 				boundEvent?.DeregisterListener(handler);
 			}
 			boundEvents.Remove(boundEvent);
 		}
 	}
-	protected void BindEvent(GameEvent newGameEvent) {
-		if (boundEvents.Contains(newGameEvent) == false && newGameEvent != null) {
+	protected void BindEvent(GameEvent newGameEvent)
+	{
+		if (boundEvents.Contains(newGameEvent) == false && newGameEvent != null)
+		{
 			boundEvents.Add(newGameEvent);
-			foreach (var handler in OnEventRaised) {
+			foreach (var handler in OnEventRaised)
+			{
 				newGameEvent.RegisterListener(handler);
 			}
 
-			foreach (var handler in OnEventDataRaised) {
+			foreach (var handler in OnEventDataRaised)
+			{
 				newGameEvent.RegisterListener(handler);
 			}
 		}
 	}
 
-	protected void OnValidate() {
-		if (!boundEvents.All(inspectedEvents.Contains) || !inspectedEvents.All(boundEvents.Contains)) {
+	protected void OnValidate()
+	{
+		if (!boundEvents.All(inspectedEvents.Contains) || !inspectedEvents.All(boundEvents.Contains))
+		{
 			// Unbind events missing from inspectedEvents
-			foreach (var gameEvent in boundEvents.Except(inspectedEvents).ToList()) {
+			foreach (var gameEvent in boundEvents.Except(inspectedEvents).ToList())
+			{
 				UnbindEvent(gameEvent);
 			}
 
 			// Bind newly added events
-			foreach (var gameEvent in inspectedEvents.Except(boundEvents).ToList()) {
+			foreach (var gameEvent in inspectedEvents.Except(boundEvents).ToList())
+			{
 				BindEvent(gameEvent);
 			}
 		}
 	}
-	public void OnBeforeSerialize() {
+	public void OnBeforeSerialize()
+	{
 		OnValidate();
 	}
-	public void OnAfterDeserialize() {
+	public void OnAfterDeserialize()
+	{
 		OnValidate();
 	}
 }

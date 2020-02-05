@@ -6,7 +6,8 @@ using UnityEditor;
 #endif
 
 
-public class ScriptableVariablesConfig : ScriptableObject {
+public class ScriptableVariablesConfig : ScriptableObject
+{
 	#region Singleton
 	protected static ScriptableVariablesConfig _instance;
 	public static ScriptableVariablesConfig Instance {
@@ -22,21 +23,30 @@ public class ScriptableVariablesConfig : ScriptableObject {
 #else
 	[RuntimeInitializeOnLoadMethod]
 #endif
-	protected static void Initialize() {
-		if (_instance == null) {
+	protected static void Initialize()
+	{
+		if (_instance == null)
+		{
 			var found = Resources.LoadAll<ScriptableVariablesConfig>("");
 			_instance = found.FirstOrDefault();
 
-			if (_instance == null) {
+			if (_instance == null)
+			{
 				Debug.LogWarning("ScriptableVariablesConfig not found, creating a new config file.");
 				_instance = CreateNewInstance();
 			}
 		}
 	}
 
-	private static ScriptableVariablesConfig CreateNewInstance() {
+	private static ScriptableVariablesConfig CreateNewInstance()
+	{
 		ScriptableObject newObject = CreateInstance<ScriptableVariablesConfig>();
 #if UNITY_EDITOR
+		if (AssetDatabase.IsValidFolder("Assets/Resources") == false)
+		{
+			AssetDatabase.CreateFolder("Assets", "Resources");
+		}
+
 		AssetDatabase.CreateAsset(newObject, "Assets/Resources/ScriptableVariablesConfig.asset");
 		AssetDatabase.SaveAssets();
 #endif
@@ -44,5 +54,5 @@ public class ScriptableVariablesConfig : ScriptableObject {
 	}
 	#endregion
 
-	public StringReference variablesSavePath = new StringReference("Assets/Variables/");
+	public StringReference variablesSavePath = new StringReference("Assets/Resources/Variables/");
 }
