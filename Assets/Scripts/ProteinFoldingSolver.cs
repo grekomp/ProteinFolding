@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using Unity.Collections;
+using Unity.Jobs;
 using UnityEngine;
 
 namespace ProteinFolding
@@ -24,135 +26,216 @@ namespace ProteinFolding
 		[Space]
 		public List<bool> parsedInput;
 
-		public List<LatticePlacementProposition> placementPropositions = new List<LatticePlacementProposition>();
-		public int currentMonomerIndex = 0;
+
+		[Header("Runtime Variables")]
+		Coroutine runningExecution;
+		public int latticeSize = 0;
+
+		public NativeArray<Point> points;
+		public NativeArray<LatticeInfo> lattices;
+
+		public int currentTreeLevel = 0;
 
 		public int prunedTrees01 = 0;
 		public int prunedTrees02 = 0;
 
-		[ContextMenu("Execute")]
-		public void Execute()
+
+		#region Executing simulation
+		[ContextMenu("Start Execution")]
+		public void StartExecution()
 		{
 			// Parse input
 			parsedInput = ParseInput();
 
-
 			// Init
 			energyValuesCount = 0;
-			bestEnergyValue = 1;
+			bestEnergyValue = 0;
 			averageEnergyValue = 0;
 			prunedTrees01 = 0;
 			prunedTrees02 = 0;
-			placementPropositions.Clear();
 
-
-			// Create initial lattice
-			// Place first two monomers arbitrarily
-			if (parsedInput.Count == 0) return;
-			int latticeSize = 2 * parsedInput.Count + 2;
-			Lattice initialLattice = new Lattice(latticeSize);
-			initialLattice.PlaceInitPoint(parsedInput[0]);
-
-			if (parsedInput.Count == 1) return;
-			initialLattice.PlacePoint(parsedInput[1], Direction.Down);
-
-			if (parsedInput.Count == 2) return;
-			placementPropositions.AddRange(initialLattice.GetPlacementPropositions(parsedInput[2]));
-
-
-			// Place the rest of points
-			currentMonomerIndex = 2;
-
+			// Start coroutine
 			Debug.Log("Started execution");
+			if (runningExecution != null) StopCoroutine(runningExecution);
+			runningExecution = StartCoroutine(Execute());
 		}
 
-		[ContextMenu("PlaceNext")]
-		private void PlaceNext()
+		public IEnumerator Execute()
 		{
-			if (currentMonomerIndex >= parsedInput.Count)
+			if (parsedInput.Count > 2)
 			{
-				Debug.Log("All monomers placed");
-				return;
-			}
+				InitializeExecution();
 
-			bestEnergyValue = 1;
-			averageEnergyValue = 0;
-			energyValuesCount = 0;
-
-			List<LatticePlacementProposition> lastPlacementPropositions = new List<LatticePlacementProposition>(placementPropositions);
-			placementPropositions.Clear();
-			foreach (var placementProposition in lastPlacementPropositions)
-			{
-				EvaluatePlacementProposition(placementProposition);
-			}
-
-			outputEnergy.Value = outputLattice.Value.energy;
-			currentMonomerIndex++;
-		}
-
-		private void EvaluatePlacementProposition(LatticePlacementProposition placementProposition)
-		{
-			if (placementProposition.IsValid == false)
-			{
-				return;
-			}
-
-			bool addCurrentPlacement = false;
-
-			if (placementProposition.Energy <= bestEnergyValue)
-			{
-				addCurrentPlacement = true;
-			}
-			else
-			{
-				if (placementProposition.Energy < averageEnergyValue)
+				// Place the rest of points
+				currentTreeLevel = 2;
+				while (currentTreeLevel < parsedInput.Count)
 				{
-					if (UnityEngine.Random.Range(0f, 1f) >= pruningProbability02)
-					{
-						addCurrentPlacement = true;
-					}
-					else
-					{
-						prunedTrees02++;
-					}
+					ExecuteTreeLevel();
+
+					currentTreeLevel++;
+					yield return null;
 				}
-				else
+
+				CreateOutputLattice();
+			}
+
+			yield return null;
+		}
+
+		private void CreateOutputLattice()
+		{
+			LatticeInfo bestLatticeInfo = new LatticeInfo();
+			int bestIndex = 0;
+			for (int i = 0; i < lattices.Length; i++)
+			{
+				if (lattices[i].energy < bestLatticeInfo.energy)
 				{
-					if (UnityEngine.Random.Range(0f, 1f) >= pruningProbability01)
-					{
-						addCurrentPlacement = true;
-					}
-					else
-					{
-						prunedTrees01++;
-					}
+					bestLatticeInfo = lattices[i];
+					bestIndex = i;
 				}
 			}
 
-			if (addCurrentPlacement)
-			{
-				UpdateEnergyValues(placementProposition);
+			outputLattice.Value = new Lattice(
+				points.GetSubArray(latticeSize * latticeSize
 
-				// Queue next
-				if (currentMonomerIndex < parsedInput.Count - 1)
-				{
-					placementPropositions.AddRange(placementProposition.GetChildLatticePlacementPropositions(parsedInput[currentMonomerIndex + 1]));
-				}
-			}
+				* bestIndex, latticeSize * latticeSize).ToArray(),
+				bestLatticeInfo.energy,
+				latticeSize);
+
+			points.Dispose();
+			lattices.Dispose();
 		}
 
-		private void UpdateEnergyValues(LatticePlacementProposition placementProposition)
+		private void InitializeExecution()
 		{
-			if (placementProposition.Energy < bestEnergyValue)
-			{
-				bestEnergyValue = placementProposition.Energy;
-				outputLattice.Value = placementProposition.GetResultingLattice();
-			}
+			// Create initial lattice
+			latticeSize = 2 * parsedInput.Count + 2;
 
-			averageEnergyValue = ((averageEnergyValue * energyValuesCount) + placementProposition.Energy) / (energyValuesCount + 1);
-			energyValuesCount++;
+			points = new NativeArray<Point>(latticeSize * latticeSize, Allocator.Persistent);
+			lattices = new NativeArray<LatticeInfo>(1, Allocator.Persistent);
+
+			// Place first two monomers arbitrarily
+			int initialIndex = latticeSize * ((latticeSize - 1) / 2) + (latticeSize / 2);
+			points[initialIndex] = new Point(2, parsedInput[0]);
+			points[initialIndex + 1] = new Point(3, parsedInput[1]);
+			lattices[0] = new LatticeInfo(true, 0, 3, initialIndex + 1);
+		}
+		private void ExecuteTreeLevel()
+		{
+			// Generate children
+			NativeArray<Point> childPoints = new NativeArray<Point>(lattices.Length * latticeSize * latticeSize * 4, Allocator.TempJob);
+			NativeArray<LatticeInfo> childLattices = new NativeArray<LatticeInfo>(lattices.Length * 4, Allocator.TempJob);
+			Debug.Log($"Generating child lattices: {childLattices.Length}.");
+			GenerateChildLattices(childPoints, childLattices);
+
+			points.Dispose();
+			lattices.Dispose();
+
+			// Calculate average energy
+			NativeArray<float> averageEnergy = new NativeArray<float>(1, Allocator.TempJob);
+			NativeArray<int> bestEnergy = new NativeArray<int>(1, Allocator.TempJob);
+			CalculateAverageEnergy(childLattices, averageEnergy, bestEnergy);
+
+			// Generate random pruning values
+			NativeArray<float> randomValues = new NativeArray<float>(childLattices.Length, Allocator.TempJob);
+			GenerateRandomElements(ref randomValues);
+
+			// Generate filtered indices
+			NativeList<int> indices = new NativeList<int>(childLattices.Length, Allocator.TempJob);
+			GenerateIndicesFilter(ref childLattices, averageEnergy[0], bestEnergy[0], indices, randomValues);
+
+			// Generate filtered output 
+			points = new NativeArray<Point>(latticeSize * latticeSize * indices.Length, Allocator.TempJob);
+			lattices = new NativeArray<LatticeInfo>(indices.Length, Allocator.TempJob);
+			FilterIndices(childPoints, childLattices, ref indices);
+
+			bestEnergy.Dispose();
+			averageEnergy.Dispose();
+			indices.Dispose();
+			childPoints.Dispose();
+			childLattices.Dispose();
+			randomValues.Dispose();
+
+			Debug.Log($"Executed tree level {currentTreeLevel}.");
 		}
 
+		private void FilterIndices(NativeArray<Point> childPoints, NativeArray<LatticeInfo> childLattices, ref NativeList<int> indices)
+		{
+			JobHandle jobHandle;
+			LatticeFilteredCopyJob filteredCopyJob = new LatticeFilteredCopyJob()
+			{
+				points = childPoints,
+				lattices = childLattices,
+				indices = indices,
+				size = latticeSize,
+				outputPoints = points,
+				outputLattices = lattices
+			};
+			jobHandle = filteredCopyJob.Schedule(indices.Length, 1);
+			jobHandle.Complete();
+		}
+
+
+		private void GenerateChildLattices(NativeArray<Point> childPoints, NativeArray<LatticeInfo> childLattices)
+		{
+			LatticeJob initialLatticeJob = new LatticeJob()
+			{
+				points = points,
+				lattices = lattices,
+				size = latticeSize,
+				nextIsHydrophobic = parsedInput[currentTreeLevel],
+				outputPoints = childPoints,
+				outputLattices = childLattices
+			};
+
+			JobHandle jobHandle = initialLatticeJob.Schedule(lattices.Length, 100);
+			jobHandle.Complete();
+		}
+		private void GenerateIndicesFilter(ref NativeArray<LatticeInfo> childLattices, float averageEnergy, int bestEnergy, NativeList<int> indices, NativeArray<float> randomValues)
+		{
+			JobHandle jobHandle;
+			LatticeFilterJob latticeFilterJob = new LatticeFilterJob()
+			{
+				lattices = childLattices,
+				averageEnergy = averageEnergy,
+				bestEnergy = bestEnergy,
+				random = randomValues,
+				pruningProbability01 = pruningProbability01.Value,
+				pruningProbability02 = pruningProbability02.Value
+			};
+			jobHandle = latticeFilterJob.ScheduleAppend(indices, childLattices.Length, 1);
+			jobHandle.Complete();
+
+			Debug.Log($"Generated filtered indices - filtered {childLattices.Length - indices.Length}/{childLattices.Length}.");
+		}
+		private static void CalculateAverageEnergy(NativeArray<LatticeInfo> childLattices, NativeArray<float> averageEnergy, NativeArray<int> bestEnergy)
+		{
+			JobHandle jobHandle;
+			LatticesCalculateAverageEnergyJob latticesCalculateAverageEnergyJob = new LatticesCalculateAverageEnergyJob()
+			{
+				lattices = childLattices,
+				averageEnergy = averageEnergy,
+				bestEnergy = bestEnergy
+			};
+			jobHandle = latticesCalculateAverageEnergyJob.Schedule();
+			jobHandle.Complete();
+
+			Debug.Log($"Calculated average energy: {averageEnergy[0]}, bestEnergy: {bestEnergy[0]}.");
+		}
+
+		public static void GenerateRandomElements(ref NativeArray<float> elements)
+		{
+			GenerateRandomElementsJob generateRandomElementsJob = new GenerateRandomElementsJob()
+			{
+				random = new Unity.Mathematics.Random((uint)UnityEngine.Random.Range(0, 645241)),
+				randomElements = elements
+			};
+			generateRandomElementsJob.Schedule().Complete();
+		}
+		#endregion
+
+
+		#region Parsing input
 		private List<bool> ParseInput()
 		{
 			List<bool> result = new List<bool>();
@@ -166,8 +249,6 @@ namespace ProteinFolding
 
 			return result;
 		}
-
-
-
+		#endregion
 	}
 }

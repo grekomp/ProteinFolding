@@ -463,7 +463,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.16037738, g: 0.16037738, b: 0.16037738, a: 0}
+  m_BackGroundColor: {r: 0.9, g: 0.9, b: 0.9, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1183,7 +1183,7 @@ MonoBehaviour:
     debugChanges: 1
   pruningProbability01:
     useConstant: 1
-    constantValue: 0.5
+    constantValue: 0
     variable: {fileID: 0}
     _usesTemporaryVariable: 0
     debugEnabled: 0
@@ -1193,7 +1193,7 @@ MonoBehaviour:
     debugChanges: 1
   pruningProbability02:
     useConstant: 1
-    constantValue: 0.1
+    constantValue: 0.5
     variable: {fileID: 0}
     _usesTemporaryVariable: 0
     debugEnabled: 0
@@ -1217,10 +1217,9 @@ MonoBehaviour:
   outputLattice:
     useConstant: 0
     constantValue:
+      points: []
+      size: 0
       energy: 0
-      lastIndex: 0
-      lastX: 0
-      lastY: 0
     variable: {fileID: 11400000, guid: 6c047ba8ce785e341a7efc71acb309c4, type: 2}
     _usesTemporaryVariable: 0
     debugEnabled: 0
@@ -1228,8 +1227,9 @@ MonoBehaviour:
     debugVariableReplacements: 1
     debugFailedVariableReplacements: 0
     debugChanges: 1
-  parsedInput: 
-  currentMonomerIndex: 0
+  parsedInput: 0100010000010100010000010001010000010001
+  latticeSize: 42
+  currentTreeLevel: 5
   prunedTrees01: 0
   prunedTrees02: 0
 --- !u!4 &1494294019
@@ -1379,7 +1379,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1000, y: 1000}
+  m_SizeDelta: {x: 2000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1937513409
 MonoBehaviour:
@@ -1466,7 +1466,7 @@ MonoBehaviour:
       debugChanges: 1
     setOnValueChanged:
       useConstant: 1
-      constantValue: 0
+      constantValue: 1
       variable: {fileID: 0}
       _usesTemporaryVariable: 0
       debugEnabled: 0
@@ -1494,13 +1494,13 @@ MonoBehaviour:
       debugVariableReplacements: 1
       debugFailedVariableReplacements: 0
       debugChanges: 1
+  gridRect: {fileID: 1937513408}
   lattice:
     useConstant: 0
     constantValue:
+      points: []
+      size: 0
       energy: 0
-      lastIndex: 0
-      lastX: 0
-      lastY: 0
     variable: {fileID: 11400000, guid: 6c047ba8ce785e341a7efc71acb309c4, type: 2}
     _usesTemporaryVariable: 0
     debugEnabled: 0
@@ -1510,7 +1510,7 @@ MonoBehaviour:
     debugChanges: 1
   gridSpacing:
     useConstant: 1
-    constantValue: 10
+    constantValue: 200
     variable: {fileID: 0}
     _usesTemporaryVariable: 0
     debugEnabled: 0
@@ -1518,4 +1518,6 @@ MonoBehaviour:
     debugVariableReplacements: 1
     debugFailedVariableReplacements: 0
     debugChanges: 1
-  latticePointPrefab: {fileID: 0}
+  latticePointPrefab: {fileID: 8256642756342002574, guid: 4cf39df6b2b5be244bc0e5675bc7cb34,
+    type: 3}
+  spawnedPoints: []

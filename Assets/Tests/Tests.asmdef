@@ -3,7 +3,9 @@
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "ScriptsAssemblyDefinition"
+        "ScriptsAssemblyDefinition",
+        "Unity.Jobs",
+        "Unity.Collections"
     ],
     "includePlatforms": [
         "Editor"
@@ -18,5 +20,6 @@
     "defineConstraints": [
         "UNITY_INCLUDE_TESTS"
     ],
-    "versionDefines": []
+    "versionDefines": [],
+    "noEngineReferences": false
 }

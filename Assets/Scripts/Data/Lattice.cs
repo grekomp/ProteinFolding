@@ -1,149 +1,94 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Unity.Collections;
 using UnityEngine;
 
 namespace ProteinFolding
 {
 	[Serializable]
-	public class Lattice
+	public class Lattice : SerializableWideClass
 	{
-		public int[,] points;
-		public bool[,] pointIsHydrophobic;
+		public Point[] points;
 
-		public int Size {
-			get {
-				return points.GetLength(0);
-			}
-		}
-		public int energy = 0;
-		public int lastIndex = 0;
+		public int size;
+		public int energy;
 
-		public int lastX = -1;
-		public int lastY = -1;
 
 		#region Creating Lattices
-		public Lattice(int size)
+		public Lattice(Point[] points, int energy, int size)
 		{
-			points = new int[size, size];
-			pointIsHydrophobic = new bool[size, size];
-		}
-
-		public Lattice Copy()
-		{
-			Lattice newLattice = new Lattice(Size);
-
-			for (int i = 0; i < points.GetLength(0); i++)
-			{
-				for (int j = 0; j < points.GetLength(1); j++)
-				{
-					newLattice.points[i, j] = points[i, j];
-					newLattice.pointIsHydrophobic[i, j] = pointIsHydrophobic[i, j];
-				}
-			}
-
-			newLattice.energy = energy;
-			newLattice.lastIndex = lastIndex;
-
-			newLattice.lastX = lastX;
-			newLattice.lastY = lastY;
-
-			return newLattice;
-		}
-
-		#endregion
-
-
-		#region Placing points
-		public void PlaceInitPoint(bool isHydrophobic)
-		{
-			int initX, initY;
-			initX = initY = Size / 2;
-
-			points[initX, initY] = ++lastIndex;
-			pointIsHydrophobic[initX, initY] = isHydrophobic;
-
-			energy = 0;
-			lastX = initX;
-			lastY = initY;
-		}
-
-		public void PlacePoint(bool isHydrophobic, Direction direction, bool calculateEnergy = true)
-		{
-			// Place point
-			PlacePoint(GetAdjacentX(lastX, direction), GetAdjacentY(lastY, direction), isHydrophobic);
-
-			// Calculating energy
-			if (calculateEnergy)
-			{
-				energy += GetEnergyPoint(lastX, lastY, isHydrophobic);
-			}
-		}
-		protected void PlacePoint(int x, int y, bool isHydrophobic)
-		{
-			lastX = x;
-			lastY = y;
-
-			points[x, y] = ++lastIndex;
-			pointIsHydrophobic[x, y] = isHydrophobic;
-		}
-		public void ApplyPlacementProposition(LatticePlacementProposition placementProposition)
-		{
-			PlacePoint(placementProposition.x, placementProposition.y, placementProposition.isHydrophobic);
-			energy = placementProposition.Energy;
+			this.points = points;
+			this.size = size;
+			this.energy = energy;
 		}
 		#endregion
 
 
-		#region Lattice Placement Propositions
-		public LatticePlacementProposition[] GetPlacementPropositions(bool isHydrophobic)
+		#region Accessors
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public Point GetPoint(int x, int y)
 		{
-			LatticePlacementProposition[] result = new LatticePlacementProposition[4];
-
-			result[0] = GetPlacementProposition(isHydrophobic, Direction.Up);
-			result[1] = GetPlacementProposition(isHydrophobic, Direction.Right);
-			result[2] = GetPlacementProposition(isHydrophobic, Direction.Down);
-			result[3] = GetPlacementProposition(isHydrophobic, Direction.Left);
-
-			return result;
+			return points[Index(x, y)];
 		}
-
-		private LatticePlacementProposition GetPlacementProposition(bool isHydrophobic, Direction direction)
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public void SetPoint(int x, int y, Point point)
 		{
-			int adjacentX = GetAdjacentX(lastX, direction);
-			int adjacentY = GetAdjacentY(lastY, direction);
-
-			if (IsOccupied(adjacentX, adjacentY)) return null;
-
-			return new LatticePlacementProposition(this, adjacentX, adjacentY, isHydrophobic);
+			points[Index(x, y)] = point;
 		}
 		#endregion
 
 
 		#region Helper methods
-		public bool IsHydrophobic(int x, int y)
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public bool IsValid() => size > 0;
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public int Index(int x, int y)
 		{
-			return pointIsHydrophobic[x, y];
+			return x + y * size;
 		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public bool IsOccupied(int x, int y)
 		{
-			return points[x, y] > 0;
+			return GetPoint(x, y).index > 0;
 		}
 		public Direction BindingDirection(int x, int y)
 		{
 			if (IsOccupied(x, y) == false) return Direction.None;
 
-			int searchedIndex = points[x, y] - 1;
-			if (points[GetAdjacentX(x, Direction.Up), GetAdjacentY(y, Direction.Up)] == searchedIndex) return Direction.Up;
-			if (points[GetAdjacentX(x, Direction.Right), GetAdjacentY(y, Direction.Right)] == searchedIndex) return Direction.Right;
-			if (points[GetAdjacentX(x, Direction.Down), GetAdjacentY(y, Direction.Down)] == searchedIndex) return Direction.Down;
-			if (points[GetAdjacentX(x, Direction.Left), GetAdjacentY(y, Direction.Left)] == searchedIndex) return Direction.Left;
+			if (HasBindingInDirection(x, y, Direction.Up)) return Direction.Up;
+			if (HasBindingInDirection(x, y, Direction.Right)) return Direction.Right;
+			if (HasBindingInDirection(x, y, Direction.Down)) return Direction.Down;
+			if (HasBindingInDirection(x, y, Direction.Left)) return Direction.Left;
 
 			return Direction.None;
 		}
+		public bool HasBindingInDirection(int x, int y, Direction direction)
+		{
+			int adjacentX = GetAdjacentX(x, direction);
+			int adjacentY = GetAdjacentY(y, direction);
 
+			if (IsValidX(adjacentX) == false || IsValidY(adjacentY) == false) return false;
+
+			int searchedIndex = GetPoint(x, y).index - 1;
+			return GetPoint(adjacentX, adjacentY).index == searchedIndex;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public bool IsValidX(int x)
+		{
+			return x >= 0 && x < size;
+		}
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public bool IsValidY(int y)
+		{
+			return y >= 0 && y < size;
+		}
 
 		public Direction GetOppositeDirection(Direction direction)
 		{
@@ -172,11 +117,11 @@ namespace ProteinFolding
 		{
 			int calculatedEnergy = 0;
 
-			for (int x = 0; x < points.GetLength(0) - 1; x++)
+			for (int x = 0; x < size - 1; x++)
 			{
-				for (int y = 0; y < points.GetLength(1) - 1; y++)
+				for (int y = 0; y < size - 1; y++)
 				{
-					calculatedEnergy += GetEnergyPoint(x, y, IsHydrophobic(x, y));
+					calculatedEnergy += GetEnergyPoint(x, y, GetPoint(x, y).isHydrophobic);
 				}
 			}
 
@@ -198,38 +143,50 @@ namespace ProteinFolding
 
 			int adjacentX = GetAdjacentX(x, direction);
 			int adjacentY = GetAdjacentY(y, direction);
-			if (pointIsHydrophobic[adjacentX, adjacentY] && Math.Abs(points[x, y] - points[adjacentX, adjacentY]) > 1) return -1;
+			if (GetPoint(adjacentX, adjacentY).isHydrophobic && Math.Abs(GetPoint(x, y).index - GetPoint(adjacentX, adjacentY).index) > 1) return -1;
 
 			return 0;
 		}
 
 		public static int GetAdjacentX(int x, Direction direction)
 		{
-			switch (direction)
-			{
-				case Direction.Left:
-					x--;
-					break;
-				case Direction.Right:
-					x++;
-					break;
-			}
+			x += direction == Direction.Left ? -1 : 0;
+			x += direction == Direction.Right ? 1 : 0;
 
 			return x;
 		}
 		public static int GetAdjacentY(int y, Direction direction)
 		{
-			switch (direction)
-			{
-				case Direction.Up:
-					y--;
-					break;
-				case Direction.Down:
-					y++;
-					break;
-			}
+			y += direction == Direction.Up ? -1 : 0;
+			y += direction == Direction.Down ? 1 : 0;
 
 			return y;
+		}
+		#endregion
+
+
+		#region Overrides
+		public override string ToString()
+		{
+			StringBuilder sb = new StringBuilder();
+
+			for (int y = 0; y < size; y++)
+			{
+				for (int x = 0; x < size; x++)
+				{
+					if (points[Index(x, y)].index > 0)
+					{
+						sb.Append(points[Index(x, y)].isHydrophobic ? "H" : "P");
+					}
+					else
+					{
+						sb.Append("O");
+					}
+				}
+				sb.Append("\n");
+			}
+
+			return sb.ToString();
 		}
 		#endregion
 	}

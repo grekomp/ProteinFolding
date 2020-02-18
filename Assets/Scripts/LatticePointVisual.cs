@@ -4,6 +4,8 @@ using UnityEngine;
 public class LatticePointVisual : MonoBehaviour
 {
 	[Header("Components")]
+	public RectTransform rectTransform;
+
 	public GameObject bindingUp;
 	public GameObject bindingRight;
 	public GameObject bindingDown;
@@ -19,6 +21,8 @@ public class LatticePointVisual : MonoBehaviour
 	public int x;
 	public int y;
 	public float gridSpacing;
+	public int index;
+	public int value;
 
 
 	#region Public properties and methods
@@ -79,8 +83,8 @@ public class LatticePointVisual : MonoBehaviour
 
 	public void UpdatePositionSize()
 	{
-		transform.position = new Vector3(x * gridSpacing, y * gridSpacing, 0);
-
+		rectTransform.anchoredPosition = new Vector3(x * gridSpacing, -y * gridSpacing, 0);
+		rectTransform.sizeDelta = new Vector2(gridSpacing, gridSpacing);
 		// TODO: Update size
 	}
 	#endregion

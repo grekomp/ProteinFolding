@@ -9,145 +9,168 @@ namespace Tests
 {
 	public class LatticeTests
 	{
-		[Test]
-		public void IsHydrophobicTrue()
-		{
-			Lattice lattice = new Lattice(2);
-			lattice.PlaceInitPoint(true);
-
-			Assert.IsTrue(lattice.IsHydrophobic(lattice.lastX, lattice.lastY));
-		}
-
-		[Test]
-		public void IsHydrophobicFalse()
-		{
-			Lattice lattice = new Lattice(5);
-
-			Assert.IsFalse(lattice.IsHydrophobic(1, 1));
-
-			lattice.PlaceInitPoint(false);
-
-			int initX = lattice.lastX;
-			int initY = lattice.lastY;
-
-			lattice.PlacePoint(true, Direction.Up);
-			lattice.PlacePoint(true, Direction.Right);
-			lattice.PlacePoint(true, Direction.Down);
-			lattice.PlacePoint(true, Direction.Down);
-			lattice.PlacePoint(true, Direction.Left);
-			lattice.PlacePoint(true, Direction.Left);
-
-			Assert.IsFalse(lattice.IsHydrophobic(initX, initY));
-		}
-
-		[Test]
-		public void IsOccupiedTrue()
-		{
-			Lattice lattice = new Lattice(5);
-			lattice.PlaceInitPoint(false);
-
-			int initX = lattice.lastX;
-			int initY = lattice.lastY;
-
-			lattice.PlacePoint(true, Direction.Right);
-			lattice.PlacePoint(false, Direction.Up);
-
-			Assert.IsTrue(lattice.IsOccupied(initX, initY));
-		}
-		[Test]
-		public void IsOccupiedFalse()
-		{
-			Lattice lattice = new Lattice(5);
-			lattice.PlaceInitPoint(false);
-			lattice.PlacePoint(true, Direction.Up);
-			lattice.PlacePoint(true, Direction.Right);
-			lattice.PlacePoint(true, Direction.Down);
-			lattice.PlacePoint(true, Direction.Down);
-			lattice.PlacePoint(true, Direction.Left);
-			lattice.PlacePoint(true, Direction.Left);
-
-			Assert.IsFalse(lattice.IsOccupied(1, 1));
-		}
+		//Lattice lattice;
 
 		//[Test]
-		//public void HasDownBindingTrue01()
+		//public void IsHydrophobicTrue()
 		//{
-		//	Lattice lattice = new Lattice(3);
-		//	lattice.PlacePoint(1, 1, false, Direction.None);
-		//	lattice.PlacePoint(1, 2, false, Direction.Up);
+		//	lattice = new Lattice(2);
+		//	lattice.PlaceInitPoint(true);
 
-		//	Assert.IsTrue(lattice.HasDownBinding(1, 1));
+		//	Assert.IsTrue(lattice.GetIsHydrophobic(lattice.lastX, lattice.lastY));
+		//}
+
+		//[Test]
+		//public void IsHydrophobicFalse()
+		//{
+		//	lattice = new Lattice(5);
+
+		//	Assert.IsFalse(lattice.GetIsHydrophobic(1, 1));
+
+		//	lattice.PlaceInitPoint(false);
+
+		//	int initX = lattice.lastX;
+		//	int initY = lattice.lastY;
+
+		//	lattice.PlacePoint(true, Direction.Up);
+		//	lattice.PlacePoint(true, Direction.Right);
+		//	lattice.PlacePoint(true, Direction.Down);
+		//	lattice.PlacePoint(true, Direction.Down);
+		//	lattice.PlacePoint(true, Direction.Left);
+		//	lattice.PlacePoint(true, Direction.Left);
+
+		//	Assert.IsFalse(lattice.GetIsHydrophobic(initX, initY));
+		//}
+
+		//[Test]
+		//public void IsOccupiedTrue()
+		//{
+		//	lattice = new Lattice(5);
+		//	lattice.PlaceInitPoint(false);
+
+		//	int initX = lattice.lastX;
+		//	int initY = lattice.lastY;
+
+		//	lattice.PlacePoint(true, Direction.Right);
+		//	lattice.PlacePoint(false, Direction.Up);
+
+		//	Assert.IsTrue(lattice.IsOccupied(initX, initY));
 		//}
 		//[Test]
-		//public void HasDownBindingTrue02()
+		//public void IsOccupiedFalse()
 		//{
-		//	Lattice lattice = new Lattice(3);
-		//	lattice.PlacePoint(1, 1, false, Direction.None);
-		//	lattice.PlacePoint(1, 0, false, Direction.Down);
+		//	lattice = new Lattice(5);
+		//	lattice.PlaceInitPoint(false);
+		//	lattice.PlacePoint(true, Direction.Up);
+		//	lattice.PlacePoint(true, Direction.Right);
+		//	lattice.PlacePoint(true, Direction.Down);
+		//	lattice.PlacePoint(true, Direction.Down);
+		//	lattice.PlacePoint(true, Direction.Left);
+		//	lattice.PlacePoint(true, Direction.Left);
 
-		//	Assert.IsTrue(lattice.HasDownBinding(1, 0));
+		//	Assert.IsFalse(lattice.IsOccupied(1, 1));
 		//}
+
 		//[Test]
-		//public void HasDownBindingFalse()
+		//public void OppositeDirectionTest()
 		//{
-		//	Lattice lattice = new Lattice(3);
-		//	lattice.PlacePoint(1, 1, false, Direction.None);
-		//	lattice.PlacePoint(1, 2, false, Direction.Up);
+		//	lattice = new Lattice(1);
 
-		//	Assert.IsFalse(lattice.HasDownBinding(1, 2));
+		//	Assert.AreEqual(lattice.GetOppositeDirection(Direction.Up), Direction.Down);
+		//	Assert.AreEqual(lattice.GetOppositeDirection(Direction.Right), Direction.Left);
+		//	Assert.AreEqual(lattice.GetOppositeDirection(Direction.Down), Direction.Up);
+		//	Assert.AreEqual(lattice.GetOppositeDirection(Direction.Left), Direction.Right);
+		//	Assert.AreEqual(lattice.GetOppositeDirection(Direction.None), Direction.None);
 		//}
+
 		//[Test]
-		//public void HasRightBindingTrue01()
+		//public void EnergyCalculationTest()
 		//{
-		//	Lattice lattice = new Lattice(3);
-		//	lattice.PlacePoint(1, 1, false, Direction.None);
-		//	lattice.PlacePoint(0, 1, false, Direction.Right);
+		//	lattice = new Lattice(5);
+		//	lattice.PlaceInitPoint(true);
+		//	lattice.PlacePoint(true, Direction.Up);
+		//	lattice.PlacePoint(false, Direction.Up);
+		//	lattice.PlacePoint(false, Direction.Left);
+		//	lattice.PlacePoint(true, Direction.Down);
+		//	lattice.PlacePoint(true, Direction.Down);
 
-		//	Assert.IsTrue(lattice.HasRightBinding(0, 1));
+		//	Assert.That(lattice.CalculateEnergy(), Is.EqualTo(-2));
 		//}
+
+
 		//[Test]
-		//public void HasRightBindingTrue02()
+		//public void GetChildLattices_Should()
 		//{
-		//	Lattice lattice = new Lattice(3);
-		//	lattice.PlacePoint(1, 1, false, Direction.None);
-		//	lattice.PlacePoint(2, 1, false, Direction.Left);
+		//	Lattice resultingLattice = new Lattice();
 
-		//	Assert.IsTrue(lattice.HasRightBinding(1, 1));
+		//	try
+		//	{
+		//		lattice = new Lattice(4);
+		//		lattice.PlaceInitPoint(true);
+
+		//		resultingLattice = lattice.GetChildLattice(true, Direction.Up);
+
+		//		Assert.That(resultingLattice.GetPoint(2, 1), Is.EqualTo(3));
+		//		Assert.That(resultingLattice.GetIsHydrophobic(2, 1), Is.EqualTo(true));
+		//	}
+		//	finally
+		//	{
+		//		resultingLattice.Dispose();
+		//	}
 		//}
+
 		//[Test]
-		//public void HasRightBindingFalse()
+		//public void GetResultingLatticeTest()
 		//{
-		//	Lattice lattice = new Lattice(3);
-		//	lattice.PlacePoint(1, 1, false, Direction.None);
-		//	lattice.PlacePoint(0, 1, false, Direction.Right);
+		//	Lattice resultingLattice = new Lattice();
 
-		//	Assert.IsFalse(lattice.HasRightBinding(1, 1));
+		//	try
+		//	{
+		//		lattice = new Lattice(4);
+		//		lattice.PlaceInitPoint(true);
+
+		//		resultingLattice = lattice.GetChildLattice(true, Direction.Up);
+
+		//		Assert.IsTrue(resultingLattice.IsOccupied(2, 1));
+		//		Assert.IsTrue(resultingLattice.GetIsHydrophobic(2, 1));
+
+		//	}
+		//	finally
+		//	{
+		//		resultingLattice.Dispose();
+		//	}
 		//}
 
-		[Test]
-		public void OppositeDirectionTest()
-		{
-			Lattice lattice = new Lattice(1);
+		//[Test]
+		//public void GetChildLattice_Should_ReutrnALatticeWithDecreasedEnergy_IfPointIsHydrophobicAndThereAreAdjacentHydrophobicPoints()
+		//{
+		//	Lattice resultingLattice = new Lattice();
 
-			Assert.AreEqual(lattice.GetOppositeDirection(Direction.Up), Direction.Down);
-			Assert.AreEqual(lattice.GetOppositeDirection(Direction.Right), Direction.Left);
-			Assert.AreEqual(lattice.GetOppositeDirection(Direction.Down), Direction.Up);
-			Assert.AreEqual(lattice.GetOppositeDirection(Direction.Left), Direction.Right);
-			Assert.AreEqual(lattice.GetOppositeDirection(Direction.None), Direction.None);
-		}
+		//	try
+		//	{
+		//		lattice = new Lattice(4);
+		//		lattice.PlaceInitPoint(true);
 
-		[Test]
-		public void EnergyCalculationTest()
-		{
-			Lattice lattice = new Lattice(5);
-			lattice.PlaceInitPoint(true);
-			lattice.PlacePoint(true, Direction.Up);
-			lattice.PlacePoint(false, Direction.Up);
-			lattice.PlacePoint(false, Direction.Left);
-			lattice.PlacePoint(true, Direction.Down);
-			lattice.PlacePoint(true, Direction.Down);
+		//		lattice.PlacePoint(true, Direction.Up);
+		//		lattice.PlacePoint(false, Direction.Up);
+		//		lattice.PlacePoint(false, Direction.Left);
+		//		lattice.PlacePoint(true, Direction.Down);
+		//		lattice.energy = lattice.CalculateEnergy();
 
-			Assert.That(lattice.CalculateEnergy(), Is.EqualTo(-2));
-		}
+		//		resultingLattice = lattice.GetChildLattice(true, Direction.Down);
+
+		//		Assert.AreEqual(resultingLattice.energy, resultingLattice.CalculateEnergy());
+		//	}
+		//	finally
+		//	{
+		//		resultingLattice.Dispose();
+		//	}
+		//}
+
+		//[TearDown]
+		//public void Teardown()
+		//{
+		//	lattice.Dispose();
+		//}
 	}
 }

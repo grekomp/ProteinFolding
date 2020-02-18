@@ -3,90 +3,125 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LatticeVisualizer : ValueSetter
+namespace ProteinFolding
 {
-	[Header("Components")]
-	public RectTransform gridRect;
 
-	[Header("Options")]
-	public LatticeReference lattice;
-	public FloatReference gridSpacing;
-
-	[Space]
-	public LatticePointVisual latticePointPrefab;
-
-	[Header("Runtime Variables")]
-	public LatticePointVisual[,] spawnedPoints;
-
-	protected override void Init()
+	public class LatticeVisualizer : ValueSetter
 	{
-		gridRect = gridRect ?? GetComponent<RectTransform>();
-	}
+		[Header("Components")]
+		public RectTransform gridRect;
 
-	protected override void ApplySet()
-	{
-		if (IsCurrentLatticeVisualizationValid() == false) GenerateBaseLatticeVisualization();
-		if (lattice.Value == null) return;
+		[Header("Options")]
+		[HandleChanges] public LatticeReference lattice;
+		public FloatReference gridSpacing;
 
-		gridSpacing.Value = gridRect.rect.width / (lattice.Value.Size - 1);
+		[Space]
+		public LatticePointVisual latticePointPrefab;
 
-		for (int x = 0; x < lattice.Value.Size; x++)
+		[Header("Runtime Variables")]
+		public LatticePointVisual[] spawnedPoints;
+
+		protected override void Init()
 		{
-			for (int y = 0; y < lattice.Value.Size; y++)
-			{
-				spawnedPoints[x, y].x = x;
-				spawnedPoints[x, y].y = y;
-				spawnedPoints[x, y].gridSpacing = gridSpacing;
-				spawnedPoints[x, y].UpdatePositionSize();
+			gridRect = gridRect ?? GetComponent<RectTransform>();
+			GenerateBaseLatticeVisualization();
+		}
 
-				spawnedPoints[x, y].IsActive = lattice.Value.IsOccupied(x, y);
-				spawnedPoints[x, y].IsHydrophobic = lattice.Value.IsHydrophobic(x, y);
-				spawnedPoints[x, y].BindingDirection = lattice.Value.BindingDirection(x, y);
+		protected override void ApplySet()
+		{
+			Debug.Log(lattice.Value);
+
+			if (IsCurrentLatticeVisualizationValid() == false) GenerateBaseLatticeVisualization();
+			if (lattice.Value.size == 0) return;
+
+			gridSpacing.Value = gridRect.rect.width / lattice.Value.size;
+
+			for (int x = 0; x < lattice.Value.size; x++)
+			{
+				for (int y = 0; y < lattice.Value.size; y++)
+				{
+					int i = Index(y, x);
+
+					spawnedPoints[i].x = x;
+					spawnedPoints[i].y = y;
+					spawnedPoints[i].gridSpacing = gridSpacing;
+					spawnedPoints[i].UpdatePositionSize();
+
+					spawnedPoints[i].IsActive = lattice.Value.IsOccupied(x, y);
+					spawnedPoints[i].IsHydrophobic = lattice.Value.GetPoint(x, y).isHydrophobic;
+					spawnedPoints[i].BindingDirection = lattice.Value.BindingDirection(x, y);
+
+					spawnedPoints[i].value = lattice.Value.GetPoint(x, y).index;
+					spawnedPoints[i].index = lattice.Value.Index(x, y);
+				}
 			}
 		}
-	}
+		private bool IsCurrentLatticeVisualizationValid()
+		{
+			if (lattice.Value.size == 0 && spawnedPoints != null) return false;
+			if (lattice.Value.size > 0 && spawnedPoints == null) return false;
 
+			if (lattice.Value.size == 0 && spawnedPoints == null) return true;
+			if (lattice.Value.size * lattice.Value.size != spawnedPoints.Length) return false;
 
-	private bool IsCurrentLatticeVisualizationValid()
-	{
-		if (lattice.Value == null && spawnedPoints != null) return false;
-		if (lattice.Value != null && spawnedPoints == null) return false;
+			foreach (var spawnedPoint in spawnedPoints)
+			{
+				if (spawnedPoint == null) return false;
+			}
 
-		if (lattice.Value == null && spawnedPoints == null) return true;
-		if (lattice.Value.Size != spawnedPoints.GetLength(0)) return false;
+			return true;
+		}
+		protected void GenerateBaseLatticeVisualization()
+		{
+			CleanUpSpawnedPoints();
 
-		return true;
-	}
-	protected void GenerateBaseLatticeVisualization()
-	{
-		if (lattice.Value == null)
+			if (lattice.Value.size == 0)
+			{
+				if (spawnedPoints == null) return;
+				return;
+			}
+
+			spawnedPoints = new LatticePointVisual[lattice.Value.size * lattice.Value.size];
+
+			for (int y = 0; y < lattice.Value.size; y++)
+			{
+				for (int x = 0; x < lattice.Value.size; x++)
+				{
+					spawnedPoints[Index(y, x)] = Instantiate(latticePointPrefab, transform);
+				}
+			}
+		}
+
+		private void CleanUpSpawnedPoints()
 		{
 			if (spawnedPoints == null) return;
-			CleanUpSpawnedPoints();
-			return;
-		}
 
-		spawnedPoints = new LatticePointVisual[lattice.Value.Size, lattice.Value.Size];
-
-		for (int x = 0; x < spawnedPoints.GetLength(0); x++)
-		{
-			for (int y = 0; y < spawnedPoints.GetLength(1); y++)
+			foreach (var spawnedPoint in spawnedPoints)
 			{
-				spawnedPoints[x, y] = Instantiate(latticePointPrefab, transform) as LatticePointVisual;
+				if (spawnedPoint) Destroy(spawnedPoint.gameObject);
 			}
+			spawnedPoints = null;
 		}
-	}
 
-	private void CleanUpSpawnedPoints()
-	{
-		for (int x = 0; x < spawnedPoints.GetLength(0); x++)
+		private int Index(int y, int x)
 		{
-			for (int y = 0; y < spawnedPoints.GetLength(1); y++)
-			{
-				if (spawnedPoints[x, y]) Destroy(spawnedPoints[x, y]);
-			}
+			return x + y * lattice.Value.size;
 		}
 
-		spawnedPoints = null;
+
+		#region Debug		
+		//[ContextMenu("Test")]
+		//public void Test()
+		//{
+		//	lattice.Value = new Lattice(5);
+		//	lattice.Value.PlaceInitPoint(true);
+		//	lattice.Value.PlacePoint(false, Direction.Up);
+		//	lattice.Value.PlacePoint(true, Direction.Right);
+		//	lattice.Value.PlacePoint(true, Direction.Down);
+		//	lattice.Value.PlacePoint(false, Direction.Right);
+
+		//	Set();
+		//}
+		#endregion
 	}
 }
