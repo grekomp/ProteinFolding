@@ -13,15 +13,17 @@ namespace ProteinFolding
 	public class Lattice : SerializableWideClass
 	{
 		public Point[] points;
+		public bool[] parsedInput;
 
 		public int size;
 		public int energy;
 
 
 		#region Creating Lattices
-		public Lattice(Point[] points, int energy, int size)
+		public Lattice(Point[] points, bool[] parsedInput, int energy, int size)
 		{
 			this.points = points;
+			this.parsedInput = parsedInput;
 			this.size = size;
 			this.energy = energy;
 		}
@@ -50,6 +52,13 @@ namespace ProteinFolding
 		public int Index(int x, int y)
 		{
 			return x + y * size;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public bool IsHydrophobic(int x, int y)
+		{
+			int index = points[Index(x, y)].index;
+			return index > 0 ? parsedInput[index - 2] : false;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -121,7 +130,7 @@ namespace ProteinFolding
 			{
 				for (int y = 0; y < size - 1; y++)
 				{
-					calculatedEnergy += GetEnergyPoint(x, y, GetPoint(x, y).isHydrophobic);
+					calculatedEnergy += GetEnergyPoint(x, y, IsHydrophobic(x, y));
 				}
 			}
 
@@ -143,7 +152,7 @@ namespace ProteinFolding
 
 			int adjacentX = GetAdjacentX(x, direction);
 			int adjacentY = GetAdjacentY(y, direction);
-			if (GetPoint(adjacentX, adjacentY).isHydrophobic && Math.Abs(GetPoint(x, y).index - GetPoint(adjacentX, adjacentY).index) > 1) return -1;
+			if (IsHydrophobic(adjacentX, adjacentY) && Math.Abs(GetPoint(x, y).index - GetPoint(adjacentX, adjacentY).index) > 1) return -1;
 
 			return 0;
 		}
@@ -176,7 +185,7 @@ namespace ProteinFolding
 				{
 					if (points[Index(x, y)].index > 0)
 					{
-						sb.Append(points[Index(x, y)].isHydrophobic ? "H" : "P");
+						sb.Append(IsHydrophobic(x, y) ? "H" : "P");
 					}
 					else
 					{

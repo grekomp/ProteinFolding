@@ -48,7 +48,7 @@ namespace ProteinFolding
 					spawnedPoints[i].UpdatePositionSize();
 
 					spawnedPoints[i].IsActive = lattice.Value.IsOccupied(x, y);
-					spawnedPoints[i].IsHydrophobic = lattice.Value.GetPoint(x, y).isHydrophobic;
+					spawnedPoints[i].IsHydrophobic = lattice.Value.IsHydrophobic(x, y);
 					spawnedPoints[i].BindingDirection = lattice.Value.BindingDirection(x, y);
 
 					spawnedPoints[i].value = lattice.Value.GetPoint(x, y).index;

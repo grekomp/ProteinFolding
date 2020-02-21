@@ -21,18 +21,21 @@ namespace Tests
 					new LatticeInfo(true, 0, 3, 1),
 				},
 				new int[] {0, 2},
+				new float[] {1, 1, 1},
 			}
 		};
 
 		[Test, TestCaseSource("FilterJobTestCases")]
 		public void FilterJob_Should_GenerateIndicesCorrespondingToValidLattices(
-			LatticeInfo[] inputLattices, int[] expectedOutputIndices)
+			LatticeInfo[] inputLattices, int[] expectedOutputIndices, float[] randomValues)
 		{
 			NativeArray<LatticeInfo> lattices = new NativeArray<LatticeInfo>(inputLattices, Allocator.TempJob);
 			NativeList<int> indices = new NativeList<int>(lattices.Length, Allocator.TempJob);
+			NativeArray<float> random = new NativeArray<float>(randomValues, Allocator.TempJob);
 
 			LatticeFilterJob latticeFilterJob = new LatticeFilterJob()
 			{
+				random = random,
 				lattices = lattices,
 			};
 			JobHandle jobHandle = latticeFilterJob.ScheduleAppend(indices, lattices.Length, 1);
@@ -42,6 +45,7 @@ namespace Tests
 
 			lattices.Dispose();
 			indices.Dispose();
+			random.Dispose();
 		}
 	}
 }

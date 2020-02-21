@@ -17,12 +17,12 @@ namespace Tests
 			{
 				new Point[] {
 					new Point(), new Point(), new Point(),
-					new Point(), new Point(2, false), new Point(),
+					new Point(), new Point(2), new Point(),
 					new Point(), new Point(), new Point(),
 
 					// ---------------------------
 					new Point(), new Point(), new Point(),
-					new Point(), new Point(2, false), new Point(),
+					new Point(), new Point(2), new Point(),
 					new Point(), new Point(), new Point(),
 				},
 				new LatticeInfo[] {
@@ -32,37 +32,37 @@ namespace Tests
 				3,
 				new Point[] {
 					// ---------------------------
-					new Point(), new Point(3, false), new Point(),
-					new Point(), new Point(2, false), new Point(),
+					new Point(), new Point(3), new Point(),
+					new Point(), new Point(2), new Point(),
 					new Point(), new Point(), new Point(),
 
 					new Point(), new Point(), new Point(),
-					new Point(), new Point(2, false), new Point(3, false),
+					new Point(), new Point(2), new Point(3),
 					new Point(), new Point(), new Point(),
 
 					new Point(), new Point(), new Point(),
-					new Point(), new Point(2, false), new Point(),
-					new Point(), new Point(3, false), new Point(),
+					new Point(), new Point(2), new Point(),
+					new Point(), new Point(3), new Point(),
 
 					new Point(), new Point(), new Point(),
-					new Point(3, false), new Point(2, false), new Point(),
+					new Point(3), new Point(2), new Point(),
 					new Point(), new Point(), new Point(),
 
 					// ---------------------------
-					new Point(), new Point(3, false), new Point(),
-					new Point(), new Point(2, false), new Point(),
+					new Point(), new Point(3), new Point(),
+					new Point(), new Point(2), new Point(),
 					new Point(), new Point(), new Point(),
 
 					new Point(), new Point(), new Point(),
-					new Point(), new Point(2, false), new Point(3, false),
+					new Point(), new Point(2), new Point(3),
 					new Point(), new Point(), new Point(),
 
 					new Point(), new Point(), new Point(),
-					new Point(), new Point(2, false), new Point(),
-					new Point(), new Point(3, false), new Point(),
+					new Point(), new Point(2), new Point(),
+					new Point(), new Point(3), new Point(),
 
 					new Point(), new Point(), new Point(),
-					new Point(3, false), new Point(2, false), new Point(),
+					new Point(3), new Point(2), new Point(),
 					new Point(), new Point(), new Point(),
 				},
 				new LatticeInfo[] {
@@ -81,13 +81,14 @@ namespace Tests
 		};
 
 		[Test, TestCaseSource("LatticeJobTestCases")]
-		public void FilteredCopyJob_Should_CopySlicesOfInputThatCorrespondToSpecifiedIndices(
+		public void LatticeJob_Should_GenerateCorrectChildLattices(
 			Point[] inputPoints, LatticeInfo[] inputLattices, int size, Point[] expectedOutputPoints, LatticeInfo[] expectedOutputLattices)
 		{
 			NativeArray<Point> points = new NativeArray<Point>(inputPoints, Allocator.TempJob);
 			NativeArray<LatticeInfo> lattices = new NativeArray<LatticeInfo>(inputLattices, Allocator.TempJob);
 			NativeArray<Point> ouputPoints = new NativeArray<Point>(points.Length * 4, Allocator.TempJob);
 			NativeArray<LatticeInfo> outputLattices = new NativeArray<LatticeInfo>(lattices.Length * 4, Allocator.TempJob);
+			NativeArray<bool> parsedInput = new NativeArray<bool>(new bool[] { false, false, false }, Allocator.TempJob);
 
 			LatticeJob latticeJob = new LatticeJob()
 			{
@@ -96,7 +97,8 @@ namespace Tests
 				outputPoints = ouputPoints,
 				outputLattices = outputLattices,
 				size = size,
-				nextIsHydrophobic = false
+				nextIsHydrophobic = false,
+				parsedInput = parsedInput
 			};
 
 			JobHandle jobHandle = latticeJob.Schedule(lattices.Length, 1);
@@ -109,6 +111,7 @@ namespace Tests
 			lattices.Dispose();
 			ouputPoints.Dispose();
 			outputLattices.Dispose();
+			parsedInput.Dispose();
 		}
 
 	}

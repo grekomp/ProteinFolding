@@ -10,19 +10,17 @@ namespace ProteinFolding
 	public struct Point
 	{
 		public byte index;
-		public bool isHydrophobic;
 
-		public Point(byte index, bool isHydrophobic) : this()
+		public Point(byte index) : this()
 		{
 			this.index = index;
-			this.isHydrophobic = isHydrophobic;
 		}
 
 
 		#region Overrides
 		public override string ToString()
 		{
-			return $"Point({index}, {isHydrophobic})";
+			return $"Point({index})";
 		}
 		#endregion
 	}

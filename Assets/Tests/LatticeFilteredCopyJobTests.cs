@@ -17,9 +17,9 @@ namespace Tests
 			new object[]
 			{
 				new Point[] {
-					new Point(), new Point(2, false), new Point(3, true), new Point(),
-					new Point(), new Point(2, true), new Point(), new Point(),
-					new Point(), new Point(3, false), new Point(2, false), new Point(),
+					new Point(), new Point(2), new Point(3), new Point(),
+					new Point(), new Point(2), new Point(), new Point(),
+					new Point(), new Point(3), new Point(2), new Point(),
 				},
 				new LatticeInfo[] {
 					new LatticeInfo(true, 0, 3, 2),
@@ -29,8 +29,8 @@ namespace Tests
 				2,
 				new int[] {0, 2},
 				new Point[] {
-					new Point(), new Point(2, false), new Point(3, true), new Point(),
-					new Point(), new Point(3, false), new Point(2, false), new Point(),
+					new Point(), new Point(2), new Point(3), new Point(),
+					new Point(), new Point(3), new Point(2), new Point(),
 				},
 				new LatticeInfo[] {
 					new LatticeInfo(true, 0, 3, 2),
@@ -49,17 +49,17 @@ namespace Tests
 			NativeArray<Point> ouputPoints = new NativeArray<Point>(indicesArray.Length * size * size, Allocator.TempJob);
 			NativeArray<LatticeInfo> outputLattices = new NativeArray<LatticeInfo>(indicesArray.Length, Allocator.TempJob);
 
-			LatticeFilteredCopyJob doubleCopyJob = new LatticeFilteredCopyJob()
+			LatticeFilteredCopyJob filteredCopyJob = new LatticeFilteredCopyJob()
 			{
 				points = points,
 				lattices = lattices,
 				indices = indices,
 				outputPoints = ouputPoints,
 				outputLattices = outputLattices,
-				size = size
+				size = size,
 			};
 
-			JobHandle jobHandle = doubleCopyJob.Schedule(indicesArray.Length, 1);
+			JobHandle jobHandle = filteredCopyJob.Schedule(indicesArray.Length, 1);
 			jobHandle.Complete();
 
 			Assert.That(ouputPoints.ToArray(), Is.EqualTo(expectedOutputPoints));

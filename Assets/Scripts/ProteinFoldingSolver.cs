@@ -21,7 +21,7 @@ namespace ProteinFolding
 		[Space]
 		public LatticeReference outputLattice;
 		[Space]
-		public List<bool> parsedInput;
+		public List<bool> parsedInputPersistent;
 		public int outputLatticeIndex;
 
 		public bool suspendExecution = false;
@@ -50,7 +50,7 @@ namespace ProteinFolding
 		public void StartExecution()
 		{
 			// Parse input
-			parsedInput = ParseInput();
+			parsedInputPersistent = ParseInput();
 
 			// Start coroutine
 			Debug.Log("Started execution");
@@ -62,13 +62,13 @@ namespace ProteinFolding
 		{
 			lastBestEnergy = 0;
 
-			if (parsedInput.Count > 2)
+			if (parsedInputPersistent.Count > 2)
 			{
 				InitializeExecution();
 
 				// Place the rest of points
 				currentTreeLevel = 2;
-				while (currentTreeLevel < parsedInput.Count)
+				while (currentTreeLevel < parsedInputPersistent.Count)
 				{
 					if (suspendExecution)
 					{
@@ -97,15 +97,15 @@ namespace ProteinFolding
 		private void InitializeExecution()
 		{
 			// Create initial lattice
-			latticeSize = 2 * parsedInput.Count + 2;
+			latticeSize = 2 * parsedInputPersistent.Count + 2;
 
 			points = new NativeArray<Point>(latticeSize * latticeSize, Allocator.Persistent);
 			lattices = new NativeArray<LatticeInfo>(1, Allocator.Persistent);
 
 			// Place first two monomers arbitrarily
 			int initialIndex = latticeSize * ((latticeSize - 1) / 2) + (latticeSize / 2);
-			points[initialIndex] = new Point(2, parsedInput[0]);
-			points[initialIndex + 1] = new Point(3, parsedInput[1]);
+			points[initialIndex] = new Point(2);
+			points[initialIndex + 1] = new Point(3);
 			lattices[0] = new LatticeInfo(true, 0, 3, initialIndex + 1);
 		}
 		private void ExecuteTreeLevel()
@@ -113,8 +113,9 @@ namespace ProteinFolding
 			// Generate children
 			NativeArray<Point> childPoints = new NativeArray<Point>(lattices.Length * latticeSize * latticeSize * 4, Allocator.Persistent);
 			NativeArray<LatticeInfo> childLattices = new NativeArray<LatticeInfo>(lattices.Length * 4, Allocator.Persistent);
+			NativeArray<bool> parsedInput = new NativeArray<bool>(parsedInputPersistent.ToArray(), Allocator.TempJob);
 			Debug.Log($"Generating child lattices: {childLattices.Length}.");
-			GenerateChildLattices(childPoints, childLattices);
+			GenerateChildLattices(childPoints, childLattices, parsedInput);
 
 			points.Dispose();
 			lattices.Dispose();
@@ -141,6 +142,7 @@ namespace ProteinFolding
 			lattices = new NativeArray<LatticeInfo>(indices.Length, Allocator.TempJob);
 			FilterIndices(childPoints, childLattices, ref indices);
 
+			parsedInput.Dispose();
 			bestEnergy.Dispose();
 			averageEnergy.Dispose();
 			indices.Dispose();
@@ -173,16 +175,17 @@ namespace ProteinFolding
 			jobHandle.Complete();
 		}
 
-		private void GenerateChildLattices(NativeArray<Point> childPoints, NativeArray<LatticeInfo> childLattices)
+		private void GenerateChildLattices(NativeArray<Point> childPoints, NativeArray<LatticeInfo> childLattices, NativeArray<bool> parsedInput)
 		{
 			LatticeJob initialLatticeJob = new LatticeJob()
 			{
 				points = points,
 				lattices = lattices,
+				parsedInput = parsedInput,
 				size = latticeSize,
 				nextIsHydrophobic = parsedInput[currentTreeLevel],
 				outputPoints = childPoints,
-				outputLattices = childLattices
+				outputLattices = childLattices,
 			};
 
 			JobHandle jobHandle = initialLatticeJob.Schedule(lattices.Length, 100);
@@ -199,7 +202,7 @@ namespace ProteinFolding
 				random = randomValues,
 				pruningProbability01 = pruningProbability01.Value,
 				pruningProbability02 = pruningProbability02.Value,
-				lastPointIsHydrophobic = parsedInput[currentTreeLevel],
+				lastPointIsHydrophobic = parsedInputPersistent[currentTreeLevel],
 			};
 			jobHandle = latticeFilterJob.ScheduleAppend(indices, childLattices.Length, 1);
 			jobHandle.Complete();
@@ -263,17 +266,14 @@ namespace ProteinFolding
 			}
 
 			OutputLattice(bestIndex);
-
-
 		}
 		private void OutputLattice(int index)
 		{
 			outputLatticeIndex = index;
 
 			outputLattice.Value = new Lattice(
-							points.GetSubArray(latticeSize * latticeSize
-
-							* index, latticeSize * latticeSize).ToArray(),
+							points.GetSubArray(latticeSize * latticeSize * index, latticeSize * latticeSize).ToArray(),
+							parsedInputPersistent.ToArray(),
 							lattices[index].energy,
 							latticeSize);
 		}

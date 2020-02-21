@@ -18,6 +18,8 @@ namespace ProteinFolding
 		public NativeArray<Point> points;
 		[ReadOnly]
 		public NativeArray<LatticeInfo> lattices;
+		[ReadOnly]
+		public NativeArray<bool> parsedInput;
 
 		public int size;
 		public int executionIndex;
@@ -65,9 +67,9 @@ namespace ProteinFolding
 
 			// Validate the placement is correct
 			int originalPointIndex = baseIndex + adjacentIndex;
-			if (points[originalPointIndex].index > 0)
+			if (IsOccupied(originalPointIndex))
 			{
-				outputLattices[outputLatticeIndex] = new LatticeInfo(false, 0, outputLattice.lastPoint + 1, adjacentIndex);
+				OutputLattice(new LatticeInfo(false, 0, outputLattice.lastPoint + 1, adjacentIndex));
 				return;
 			}
 
@@ -76,7 +78,7 @@ namespace ProteinFolding
 
 			// Place point
 			int newPointIndex = outputBaseIndex + adjacentIndex;
-			outputPoints[newPointIndex] = new Point((byte)++outputLattice.lastPoint, isHydrophobic);
+			outputPoints[newPointIndex] = new Point((byte)++outputLattice.lastPoint);
 
 			// Update lattice info
 			outputLattice.lastIndex = adjacentIndex;
@@ -84,6 +86,16 @@ namespace ProteinFolding
 
 			// Add new lattice info to output
 			outputLattices[outputLatticeIndex] = outputLattice;
+		}
+
+		private void OutputLattice(LatticeInfo latticeInfo)
+		{
+			outputLattices[outputLatticeIndex] = latticeInfo;
+		}
+
+		private bool IsOccupied(int originalPointIndex)
+		{
+			return points[originalPointIndex].index > 0;
 		}
 		#endregion
 
@@ -124,9 +136,21 @@ namespace ProteinFolding
 			int adjacentIndex = GetAdjacentIndex(index, direction);
 			Point point = outputPoints[index];
 			Point adjacentPoint = outputPoints[adjacentIndex];
-			if (adjacentPoint.isHydrophobic && Math.Abs(point.index - adjacentPoint.index) > 1) return -1;
+			if (adjacentPoint.index > 0 && IsHydrophobic(adjacentPoint) && Math.Abs(point.index - adjacentPoint.index) > 1) return -1;
 
 			return 0;
+		}
+		#endregion
+
+
+		#region Data access helper methods
+		public bool IsHydrophobic(int index)
+		{
+			return parsedInput[index - 2];
+		}
+		public bool IsHydrophobic(Point point)
+		{
+			return IsHydrophobic(point.index);
 		}
 		#endregion
 
