@@ -13,9 +13,5013 @@ MonoBehaviour:
   m_Name: CurrentLattice
   m_EditorClassIdentifier: 
   baseValue:
+    points: []
+    size: 0
     energy: 0
   value:
-    energy: 0
+    points:
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 23
+      isHydrophobic: 0
+    - index: 22
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 24
+      isHydrophobic: 1
+    - index: 21
+      isHydrophobic: 1
+    - index: 20
+      isHydrophobic: 0
+    - index: 19
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 25
+      isHydrophobic: 1
+    - index: 2
+      isHydrophobic: 1
+    - index: 3
+      isHydrophobic: 1
+    - index: 18
+      isHydrophobic: 1
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 5
+      isHydrophobic: 0
+    - index: 4
+      isHydrophobic: 0
+    - index: 17
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 7
+      isHydrophobic: 0
+    - index: 6
+      isHydrophobic: 1
+    - index: 15
+      isHydrophobic: 1
+    - index: 16
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 8
+      isHydrophobic: 0
+    - index: 9
+      isHydrophobic: 1
+    - index: 14
+      isHydrophobic: 0
+    - index: 13
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 10
+      isHydrophobic: 0
+    - index: 11
+      isHydrophobic: 0
+    - index: 12
+      isHydrophobic: 1
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    - index: 0
+      isHydrophobic: 0
+    size: 50
+    energy: -6
   resetValueOnStartup: 0
   logValueGet: 0
   logValueSet: 0

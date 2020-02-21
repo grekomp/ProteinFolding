@@ -26,11 +26,12 @@ namespace ProteinFolding
 		// Runtime variables
 		private int baseIndex;
 		private int outputBaseIndex;
+		private int outputLatticeIndex;
 
 		// Outputs
 		[NativeDisableParallelForRestriction]
 		public NativeArray<Point> outputPoints;
-		[WriteOnly]
+
 		[NativeDisableParallelForRestriction]
 		public NativeArray<LatticeInfo> outputLattices;
 
@@ -40,13 +41,17 @@ namespace ProteinFolding
 			executionIndex = index;
 			baseIndex = executionIndex * size * size;
 			outputBaseIndex = executionIndex * size * size * 4;
+			outputLatticeIndex = executionIndex * 4;
 
 			TryPlacePoint(nextIsHydrophobic, Direction.Up);
 			outputBaseIndex += size * size;
+			outputLatticeIndex++;
 			TryPlacePoint(nextIsHydrophobic, Direction.Right);
 			outputBaseIndex += size * size;
+			outputLatticeIndex++;
 			TryPlacePoint(nextIsHydrophobic, Direction.Down);
 			outputBaseIndex += size * size;
+			outputLatticeIndex++;
 			TryPlacePoint(nextIsHydrophobic, Direction.Left);
 		}
 
@@ -62,7 +67,7 @@ namespace ProteinFolding
 			int originalPointIndex = baseIndex + adjacentIndex;
 			if (points[originalPointIndex].index > 0)
 			{
-				outputLattices[executionIndex + (int)direction] = new LatticeInfo(false, 0, outputLattice.lastPoint + 1, adjacentIndex);
+				outputLattices[outputLatticeIndex] = new LatticeInfo(false, 0, outputLattice.lastPoint + 1, adjacentIndex);
 				return;
 			}
 
@@ -71,14 +76,14 @@ namespace ProteinFolding
 
 			// Place point
 			int newPointIndex = outputBaseIndex + adjacentIndex;
-			outputPoints[newPointIndex] = new Point() { index = ++outputLattice.lastPoint, isHydrophobic = isHydrophobic };
+			outputPoints[newPointIndex] = new Point((byte)++outputLattice.lastPoint, isHydrophobic);
 
 			// Update lattice info
 			outputLattice.lastIndex = adjacentIndex;
-			outputLattice.energy += GetOutputEnergyPoint(outputBaseIndex + outputLattice.lastIndex, isHydrophobic);
+			outputLattice.energy += GetOutputEnergyPoint(newPointIndex, isHydrophobic);
 
 			// Add new lattice info to output
-			outputLattices[executionIndex * 4 + (int)direction] = outputLattice;
+			outputLattices[outputLatticeIndex] = outputLattice;
 		}
 		#endregion
 
@@ -130,11 +135,6 @@ namespace ProteinFolding
 		private void CopyPoints(int inputBaseIndex, int outputBaseIndex)
 		{
 			points.GetSubArray(inputBaseIndex, size * size).CopyTo(outputPoints.GetSubArray(outputBaseIndex, size * size));
-
-			//for (int i = 0; i < size; i++)
-			//{
-			//	outputPoints[outputBaseIndex + i] = points[inputBaseIndex + i];
-			//}
 		}
 		#endregion
 	}

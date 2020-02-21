@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: InputString
   m_EditorClassIdentifier: 
   baseValue: 
-  value: HPHPPHHPHPPHPHHPPHPH
+  value: HHPPHPPHPPHPPHPPHPPHPPHH
   resetValueOnStartup: 0
   logValueGet: 0
   logValueSet: 0

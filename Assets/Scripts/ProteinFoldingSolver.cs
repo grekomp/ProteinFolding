@@ -19,25 +19,30 @@ namespace ProteinFolding
 		[Header("Output Variables")]
 		public IntReference outputEnergy;
 		[Space]
-		public int energyValuesCount;
-		public int bestEnergyValue;
-		public float averageEnergyValue;
 		public LatticeReference outputLattice;
 		[Space]
 		public List<bool> parsedInput;
+		public int outputLatticeIndex;
+
+		public bool suspendExecution = false;
+		public bool stepByStepExecution = false;
 
 
 		[Header("Runtime Variables")]
-		Coroutine runningExecution;
 		public int latticeSize = 0;
+
+		//public Point[] pointsPersistent;
+		//public LatticeInfo[] latticesPresistent;
+		public float[] randomValuesPersistent;
 
 		public NativeArray<Point> points;
 		public NativeArray<LatticeInfo> lattices;
 
+		[Space]
 		public int currentTreeLevel = 0;
+		public int lastBestEnergy = 0;
 
-		public int prunedTrees01 = 0;
-		public int prunedTrees02 = 0;
+		Coroutine runningExecution;
 
 
 		#region Executing simulation
@@ -47,13 +52,6 @@ namespace ProteinFolding
 			// Parse input
 			parsedInput = ParseInput();
 
-			// Init
-			energyValuesCount = 0;
-			bestEnergyValue = 0;
-			averageEnergyValue = 0;
-			prunedTrees01 = 0;
-			prunedTrees02 = 0;
-
 			// Start coroutine
 			Debug.Log("Started execution");
 			if (runningExecution != null) StopCoroutine(runningExecution);
@@ -62,6 +60,8 @@ namespace ProteinFolding
 
 		public IEnumerator Execute()
 		{
+			lastBestEnergy = 0;
+
 			if (parsedInput.Count > 2)
 			{
 				InitializeExecution();
@@ -70,6 +70,16 @@ namespace ProteinFolding
 				currentTreeLevel = 2;
 				while (currentTreeLevel < parsedInput.Count)
 				{
+					if (suspendExecution)
+					{
+						yield return null;
+						continue;
+					}
+					if (stepByStepExecution)
+					{
+						suspendExecution = true;
+					}
+
 					ExecuteTreeLevel();
 
 					currentTreeLevel++;
@@ -80,28 +90,6 @@ namespace ProteinFolding
 			}
 
 			yield return null;
-		}
-
-		private void CreateOutputLattice()
-		{
-			LatticeInfo bestLatticeInfo = new LatticeInfo();
-			int bestIndex = 0;
-			for (int i = 0; i < lattices.Length; i++)
-			{
-				if (lattices[i].energy < bestLatticeInfo.energy)
-				{
-					bestLatticeInfo = lattices[i];
-					bestIndex = i;
-				}
-			}
-
-			outputLattice.Value = new Lattice(
-				points.GetSubArray(latticeSize * latticeSize
-
-				* bestIndex, latticeSize * latticeSize).ToArray(),
-				bestLatticeInfo.energy,
-				latticeSize);
-
 			points.Dispose();
 			lattices.Dispose();
 		}
@@ -123,8 +111,8 @@ namespace ProteinFolding
 		private void ExecuteTreeLevel()
 		{
 			// Generate children
-			NativeArray<Point> childPoints = new NativeArray<Point>(lattices.Length * latticeSize * latticeSize * 4, Allocator.TempJob);
-			NativeArray<LatticeInfo> childLattices = new NativeArray<LatticeInfo>(lattices.Length * 4, Allocator.TempJob);
+			NativeArray<Point> childPoints = new NativeArray<Point>(lattices.Length * latticeSize * latticeSize * 4, Allocator.Persistent);
+			NativeArray<LatticeInfo> childLattices = new NativeArray<LatticeInfo>(lattices.Length * 4, Allocator.Persistent);
 			Debug.Log($"Generating child lattices: {childLattices.Length}.");
 			GenerateChildLattices(childPoints, childLattices);
 
@@ -136,9 +124,13 @@ namespace ProteinFolding
 			NativeArray<int> bestEnergy = new NativeArray<int>(1, Allocator.TempJob);
 			CalculateAverageEnergy(childLattices, averageEnergy, bestEnergy);
 
-			// Generate random pruning values
+			//if (bestEnergy[0] > lastBestEnergy) Debug.Break();
+			lastBestEnergy = bestEnergy[0];
+
+			// Generate random values
 			NativeArray<float> randomValues = new NativeArray<float>(childLattices.Length, Allocator.TempJob);
 			GenerateRandomElements(ref randomValues);
+			//NativeArray<float> randomValues = new NativeArray<float>(randomValuesPersistent, Allocator.TempJob);
 
 			// Generate filtered indices
 			NativeList<int> indices = new NativeList<int>(childLattices.Length, Allocator.TempJob);
@@ -155,6 +147,12 @@ namespace ProteinFolding
 			childPoints.Dispose();
 			childLattices.Dispose();
 			randomValues.Dispose();
+
+			//pointsPersistent = new Point[points.Length];
+			//latticesPresistent = new LatticeInfo[lattices.Length];
+
+			//points.CopyTo(pointsPersistent);
+			//lattices.CopyTo(latticesPresistent);
 
 			Debug.Log($"Executed tree level {currentTreeLevel}.");
 		}
@@ -174,7 +172,6 @@ namespace ProteinFolding
 			jobHandle = filteredCopyJob.Schedule(indices.Length, 1);
 			jobHandle.Complete();
 		}
-
 
 		private void GenerateChildLattices(NativeArray<Point> childPoints, NativeArray<LatticeInfo> childLattices)
 		{
@@ -201,7 +198,8 @@ namespace ProteinFolding
 				bestEnergy = bestEnergy,
 				random = randomValues,
 				pruningProbability01 = pruningProbability01.Value,
-				pruningProbability02 = pruningProbability02.Value
+				pruningProbability02 = pruningProbability02.Value,
+				lastPointIsHydrophobic = parsedInput[currentTreeLevel],
 			};
 			jobHandle = latticeFilterJob.ScheduleAppend(indices, childLattices.Length, 1);
 			jobHandle.Complete();
@@ -210,19 +208,33 @@ namespace ProteinFolding
 		}
 		private static void CalculateAverageEnergy(NativeArray<LatticeInfo> childLattices, NativeArray<float> averageEnergy, NativeArray<int> bestEnergy)
 		{
-			JobHandle jobHandle;
+
 			LatticesCalculateAverageEnergyJob latticesCalculateAverageEnergyJob = new LatticesCalculateAverageEnergyJob()
 			{
 				lattices = childLattices,
 				averageEnergy = averageEnergy,
 				bestEnergy = bestEnergy
 			};
-			jobHandle = latticesCalculateAverageEnergyJob.Schedule();
-			jobHandle.Complete();
+			latticesCalculateAverageEnergyJob.Schedule().Complete();
 
 			Debug.Log($"Calculated average energy: {averageEnergy[0]}, bestEnergy: {bestEnergy[0]}.");
 		}
+		#endregion
 
+
+		#region Random values generation
+		[ContextMenu("Regenerate random values array")]
+		public void RegenerateRandomValuesArray()
+		{
+			// Generate random pruning values
+			NativeArray<float> randomValues = new NativeArray<float>(10000, Allocator.TempJob);
+			GenerateRandomElements(ref randomValues);
+
+			randomValuesPersistent = new float[10000];
+			randomValues.CopyTo(randomValuesPersistent);
+
+			randomValues.Dispose();
+		}
 		public static void GenerateRandomElements(ref NativeArray<float> elements)
 		{
 			GenerateRandomElementsJob generateRandomElementsJob = new GenerateRandomElementsJob()
@@ -231,6 +243,50 @@ namespace ProteinFolding
 				randomElements = elements
 			};
 			generateRandomElementsJob.Schedule().Complete();
+		}
+		#endregion
+
+
+		#region Output
+		[ContextMenu("Output best lattice")]
+		private void CreateOutputLattice()
+		{
+			LatticeInfo bestLatticeInfo = new LatticeInfo();
+			int bestIndex = 0;
+			for (int i = 0; i < lattices.Length; i++)
+			{
+				if (lattices[i].energy < bestLatticeInfo.energy)
+				{
+					bestLatticeInfo = lattices[i];
+					bestIndex = i;
+				}
+			}
+
+			OutputLattice(bestIndex);
+
+
+		}
+		private void OutputLattice(int index)
+		{
+			outputLatticeIndex = index;
+
+			outputLattice.Value = new Lattice(
+							points.GetSubArray(latticeSize * latticeSize
+
+							* index, latticeSize * latticeSize).ToArray(),
+							lattices[index].energy,
+							latticeSize);
+		}
+
+		[ContextMenu("Output next lattice")]
+		public void OutputNext()
+		{
+			OutputLattice(++outputLatticeIndex);
+		}
+		[ContextMenu("Output prev lattice")]
+		public void OutputPrevious()
+		{
+			OutputLattice(--outputLatticeIndex);
 		}
 		#endregion
 

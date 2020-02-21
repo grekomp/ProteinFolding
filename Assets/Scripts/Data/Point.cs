@@ -9,10 +9,10 @@ namespace ProteinFolding
 	[Serializable]
 	public struct Point
 	{
-		public int index;
+		public byte index;
 		public bool isHydrophobic;
 
-		public Point(int index, bool isHydrophobic) : this()
+		public Point(byte index, bool isHydrophobic) : this()
 		{
 			this.index = index;
 			this.isHydrophobic = isHydrophobic;

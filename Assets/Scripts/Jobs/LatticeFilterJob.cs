@@ -25,10 +25,14 @@ namespace ProteinFolding
 		[ReadOnly]
 		public int bestEnergy;
 
+		public bool lastPointIsHydrophobic;
+
 		public bool Execute(int index)
 		{
 			if (lattices[index].isValid)
 			{
+				if (lastPointIsHydrophobic) return true;
+
 				if (lattices[index].energy <= bestEnergy) return true;
 
 				if (lattices[index].energy <= averageEnergy)
