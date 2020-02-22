@@ -9,18 +9,18 @@ namespace ProteinFolding
 	[Serializable]
 	public struct Point
 	{
-		public byte index;
+		public short conformationIndex;
 
-		public Point(byte index) : this()
+		public Point(short proteinStringIndex) : this()
 		{
-			this.index = index;
+			this.conformationIndex = proteinStringIndex;
 		}
 
 
 		#region Overrides
 		public override string ToString()
 		{
-			return $"Point({index})";
+			return $"Point({conformationIndex})";
 		}
 		#endregion
 	}

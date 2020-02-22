@@ -24,6 +24,7 @@ namespace ProteinFolding
 		public int size;
 		public int executionIndex;
 		public bool nextIsHydrophobic;
+		public int currentProteinStringIndex;
 
 		// Runtime variables
 		private int baseIndex;
@@ -66,6 +67,7 @@ namespace ProteinFolding
 			int adjacentIndex = GetAdjacentIndex(outputLattice.lastIndex, direction);
 
 			// Validate the placement is correct
+			Point adjacentPoint = GetAdjacentPoint(outputLattice.lastIndex, direction);
 			int originalPointIndex = baseIndex + adjacentIndex;
 			if (IsOccupied(originalPointIndex))
 			{
@@ -95,7 +97,7 @@ namespace ProteinFolding
 
 		private bool IsOccupied(int originalPointIndex)
 		{
-			return points[originalPointIndex].index > 0;
+			return points[originalPointIndex].conformationIndex > 0;
 		}
 		#endregion
 
@@ -108,18 +110,24 @@ namespace ProteinFolding
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public int GetAdjacentIndex(int index, Direction direction)
+		public int GetAdjacentIndex(int conformationIndex, Direction direction)
 		{
-			index += direction == Direction.Left ? -1 : 0;
-			index += direction == Direction.Right ? 1 : 0;
+			conformationIndex += direction == Direction.Left ? -1 : 0;
+			conformationIndex += direction == Direction.Right ? 1 : 0;
 
-			index += direction == Direction.Up ? -size : 0;
-			index += direction == Direction.Down ? size : 0;
+			conformationIndex += direction == Direction.Up ? -size : 0;
+			conformationIndex += direction == Direction.Down ? size : 0;
 
-			return index;
+			return conformationIndex;
 		}
+		public Point GetAdjacentPoint(int conformationIndex, Direction direction)
+		{
+			return points[GetAdjacentIndex(conformationIndex, direction)];
+		}
+		#endregion
 
 
+		#region Energy calculations
 		public int GetOutputEnergyPoint(int index, bool isHydrophobic)
 		{
 			int pointEnergy = 0;
@@ -136,7 +144,7 @@ namespace ProteinFolding
 			int adjacentIndex = GetAdjacentIndex(index, direction);
 			Point point = outputPoints[index];
 			Point adjacentPoint = outputPoints[adjacentIndex];
-			if (adjacentPoint.index > 0 && IsHydrophobic(adjacentPoint) && Math.Abs(point.index - adjacentPoint.index) > 1) return -1;
+			if (adjacentPoint.conformationIndex > 0 && IsHydrophobic(adjacentPoint) && Math.Abs(point.conformationIndex - adjacentPoint.conformationIndex) > 1) return -1;
 
 			return 0;
 		}
@@ -144,13 +152,26 @@ namespace ProteinFolding
 
 
 		#region Data access helper methods
-		public bool IsHydrophobic(int index)
+		public bool IsHydrophobic(int proteinStringIndex)
 		{
-			return parsedInput[index - 2];
+			return parsedInput[proteinStringIndex - 2];
 		}
 		public bool IsHydrophobic(Point point)
 		{
-			return IsHydrophobic(point.index);
+			return IsHydrophobic(point.conformationIndex);
+		}
+
+		public IndexedPoint FindPointWithIndex(int conformationIndex)
+		{
+			for (int i = 0; i < currentProteinStringIndex; i++)
+			{
+				if (points[baseIndex + i].conformationIndex == conformationIndex)
+				{
+					return new IndexedPoint(points[baseIndex + i], i);
+				}
+			}
+
+			return new IndexedPoint();
 		}
 		#endregion
 

@@ -56,7 +56,7 @@ namespace Tests
 				indices = indices,
 				outputPoints = ouputPoints,
 				outputLattices = outputLattices,
-				size = size,
+				singleLatticePointsCount = size * size,
 			};
 
 			JobHandle jobHandle = filteredCopyJob.Schedule(indicesArray.Length, 1);

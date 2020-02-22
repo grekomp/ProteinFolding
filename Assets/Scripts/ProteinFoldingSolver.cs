@@ -111,8 +111,8 @@ namespace ProteinFolding
 		private void ExecuteTreeLevel()
 		{
 			// Generate children
-			NativeArray<Point> childPoints = new NativeArray<Point>(lattices.Length * latticeSize * latticeSize * 4, Allocator.Persistent);
-			NativeArray<LatticeInfo> childLattices = new NativeArray<LatticeInfo>(lattices.Length * 4, Allocator.Persistent);
+			NativeArray<Point> childPoints = new NativeArray<Point>(lattices.Length * latticeSize * latticeSize * 4, Allocator.TempJob);
+			NativeArray<LatticeInfo> childLattices = new NativeArray<LatticeInfo>(lattices.Length * 4, Allocator.TempJob);
 			NativeArray<bool> parsedInput = new NativeArray<bool>(parsedInputPersistent.ToArray(), Allocator.TempJob);
 			Debug.Log($"Generating child lattices: {childLattices.Length}.");
 			GenerateChildLattices(childPoints, childLattices, parsedInput);
@@ -138,8 +138,8 @@ namespace ProteinFolding
 			GenerateIndicesFilter(ref childLattices, averageEnergy[0], bestEnergy[0], indices, randomValues);
 
 			// Generate filtered output 
-			points = new NativeArray<Point>(latticeSize * latticeSize * indices.Length, Allocator.TempJob);
-			lattices = new NativeArray<LatticeInfo>(indices.Length, Allocator.TempJob);
+			points = new NativeArray<Point>(latticeSize * latticeSize * indices.Length, Allocator.Persistent);
+			lattices = new NativeArray<LatticeInfo>(indices.Length, Allocator.Persistent);
 			FilterIndices(childPoints, childLattices, ref indices);
 
 			parsedInput.Dispose();
@@ -167,7 +167,7 @@ namespace ProteinFolding
 				points = childPoints,
 				lattices = childLattices,
 				indices = indices,
-				size = latticeSize,
+				singleLatticePointsCount = latticeSize * latticeSize,
 				outputPoints = points,
 				outputLattices = lattices
 			};
@@ -211,7 +211,6 @@ namespace ProteinFolding
 		}
 		private static void CalculateAverageEnergy(NativeArray<LatticeInfo> childLattices, NativeArray<float> averageEnergy, NativeArray<int> bestEnergy)
 		{
-
 			LatticesCalculateAverageEnergyJob latticesCalculateAverageEnergyJob = new LatticesCalculateAverageEnergyJob()
 			{
 				lattices = childLattices,

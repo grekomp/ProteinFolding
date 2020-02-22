@@ -1460,13 +1460,11 @@ MonoBehaviour:
     debugVariableReplacements: 1
     debugFailedVariableReplacements: 0
     debugChanges: 1
-  energyValuesCount: 0
-  bestEnergyValue: 0
-  averageEnergyValue: 0
   outputLattice:
     useConstant: 0
     constantValue:
       points: []
+      parsedInput: 
       size: 0
       energy: 0
     variable: {fileID: 11400000, guid: 6c047ba8ce785e341a7efc71acb309c4, type: 2}
@@ -1476,15 +1474,14 @@ MonoBehaviour:
     debugVariableReplacements: 1
     debugFailedVariableReplacements: 0
     debugChanges: 1
-  parsedInput: 010100000100000100000100000100000100000100000101
+  parsedInputPersistent: 00000100000101000000000101000000000101000000000101
   outputLatticeIndex: 0
   suspendExecution: 0
   stepByStepExecution: 0
-  latticeSize: 50
-  currentTreeLevel: 19
-  prunedTrees01: 0
-  prunedTrees02: 0
-  lastBestEnergy: -6
+  latticeSize: 52
+  randomValuesPersistent: []
+  currentTreeLevel: 6
+  lastBestEnergy: -1
 --- !u!4 &1494294019
 Transform:
   m_ObjectHideFlags: 0
@@ -1826,6 +1823,7 @@ MonoBehaviour:
     useConstant: 0
     constantValue:
       points: []
+      parsedInput: 
       size: 0
       energy: 0
     variable: {fileID: 11400000, guid: 6c047ba8ce785e341a7efc71acb309c4, type: 2}

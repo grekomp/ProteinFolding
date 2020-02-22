@@ -19,7 +19,8 @@ namespace ProteinFolding
 		public NativeArray<LatticeInfo> lattices;
 		[ReadOnly]
 		public NativeArray<int> indices;
-		public int size;
+		[ReadOnly]
+		public int singleLatticePointsCount;
 
 
 		// Outputs
@@ -33,8 +34,8 @@ namespace ProteinFolding
 
 		public void Execute(int index)
 		{
-			int inputBaseIndex = indices[index] * size * size;
-			int outputBaseIndex = index * size * size;
+			int inputBaseIndex = indices[index] * singleLatticePointsCount;
+			int outputBaseIndex = index * singleLatticePointsCount;
 
 			outputLattices[index] = lattices[indices[index]];
 			CopyPoints(inputBaseIndex, outputBaseIndex);
@@ -42,7 +43,7 @@ namespace ProteinFolding
 
 		private void CopyPoints(int inputBaseIndex, int outputBaseIndex)
 		{
-			points.GetSubArray(inputBaseIndex, size * size).CopyTo(outputPoints.GetSubArray(outputBaseIndex, size * size));
+			points.GetSubArray(inputBaseIndex, singleLatticePointsCount).CopyTo(outputPoints.GetSubArray(outputBaseIndex, singleLatticePointsCount));
 		}
 	}
 }
