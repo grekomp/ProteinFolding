@@ -16,66 +16,40 @@ namespace Tests
 			new object[]
 			{
 				new Point[] {
-					new Point(), new Point(), new Point(),
-					new Point(), new Point(2), new Point(),
-					new Point(), new Point(), new Point(),
+					new Point(4), new Point(), new Point(),
 
 					// ---------------------------
-					new Point(), new Point(), new Point(),
-					new Point(), new Point(2), new Point(),
-					new Point(), new Point(), new Point(),
+					new Point(4), new Point(), new Point(),
 				},
 				new LatticeInfo[] {
-					new LatticeInfo(true, 0, 2, 4),
-					new LatticeInfo(true, 0, 2, 4),
+					new LatticeInfo(true, 0),
+					new LatticeInfo(true, 0),
 				},
 				3,
 				new Point[] {
 					// ---------------------------
-					new Point(), new Point(3), new Point(),
-					new Point(), new Point(2), new Point(),
-					new Point(), new Point(), new Point(),
-
-					new Point(), new Point(), new Point(),
-					new Point(), new Point(2), new Point(3),
-					new Point(), new Point(), new Point(),
-
-					new Point(), new Point(), new Point(),
-					new Point(), new Point(2), new Point(),
-					new Point(), new Point(3), new Point(),
-
-					new Point(), new Point(), new Point(),
-					new Point(3), new Point(2), new Point(),
-					new Point(), new Point(), new Point(),
+					new Point(4), new Point(1), new Point(),
+					new Point(4), new Point(5), new Point(),
+					new Point(4), new Point(7), new Point(),
+					new Point(4), new Point(3), new Point(),
 
 					// ---------------------------
-					new Point(), new Point(3), new Point(),
-					new Point(), new Point(2), new Point(),
-					new Point(), new Point(), new Point(),
-
-					new Point(), new Point(), new Point(),
-					new Point(), new Point(2), new Point(3),
-					new Point(), new Point(), new Point(),
-
-					new Point(), new Point(), new Point(),
-					new Point(), new Point(2), new Point(),
-					new Point(), new Point(3), new Point(),
-
-					new Point(), new Point(), new Point(),
-					new Point(3), new Point(2), new Point(),
-					new Point(), new Point(), new Point(),
+					new Point(4), new Point(1), new Point(),
+					new Point(4), new Point(5), new Point(),
+					new Point(4), new Point(7), new Point(),
+					new Point(4), new Point(3), new Point(),
 				},
 				new LatticeInfo[] {
-					new LatticeInfo(true, 0, 3, 1),
-					new LatticeInfo(true, 0, 3, 5),
-					new LatticeInfo(true, 0, 3, 7),
-					new LatticeInfo(true, 0, 3, 3),
+					new LatticeInfo(true, 0),
+					new LatticeInfo(true, 0),
+					new LatticeInfo(true, 0),
+					new LatticeInfo(true, 0),
 
 					// ---------------------------
-					new LatticeInfo(true, 0, 3, 1),
-					new LatticeInfo(true, 0, 3, 5),
-					new LatticeInfo(true, 0, 3, 7),
-					new LatticeInfo(true, 0, 3, 3),
+					new LatticeInfo(true, 0),
+					new LatticeInfo(true, 0),
+					new LatticeInfo(true, 0),
+					new LatticeInfo(true, 0),
 				},
 			},
 		};
@@ -98,7 +72,8 @@ namespace Tests
 				outputLattices = outputLattices,
 				size = size,
 				nextIsHydrophobic = false,
-				parsedInput = parsedInput
+				parsedInput = parsedInput,
+				currentProteinStringIndex = 1,
 			};
 
 			JobHandle jobHandle = latticeJob.Schedule(lattices.Length, 1);
@@ -112,75 +87,6 @@ namespace Tests
 			ouputPoints.Dispose();
 			outputLattices.Dispose();
 			parsedInput.Dispose();
-		}
-
-
-		public static object[] GetAdjacentPointTestCases = new object[]
-		{
-			new object[]
-			{
-				3,
-				4,
-				Direction.Up,
-				new Point[] {
-					new Point(), new Point(3), new Point(),
-					new Point(), new Point(2), new Point(),
-					new Point(), new Point(), new Point(),
-				},
-				new Point(3),
-			},
-			new object[]
-			{
-				3,
-				4,
-				Direction.Down,
-				new Point[] {
-					new Point(), new Point(3), new Point(),
-					new Point(), new Point(2), new Point(),
-					new Point(), new Point(), new Point(),
-				},
-				new Point(),
-			},
-			new object[]
-			{
-				3,
-				4,
-				Direction.Right,
-				new Point[] {
-					new Point(), new Point(3), new Point(),
-					new Point(), new Point(2), new Point(4),
-					new Point(), new Point(), new Point(),
-				},
-				new Point(4),
-			},
-			new object[]
-			{
-				3,
-				4,
-				Direction.Left,
-				new Point[] {
-					new Point(), new Point(3), new Point(),
-					new Point(8), new Point(2), new Point(4),
-					new Point(7), new Point(6), new Point(5),
-				},
-				new Point(8),
-			},
-		};
-
-		[Test]
-		[TestCaseSource("GetAdjacentPointTestCases")]
-		public void GetAdjacentPoint_Should_ReturnTheCorrectPointFromInputPoints(int size, int index, Direction direction, Point[] inputPoints, Point expectedOutput)
-		{
-			NativeArray<Point> points = new NativeArray<Point>(inputPoints, Allocator.TempJob);
-
-			LatticeJob latticeJob = new LatticeJob()
-			{
-				points = points,
-				size = 3,
-			};
-
-			Assert.That(latticeJob.GetAdjacentPoint(index, direction), Is.EqualTo(expectedOutput));
-			points.Dispose();
 		}
 	}
 }

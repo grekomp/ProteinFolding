@@ -22,9 +22,9 @@ namespace Tests
 					new Point(), new Point(3), new Point(2), new Point(),
 				},
 				new LatticeInfo[] {
-					new LatticeInfo(true, 0, 3, 2),
-					new LatticeInfo(true, 0, 2, 1),
-					new LatticeInfo(true, 0, 3, 1),
+					new LatticeInfo(true, 0),
+					new LatticeInfo(true, 0),
+					new LatticeInfo(true, -1),
 				},
 				2,
 				new int[] {0, 2},
@@ -33,8 +33,8 @@ namespace Tests
 					new Point(), new Point(3), new Point(2), new Point(),
 				},
 				new LatticeInfo[] {
-					new LatticeInfo(true, 0, 3, 2),
-					new LatticeInfo(true, 0, 3, 1),
+					new LatticeInfo(true, 0),
+					new LatticeInfo(true, -1),
 				},
 			}
 		};

@@ -42,18 +42,18 @@ namespace ProteinFolding
 		public void Execute(int index)
 		{
 			executionIndex = index;
-			baseIndex = executionIndex * size * size;
-			outputBaseIndex = executionIndex * size * size * 4;
+			baseIndex = executionIndex * parsedInput.Length;
+			outputBaseIndex = executionIndex * parsedInput.Length * 4;
 			outputLatticeIndex = executionIndex * 4;
 
 			TryPlacePoint(nextIsHydrophobic, Direction.Up);
-			outputBaseIndex += size * size;
+			outputBaseIndex += parsedInput.Length;
 			outputLatticeIndex++;
 			TryPlacePoint(nextIsHydrophobic, Direction.Right);
-			outputBaseIndex += size * size;
+			outputBaseIndex += parsedInput.Length;
 			outputLatticeIndex++;
 			TryPlacePoint(nextIsHydrophobic, Direction.Down);
-			outputBaseIndex += size * size;
+			outputBaseIndex += parsedInput.Length;
 			outputLatticeIndex++;
 			TryPlacePoint(nextIsHydrophobic, Direction.Left);
 		}
@@ -64,14 +64,13 @@ namespace ProteinFolding
 		{
 			// Load lattice info
 			LatticeInfo outputLattice = lattices[executionIndex];
-			int adjacentIndex = GetAdjacentIndex(outputLattice.lastIndex, direction);
 
-			// Validate the placement is correct
-			Point adjacentPoint = GetAdjacentPoint(outputLattice.lastIndex, direction);
-			int originalPointIndex = baseIndex + adjacentIndex;
-			if (IsOccupied(originalPointIndex))
+			// Check if position is free
+			int lastIndex = points[baseIndex + currentProteinStringIndex - 1].conformationIndex;
+			int adjacentIndex = GetAdjacentIndex(lastIndex, direction);
+			if (IsOccupied(adjacentIndex))
 			{
-				OutputLattice(new LatticeInfo(false, 0, outputLattice.lastPoint + 1, adjacentIndex));
+				OutputLattice(new LatticeInfo(false, 0));
 				return;
 			}
 
@@ -79,12 +78,10 @@ namespace ProteinFolding
 			CopyPoints(baseIndex, outputBaseIndex);
 
 			// Place point
-			int newPointIndex = outputBaseIndex + adjacentIndex;
-			outputPoints[newPointIndex] = new Point((byte)++outputLattice.lastPoint);
+			outputPoints[outputBaseIndex + currentProteinStringIndex] = new Point((short)adjacentIndex);
 
 			// Update lattice info
-			outputLattice.lastIndex = adjacentIndex;
-			outputLattice.energy += GetOutputEnergyPoint(newPointIndex, isHydrophobic);
+			outputLattice.energy += GetOutputEnergyPoint(adjacentIndex, isHydrophobic);
 
 			// Add new lattice info to output
 			outputLattices[outputLatticeIndex] = outputLattice;
@@ -97,7 +94,7 @@ namespace ProteinFolding
 
 		private bool IsOccupied(int originalPointIndex)
 		{
-			return points[originalPointIndex].conformationIndex > 0;
+			return FindPointWithIndex(originalPointIndex).point.conformationIndex > 0;
 		}
 		#endregion
 
@@ -120,31 +117,26 @@ namespace ProteinFolding
 
 			return conformationIndex;
 		}
-		public Point GetAdjacentPoint(int conformationIndex, Direction direction)
-		{
-			return points[GetAdjacentIndex(conformationIndex, direction)];
-		}
 		#endregion
 
 
 		#region Energy calculations
-		public int GetOutputEnergyPoint(int index, bool isHydrophobic)
+		public int GetOutputEnergyPoint(int conformationIndex, bool isHydrophobic)
 		{
 			int pointEnergy = 0;
-			pointEnergy += GetOutputEnergySingleDirection(index, Direction.Up, isHydrophobic);
-			pointEnergy += GetOutputEnergySingleDirection(index, Direction.Right, isHydrophobic);
-			pointEnergy += GetOutputEnergySingleDirection(index, Direction.Down, isHydrophobic);
-			pointEnergy += GetOutputEnergySingleDirection(index, Direction.Left, isHydrophobic);
+			pointEnergy += GetOutputEnergySingleDirection(conformationIndex, Direction.Up, isHydrophobic);
+			pointEnergy += GetOutputEnergySingleDirection(conformationIndex, Direction.Right, isHydrophobic);
+			pointEnergy += GetOutputEnergySingleDirection(conformationIndex, Direction.Down, isHydrophobic);
+			pointEnergy += GetOutputEnergySingleDirection(conformationIndex, Direction.Left, isHydrophobic);
 			return pointEnergy;
 		}
-		public int GetOutputEnergySingleDirection(int index, Direction direction, bool isHydrophobic)
+		public int GetOutputEnergySingleDirection(int conformationIndex, Direction direction, bool isHydrophobic)
 		{
 			if (isHydrophobic == false) return 0;
 
-			int adjacentIndex = GetAdjacentIndex(index, direction);
-			Point point = outputPoints[index];
-			Point adjacentPoint = outputPoints[adjacentIndex];
-			if (adjacentPoint.conformationIndex > 0 && IsHydrophobic(adjacentPoint) && Math.Abs(point.conformationIndex - adjacentPoint.conformationIndex) > 1) return -1;
+			int adjacentIndex = GetAdjacentIndex(conformationIndex, direction);
+			IndexedPoint adjacentPoint = FindPointWithIndex(adjacentIndex);
+			if (adjacentPoint.point.conformationIndex > 0 && IsHydrophobic(adjacentPoint.proteinStringIndex) && currentProteinStringIndex - adjacentPoint.proteinStringIndex > 1) return -1;
 
 			return 0;
 		}
@@ -154,11 +146,7 @@ namespace ProteinFolding
 		#region Data access helper methods
 		public bool IsHydrophobic(int proteinStringIndex)
 		{
-			return parsedInput[proteinStringIndex - 2];
-		}
-		public bool IsHydrophobic(Point point)
-		{
-			return IsHydrophobic(point.conformationIndex);
+			return parsedInput[proteinStringIndex];
 		}
 
 		public IndexedPoint FindPointWithIndex(int conformationIndex)
@@ -179,7 +167,7 @@ namespace ProteinFolding
 		#region Copying points
 		private void CopyPoints(int inputBaseIndex, int outputBaseIndex)
 		{
-			points.GetSubArray(inputBaseIndex, size * size).CopyTo(outputPoints.GetSubArray(outputBaseIndex, size * size));
+			points.GetSubArray(inputBaseIndex, parsedInput.Length).CopyTo(outputPoints.GetSubArray(outputBaseIndex, parsedInput.Length));
 		}
 		#endregion
 	}

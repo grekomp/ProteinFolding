@@ -21,7 +21,7 @@ namespace ProteinFolding
 		[Space]
 		public LatticeReference outputLattice;
 		[Space]
-		public List<bool> parsedInputPersistent;
+		public bool[] parsedInputPersistent;
 		public int outputLatticeIndex;
 
 		public bool suspendExecution = false;
@@ -50,7 +50,7 @@ namespace ProteinFolding
 		public void StartExecution()
 		{
 			// Parse input
-			parsedInputPersistent = ParseInput();
+			parsedInputPersistent = ParseInput().ToArray();
 
 			// Start coroutine
 			Debug.Log("Started execution");
@@ -62,13 +62,13 @@ namespace ProteinFolding
 		{
 			lastBestEnergy = 0;
 
-			if (parsedInputPersistent.Count > 2)
+			if (parsedInputPersistent.Length > 2)
 			{
 				InitializeExecution();
 
 				// Place the rest of points
 				currentTreeLevel = 2;
-				while (currentTreeLevel < parsedInputPersistent.Count)
+				while (currentTreeLevel < parsedInputPersistent.Length)
 				{
 					if (suspendExecution)
 					{
@@ -97,23 +97,23 @@ namespace ProteinFolding
 		private void InitializeExecution()
 		{
 			// Create initial lattice
-			latticeSize = 2 * parsedInputPersistent.Count + 2;
+			latticeSize = 2 * parsedInputPersistent.Length + 2;
 
 			points = new NativeArray<Point>(latticeSize * latticeSize, Allocator.Persistent);
 			lattices = new NativeArray<LatticeInfo>(1, Allocator.Persistent);
 
 			// Place first two monomers arbitrarily
 			int initialIndex = latticeSize * ((latticeSize - 1) / 2) + (latticeSize / 2);
-			points[initialIndex] = new Point(2);
-			points[initialIndex + 1] = new Point(3);
-			lattices[0] = new LatticeInfo(true, 0, 3, initialIndex + 1);
+			points[0] = new Point((short)initialIndex);
+			points[1] = new Point((short)(initialIndex + 1));
+			lattices[0] = new LatticeInfo(true, 0);
 		}
 		private void ExecuteTreeLevel()
 		{
 			// Generate children
-			NativeArray<Point> childPoints = new NativeArray<Point>(lattices.Length * latticeSize * latticeSize * 4, Allocator.TempJob);
+			NativeArray<Point> childPoints = new NativeArray<Point>(lattices.Length * parsedInputPersistent.Length * 4, Allocator.TempJob);
 			NativeArray<LatticeInfo> childLattices = new NativeArray<LatticeInfo>(lattices.Length * 4, Allocator.TempJob);
-			NativeArray<bool> parsedInput = new NativeArray<bool>(parsedInputPersistent.ToArray(), Allocator.TempJob);
+			NativeArray<bool> parsedInput = new NativeArray<bool>(parsedInputPersistent, Allocator.TempJob);
 			Debug.Log($"Generating child lattices: {childLattices.Length}.");
 			GenerateChildLattices(childPoints, childLattices, parsedInput);
 
@@ -138,7 +138,7 @@ namespace ProteinFolding
 			GenerateIndicesFilter(ref childLattices, averageEnergy[0], bestEnergy[0], indices, randomValues);
 
 			// Generate filtered output 
-			points = new NativeArray<Point>(latticeSize * latticeSize * indices.Length, Allocator.Persistent);
+			points = new NativeArray<Point>(parsedInput.Length * indices.Length, Allocator.Persistent);
 			lattices = new NativeArray<LatticeInfo>(indices.Length, Allocator.Persistent);
 			FilterIndices(childPoints, childLattices, ref indices);
 
@@ -167,7 +167,7 @@ namespace ProteinFolding
 				points = childPoints,
 				lattices = childLattices,
 				indices = indices,
-				singleLatticePointsCount = latticeSize * latticeSize,
+				singleLatticePointsCount = parsedInputPersistent.Length,
 				outputPoints = points,
 				outputLattices = lattices
 			};
@@ -186,6 +186,7 @@ namespace ProteinFolding
 				nextIsHydrophobic = parsedInput[currentTreeLevel],
 				outputPoints = childPoints,
 				outputLattices = childLattices,
+				currentProteinStringIndex = currentTreeLevel
 			};
 
 			JobHandle jobHandle = initialLatticeJob.Schedule(lattices.Length, 100);
@@ -271,8 +272,8 @@ namespace ProteinFolding
 			outputLatticeIndex = index;
 
 			outputLattice.Value = new Lattice(
-							points.GetSubArray(latticeSize * latticeSize * index, latticeSize * latticeSize).ToArray(),
-							parsedInputPersistent.ToArray(),
+							points.GetSubArray(parsedInputPersistent.Length * index, parsedInputPersistent.Length).ToArray(),
+							parsedInputPersistent,
 							lattices[index].energy,
 							latticeSize);
 		}

@@ -32,14 +32,21 @@ namespace ProteinFolding
 
 		#region Accessors
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public Point GetPoint(int x, int y)
+		public IndexedPoint GetPoint(int x, int y)
 		{
-			return points[Index(x, y)];
+			return FindPoint(Index(x, y));
 		}
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public void SetPoint(int x, int y, Point point)
+		public IndexedPoint FindPoint(int index)
 		{
-			points[Index(x, y)] = point;
+			for (int i = 0; i < points.Length; i++)
+			{
+				if (points[i].conformationIndex == index)
+				{
+					return new IndexedPoint(points[i], i);
+				}
+			}
+
+			return new IndexedPoint();
 		}
 		#endregion
 
@@ -57,14 +64,13 @@ namespace ProteinFolding
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public bool IsHydrophobic(int x, int y)
 		{
-			int index = points[Index(x, y)].conformationIndex;
-			return index > 0 ? parsedInput[index - 2] : false;
+			return parsedInput[GetPoint(x, y).proteinStringIndex];
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public bool IsOccupied(int x, int y)
 		{
-			return GetPoint(x, y).conformationIndex > 0;
+			return GetPoint(x, y).point.conformationIndex > 0;
 		}
 		public Direction BindingDirection(int x, int y)
 		{
@@ -84,8 +90,8 @@ namespace ProteinFolding
 
 			if (IsValidX(adjacentX) == false || IsValidY(adjacentY) == false) return false;
 
-			int searchedIndex = GetPoint(x, y).conformationIndex - 1;
-			return GetPoint(adjacentX, adjacentY).conformationIndex == searchedIndex;
+			int searchedIndex = GetPoint(x, y).proteinStringIndex - 1;
+			return IsOccupied(adjacentX, adjacentY) && GetPoint(adjacentX, adjacentY).proteinStringIndex == searchedIndex;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -152,7 +158,7 @@ namespace ProteinFolding
 
 			int adjacentX = GetAdjacentX(x, direction);
 			int adjacentY = GetAdjacentY(y, direction);
-			if (IsHydrophobic(adjacentX, adjacentY) && Math.Abs(GetPoint(x, y).conformationIndex - GetPoint(adjacentX, adjacentY).conformationIndex) > 1) return -1;
+			if (IsHydrophobic(adjacentX, adjacentY) && Math.Abs(GetPoint(x, y).point.conformationIndex - GetPoint(adjacentX, adjacentY).point.conformationIndex) > 1) return -1;
 
 			return 0;
 		}
@@ -183,9 +189,11 @@ namespace ProteinFolding
 			{
 				for (int x = 0; x < size; x++)
 				{
-					if (points[Index(x, y)].conformationIndex > 0)
+					IndexedPoint indexedPoint = GetPoint(x, y);
+
+					if (indexedPoint.point.conformationIndex > 0)
 					{
-						sb.Append(IsHydrophobic(x, y) ? "H" : "P");
+						sb.Append(parsedInput[indexedPoint.proteinStringIndex] ? "H" : "P");
 					}
 					else
 					{

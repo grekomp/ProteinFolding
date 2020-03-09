@@ -16,9 +16,9 @@ namespace Tests
 			new object[]
 			{
 				new LatticeInfo[] {
-					new LatticeInfo(true, 0, 3, 2),
-					new LatticeInfo(false, 0, 2, 1),
-					new LatticeInfo(true, 0, 3, 1),
+					new LatticeInfo(true, 0),
+					new LatticeInfo(false, 0),
+					new LatticeInfo(true, 0),
 				},
 				new int[] {0, 2},
 				new float[] {1, 1, 1},
