@@ -19,13 +19,15 @@ namespace ProteinFolding
 		[WriteOnly]
 		public NativeArray<float> averageEnergy;
 		[WriteOnly]
+		public NativeArray<int> averageEnergyWeight;
+		[WriteOnly]
 		public NativeArray<int> bestEnergy;
 
 		public void Execute()
 		{
-			int bestEnergyInternal = 0;
-			int energySum = 0;
-			int validElements = 0;
+			int bestEnergyInternal = bestEnergy[0];
+			int validElements = averageEnergyWeight[0];
+			int energySum = (int)(averageEnergy[0] * validElements);
 
 			for (int i = 0; i < lattices.Length; i++)
 			{
@@ -38,6 +40,7 @@ namespace ProteinFolding
 			}
 
 			averageEnergy[0] = energySum / (float)validElements;
+			averageEnergyWeight[0] = validElements;
 			bestEnergy[0] = bestEnergyInternal;
 		}
 	}

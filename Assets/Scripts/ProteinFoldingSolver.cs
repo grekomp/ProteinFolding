@@ -35,6 +35,9 @@ namespace ProteinFolding
 		//public LatticeInfo[] latticesPresistent;
 		public float[] randomValuesPersistent;
 
+		public NativeArray<Point>[] segmentedPoints;
+		public NativeArray<LatticeInfo>[] segmentedLattices;
+
 		public NativeArray<Point> points;
 		public NativeArray<LatticeInfo> lattices;
 
@@ -124,8 +127,6 @@ namespace ProteinFolding
 			NativeArray<float> averageEnergy = new NativeArray<float>(1, Allocator.TempJob);
 			NativeArray<int> bestEnergy = new NativeArray<int>(1, Allocator.TempJob);
 			CalculateAverageEnergy(childLattices, averageEnergy, bestEnergy);
-
-			//if (bestEnergy[0] > lastBestEnergy) Debug.Break();
 			lastBestEnergy = bestEnergy[0];
 
 			// Generate random values
@@ -140,7 +141,7 @@ namespace ProteinFolding
 			// Generate filtered output 
 			points = new NativeArray<Point>(parsedInput.Length * indices.Length, Allocator.Persistent);
 			lattices = new NativeArray<LatticeInfo>(indices.Length, Allocator.Persistent);
-			FilterIndices(childPoints, childLattices, ref indices);
+			FilterIndices(childPoints, childLattices, ref indices, points, lattices);
 
 			parsedInput.Dispose();
 			bestEnergy.Dispose();
@@ -159,7 +160,49 @@ namespace ProteinFolding
 			Debug.Log($"Executed tree level {currentTreeLevel}.");
 		}
 
-		private void FilterIndices(NativeArray<Point> childPoints, NativeArray<LatticeInfo> childLattices, ref NativeList<int> indices)
+		private void EvaluateSegment(NativeArray<Point> points, NativeArray<LatticeInfo> lattices, out NativeArray<Point> outputPoints, out NativeArray<LatticeInfo> outputLattices, ref float averageEnergy, ref int bestEnergy, ref int averageEnergyWeight)
+		{
+			// Generate children
+			NativeArray<Point> childPoints = new NativeArray<Point>(lattices.Length * parsedInputPersistent.Length * 4, Allocator.TempJob);
+			NativeArray<LatticeInfo> childLattices = new NativeArray<LatticeInfo>(lattices.Length * 4, Allocator.TempJob);
+			NativeArray<bool> parsedInput = new NativeArray<bool>(parsedInputPersistent, Allocator.TempJob);
+			Debug.Log($"Generating child lattices: {childLattices.Length}.");
+			GenerateChildLattices(childPoints, childLattices, parsedInput);
+
+
+			// Calculate average energy
+			NativeArray<float> averageEnergyNative = new NativeArray<float>(1, Allocator.TempJob);
+			NativeArray<int> averageEnergyWeightNative = new NativeArray<int>(1, Allocator.TempJob);
+			NativeArray<int> bestEnergyNative = new NativeArray<int>(1, Allocator.TempJob);
+
+			averageEnergyNative[0] = averageEnergy;
+			averageEnergyWeightNative[0] = averageEnergyWeight;
+			bestEnergyNative[0] = bestEnergy;
+
+			CalculateAverageEnergy(childLattices, averageEnergyNative, averageEnergyWeightNative, bestEnergyNative);
+
+			averageEnergy = averageEnergyNative[0];
+			averageEnergyWeight = averageEnergyWeightNative[0];
+			bestEnergy = bestEnergyNative[0];
+
+
+			// Generate indices filter
+			NativeArray<float> randomValues = new NativeArray<float>(childLattices.Length, Allocator.TempJob);
+			GenerateRandomElements(ref randomValues);
+			NativeList<int> indices = new NativeList<int>(childLattices.Length, Allocator.TempJob);
+			GenerateIndicesFilter(ref childLattices, averageEnergyNative[0], bestEnergyNative[0], indices, randomValues);
+
+
+			// Filter data
+			outputPoints = new NativeArray<Point>(parsedInput.Length * indices.Length, Allocator.Persistent);
+			outputLattices = new NativeArray<LatticeInfo>(indices.Length, Allocator.Persistent);
+			FilterIndices(childPoints, childLattices, ref indices, outputPoints, outputLattices);
+		}
+		#endregion
+
+
+		#region Jobs
+		private void FilterIndices(NativeArray<Point> childPoints, NativeArray<LatticeInfo> childLattices, ref NativeList<int> indices, NativeArray<Point> outputPoints, NativeArray<LatticeInfo> outputLattices)
 		{
 			JobHandle jobHandle;
 			LatticeFilteredCopyJob filteredCopyJob = new LatticeFilteredCopyJob()
@@ -168,13 +211,12 @@ namespace ProteinFolding
 				lattices = childLattices,
 				indices = indices,
 				singleLatticePointsCount = parsedInputPersistent.Length,
-				outputPoints = points,
-				outputLattices = lattices
+				outputPoints = outputPoints,
+				outputLattices = outputLattices
 			};
 			jobHandle = filteredCopyJob.Schedule(indices.Length, 1);
 			jobHandle.Complete();
 		}
-
 		private void GenerateChildLattices(NativeArray<Point> childPoints, NativeArray<LatticeInfo> childLattices, NativeArray<bool> parsedInput)
 		{
 			LatticeJob initialLatticeJob = new LatticeJob()
@@ -210,12 +252,13 @@ namespace ProteinFolding
 
 			Debug.Log($"Generated filtered indices - filtered {childLattices.Length - indices.Length}/{childLattices.Length}.");
 		}
-		private static void CalculateAverageEnergy(NativeArray<LatticeInfo> childLattices, NativeArray<float> averageEnergy, NativeArray<int> bestEnergy)
+		private static void CalculateAverageEnergy(NativeArray<LatticeInfo> childLattices, NativeArray<float> averageEnergy, NativeArray<int> averageEnergyWeight, NativeArray<int> bestEnergy)
 		{
 			LatticesCalculateAverageEnergyJob latticesCalculateAverageEnergyJob = new LatticesCalculateAverageEnergyJob()
 			{
 				lattices = childLattices,
 				averageEnergy = averageEnergy,
+				averageEnergyWeight = averageEnergyWeight,
 				bestEnergy = bestEnergy
 			};
 			latticesCalculateAverageEnergyJob.Schedule().Complete();
