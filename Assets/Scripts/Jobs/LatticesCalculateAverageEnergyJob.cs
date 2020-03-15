@@ -16,11 +16,8 @@ namespace ProteinFolding
 		[ReadOnly]
 		public NativeArray<LatticeInfo> lattices;
 
-		[WriteOnly]
 		public NativeArray<float> averageEnergy;
-		[WriteOnly]
 		public NativeArray<int> averageEnergyWeight;
-		[WriteOnly]
 		public NativeArray<int> bestEnergy;
 
 		public void Execute()

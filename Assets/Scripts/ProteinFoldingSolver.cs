@@ -13,8 +13,8 @@ namespace ProteinFolding
 		[Header("Input Variables")]
 		public StringReference inputString;
 		[Space]
-		public FloatReference pruningProbability01;
-		public FloatReference pruningProbability02;
+		public DoubleReference pruningProbability01;
+		public DoubleReference pruningProbability02;
 
 		[Header("Output Variables")]
 		public IntReference outputEnergy;
@@ -125,8 +125,9 @@ namespace ProteinFolding
 
 			// Calculate average energy
 			NativeArray<float> averageEnergy = new NativeArray<float>(1, Allocator.TempJob);
+			NativeArray<int> averageEnergyWeight = new NativeArray<int>(1, Allocator.TempJob);
 			NativeArray<int> bestEnergy = new NativeArray<int>(1, Allocator.TempJob);
-			CalculateAverageEnergy(childLattices, averageEnergy, bestEnergy);
+			CalculateAverageEnergy(childLattices, averageEnergy, averageEnergyWeight, bestEnergy);
 			lastBestEnergy = bestEnergy[0];
 
 			// Generate random values
@@ -146,6 +147,7 @@ namespace ProteinFolding
 			parsedInput.Dispose();
 			bestEnergy.Dispose();
 			averageEnergy.Dispose();
+			averageEnergyWeight.Dispose();
 			indices.Dispose();
 			childPoints.Dispose();
 			childLattices.Dispose();
@@ -243,8 +245,8 @@ namespace ProteinFolding
 				averageEnergy = averageEnergy,
 				bestEnergy = bestEnergy,
 				random = randomValues,
-				pruningProbability01 = pruningProbability01.Value,
-				pruningProbability02 = pruningProbability02.Value,
+				pruningProbability01 = (float)pruningProbability01.Value,
+				pruningProbability02 = (float)pruningProbability02.Value,
 				lastPointIsHydrophobic = parsedInputPersistent[currentTreeLevel],
 			};
 			jobHandle = latticeFilterJob.ScheduleAppend(indices, childLattices.Length, 1);
