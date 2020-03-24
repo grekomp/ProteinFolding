@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Unity.Collections;
 using Unity.Jobs;
@@ -15,36 +16,31 @@ namespace ProteinFolding
 		[Space]
 		public DoubleReference pruningProbability01;
 		public DoubleReference pruningProbability02;
+		[Space]
+		public IntReference maxPointsInDataSegment;
+		public IntReference maxFrameTimeMs;
+		public IntReference performanceMeasurementInterval = new IntReference(100);
+
 
 		[Header("Output Variables")]
 		public IntReference outputEnergy;
-		[Space]
 		public LatticeReference outputLattice;
 		[Space]
-		public bool[] parsedInputPersistent;
-		public int outputLatticeIndex;
-
-		public bool suspendExecution = false;
-		public bool stepByStepExecution = false;
+		public DoubleReference executionTimeSeconds;
+		public BoolReference isSimulationRunning;
 
 
 		[Header("Runtime Variables")]
-		public int latticeSize = 0;
+		[SerializeField] [Disabled] protected int latticeSize = 0;
+		[SerializeField] [Disabled] protected long processedLattices = 0;
+		public LongReference latticesPerSecond;
 
-		//public Point[] pointsPersistent;
-		//public LatticeInfo[] latticesPresistent;
 		public float[] randomValuesPersistent;
 
-		public NativeArray<Point>[] segmentedPoints;
-		public NativeArray<LatticeInfo>[] segmentedLattices;
+		public Stack<SimulationDataSegment> dataSegments = new Stack<SimulationDataSegment>();
+		public SimulationTreeLevel[] treeLevels;
 
-		public NativeArray<Point> points;
-		public NativeArray<LatticeInfo> lattices;
-
-		[Space]
-		public int currentTreeLevel = 0;
-		public int lastBestEnergy = 0;
-
+		protected bool[] parsedInputPersistent;
 		Coroutine runningExecution;
 
 
@@ -60,145 +56,184 @@ namespace ProteinFolding
 			if (runningExecution != null) StopCoroutine(runningExecution);
 			runningExecution = StartCoroutine(Execute());
 		}
+		[ContextMenu("Stop Execution")]
+		public void StopExecution()
+		{
+			if (runningExecution != null)
+			{
+				Debug.Log("Interrupting execution");
+				StopCoroutine(runningExecution);
+				isSimulationRunning.Value = false;
+			}
+			else
+			{
+				Debug.Log("Cannot stop execution - simulation is already stopped.");
+			}
+		}
 
 		public IEnumerator Execute()
 		{
-			lastBestEnergy = 0;
-
 			if (parsedInputPersistent.Length > 2)
 			{
-				InitializeExecution();
+				InitializeSimulation();
 
-				// Place the rest of points
-				currentTreeLevel = 2;
-				while (currentTreeLevel < parsedInputPersistent.Length)
+
+				System.Diagnostics.Stopwatch fullExecutionTime = new System.Diagnostics.Stopwatch();
+				long lastMeasurementTime = 0;
+				long lastMeasuredProcessedLatticesCount = 0;
+				fullExecutionTime.Start();
+				isSimulationRunning.Value = true;
+
+
+				while (dataSegments.Count > 0)
 				{
-					if (suspendExecution)
+					// Measure performance
+					if (fullExecutionTime.ElapsedMilliseconds >= lastMeasurementTime + performanceMeasurementInterval)
 					{
-						yield return null;
-						continue;
-					}
-					if (stepByStepExecution)
-					{
-						suspendExecution = true;
+						int smoothingWeight = 4;
+						latticesPerSecond.Value = (smoothingWeight * latticesPerSecond + ((processedLattices - lastMeasuredProcessedLatticesCount) * 1000 / performanceMeasurementInterval)) / (smoothingWeight + 1);
+						lastMeasuredProcessedLatticesCount = processedLattices;
+						lastMeasurementTime = fullExecutionTime.ElapsedMilliseconds;
+
+						executionTimeSeconds.Value = fullExecutionTime.Elapsed.TotalSeconds;
 					}
 
-					ExecuteTreeLevel();
+					// Execute next portion of data segments
+					System.Diagnostics.Stopwatch stopWatch = new System.Diagnostics.Stopwatch();
+					stopWatch.Start();
+					while (stopWatch.ElapsedMilliseconds < maxFrameTimeMs.Value && dataSegments.Count > 0)
+					{
+						ExecuteNextSegment();
+					}
+					stopWatch.Stop();
 
-					currentTreeLevel++;
 					yield return null;
 				}
 
-				CreateOutputLattice();
+				fullExecutionTime.Stop();
+				isSimulationRunning.Value = false;
+				Debug.Log($"Execution finished, time elapsed: {fullExecutionTime.Elapsed}");
 			}
 
 			yield return null;
-			points.Dispose();
-			lattices.Dispose();
+			CleanUpDataSegments();
 		}
 
-		private void InitializeExecution()
+		private void InitializeSimulation()
 		{
+			outputEnergy.Value = 0;
+			processedLattices = 0;
+			outputLattice.Value = new Lattice(null, null, 0, 0);
+
 			// Create initial lattice
 			latticeSize = 2 * parsedInputPersistent.Length + 2;
 
-			points = new NativeArray<Point>(latticeSize * latticeSize, Allocator.Persistent);
-			lattices = new NativeArray<LatticeInfo>(1, Allocator.Persistent);
+			NativeArray<Point> points = new NativeArray<Point>(parsedInputPersistent.Length, Allocator.Persistent);
+			NativeArray<LatticeInfo> lattices = new NativeArray<LatticeInfo>(1, Allocator.Persistent);
+
+			treeLevels = new SimulationTreeLevel[parsedInputPersistent.Length + 1];
+
+			for (int i = 0; i <= parsedInputPersistent.Length; i++)
+			{
+				treeLevels[i] = new SimulationTreeLevel(i);
+			}
+
 
 			// Place first two monomers arbitrarily
 			int initialIndex = latticeSize * ((latticeSize - 1) / 2) + (latticeSize / 2);
 			points[0] = new Point((short)initialIndex);
 			points[1] = new Point((short)(initialIndex + 1));
 			lattices[0] = new LatticeInfo(true, 0);
+
+			// Create initial data segment
+			dataSegments.Push(new SimulationDataSegment(points, lattices, treeLevels[2]));
 		}
-		private void ExecuteTreeLevel()
+		private void ExecuteNextSegment()
+		{
+			SimulationDataSegment currentDataSegment = dataSegments.Pop();
+			//Debug.Log($"Evaluating next segment, tree level: {currentDataSegment.treeLevel.levelNumber}.");
+			if (currentDataSegment.treeLevel.levelNumber == parsedInputPersistent.Length)
+			{
+				FinalizeSegment(currentDataSegment);
+			}
+			else
+			{
+				EvaluateSegment(currentDataSegment);
+			}
+		}
+		private void EvaluateSegment(SimulationDataSegment dataSegment)
 		{
 			// Generate children
-			NativeArray<Point> childPoints = new NativeArray<Point>(lattices.Length * parsedInputPersistent.Length * 4, Allocator.TempJob);
-			NativeArray<LatticeInfo> childLattices = new NativeArray<LatticeInfo>(lattices.Length * 4, Allocator.TempJob);
+			NativeArray<Point> childPoints = new NativeArray<Point>(dataSegment.lattices.Length * parsedInputPersistent.Length * 4, Allocator.TempJob, NativeArrayOptions.UninitializedMemory);
+			NativeArray<LatticeInfo> childLattices = new NativeArray<LatticeInfo>(dataSegment.lattices.Length * 4, Allocator.TempJob, NativeArrayOptions.UninitializedMemory);
 			NativeArray<bool> parsedInput = new NativeArray<bool>(parsedInputPersistent, Allocator.TempJob);
-			Debug.Log($"Generating child lattices: {childLattices.Length}.");
-			GenerateChildLattices(childPoints, childLattices, parsedInput);
-
-			points.Dispose();
-			lattices.Dispose();
-
-			// Calculate average energy
-			NativeArray<float> averageEnergy = new NativeArray<float>(1, Allocator.TempJob);
-			NativeArray<int> averageEnergyWeight = new NativeArray<int>(1, Allocator.TempJob);
-			NativeArray<int> bestEnergy = new NativeArray<int>(1, Allocator.TempJob);
-			CalculateAverageEnergy(childLattices, averageEnergy, averageEnergyWeight, bestEnergy);
-			lastBestEnergy = bestEnergy[0];
-
-			// Generate random values
-			NativeArray<float> randomValues = new NativeArray<float>(childLattices.Length, Allocator.TempJob);
-			GenerateRandomElements(ref randomValues);
-			//NativeArray<float> randomValues = new NativeArray<float>(randomValuesPersistent, Allocator.TempJob);
-
-			// Generate filtered indices
-			NativeList<int> indices = new NativeList<int>(childLattices.Length, Allocator.TempJob);
-			GenerateIndicesFilter(ref childLattices, averageEnergy[0], bestEnergy[0], indices, randomValues);
-
-			// Generate filtered output 
-			points = new NativeArray<Point>(parsedInput.Length * indices.Length, Allocator.Persistent);
-			lattices = new NativeArray<LatticeInfo>(indices.Length, Allocator.Persistent);
-			FilterIndices(childPoints, childLattices, ref indices, points, lattices);
-
-			parsedInput.Dispose();
-			bestEnergy.Dispose();
-			averageEnergy.Dispose();
-			averageEnergyWeight.Dispose();
-			indices.Dispose();
-			childPoints.Dispose();
-			childLattices.Dispose();
-			randomValues.Dispose();
-
-			//pointsPersistent = new Point[points.Length];
-			//latticesPresistent = new LatticeInfo[lattices.Length];
-
-			//points.CopyTo(pointsPersistent);
-			//lattices.CopyTo(latticesPresistent);
-
-			Debug.Log($"Executed tree level {currentTreeLevel}.");
-		}
-
-		private void EvaluateSegment(NativeArray<Point> points, NativeArray<LatticeInfo> lattices, out NativeArray<Point> outputPoints, out NativeArray<LatticeInfo> outputLattices, ref float averageEnergy, ref int bestEnergy, ref int averageEnergyWeight)
-		{
-			// Generate children
-			NativeArray<Point> childPoints = new NativeArray<Point>(lattices.Length * parsedInputPersistent.Length * 4, Allocator.TempJob);
-			NativeArray<LatticeInfo> childLattices = new NativeArray<LatticeInfo>(lattices.Length * 4, Allocator.TempJob);
-			NativeArray<bool> parsedInput = new NativeArray<bool>(parsedInputPersistent, Allocator.TempJob);
-			Debug.Log($"Generating child lattices: {childLattices.Length}.");
-			GenerateChildLattices(childPoints, childLattices, parsedInput);
+			JobHandle generateChildLatticesJobHandle = GenerateChildLattices(dataSegment.points, dataSegment.lattices, childPoints, childLattices, parsedInput, dataSegment.treeLevel.levelNumber);
 
 
 			// Calculate average energy
 			NativeArray<float> averageEnergyNative = new NativeArray<float>(1, Allocator.TempJob);
 			NativeArray<int> averageEnergyWeightNative = new NativeArray<int>(1, Allocator.TempJob);
 			NativeArray<int> bestEnergyNative = new NativeArray<int>(1, Allocator.TempJob);
-
-			averageEnergyNative[0] = averageEnergy;
-			averageEnergyWeightNative[0] = averageEnergyWeight;
-			bestEnergyNative[0] = bestEnergy;
-
-			CalculateAverageEnergy(childLattices, averageEnergyNative, averageEnergyWeightNative, bestEnergyNative);
-
-			averageEnergy = averageEnergyNative[0];
-			averageEnergyWeight = averageEnergyWeightNative[0];
-			bestEnergy = bestEnergyNative[0];
+			averageEnergyNative[0] = dataSegment.treeLevel.averageEnergy;
+			averageEnergyWeightNative[0] = dataSegment.treeLevel.averageEnergyWeight;
+			bestEnergyNative[0] = dataSegment.treeLevel.bestEnergy;
+			JobHandle averageEnergyJobHandle = CalculateAverageEnergy(generateChildLatticesJobHandle, childLattices, averageEnergyNative, averageEnergyWeightNative, bestEnergyNative);
 
 
 			// Generate indices filter
 			NativeArray<float> randomValues = new NativeArray<float>(childLattices.Length, Allocator.TempJob);
-			GenerateRandomElements(ref randomValues);
+			JobHandle generateRandomElementsJobHandle = GenerateRandomElementsArray(ref randomValues);
 			NativeList<int> indices = new NativeList<int>(childLattices.Length, Allocator.TempJob);
-			GenerateIndicesFilter(ref childLattices, averageEnergyNative[0], bestEnergyNative[0], indices, randomValues);
+			JobHandle generateIndicesFilterJobHandle = GenerateIndicesFilter(JobHandle.CombineDependencies(averageEnergyJobHandle, generateRandomElementsJobHandle), ref childLattices, averageEnergyNative, bestEnergyNative, indices, randomValues, dataSegment.treeLevel.levelNumber);
+			generateIndicesFilterJobHandle.Complete();
 
 
 			// Filter data
-			outputPoints = new NativeArray<Point>(parsedInput.Length * indices.Length, Allocator.Persistent);
-			outputLattices = new NativeArray<LatticeInfo>(indices.Length, Allocator.Persistent);
+			NativeArray<Point> outputPoints = new NativeArray<Point>(parsedInput.Length * indices.Length, Allocator.Persistent);
+			NativeArray<LatticeInfo> outputLattices = new NativeArray<LatticeInfo>(indices.Length, Allocator.Persistent);
 			FilterIndices(childPoints, childLattices, ref indices, outputPoints, outputLattices);
+
+
+			// Segmentalize output data
+			SimulationTreeLevel nextTreeLevel = treeLevels[dataSegment.treeLevel.levelNumber + 1];
+			SegmentalizeOutputData(outputPoints, outputLattices, nextTreeLevel);
+
+
+			// Update treeLevel data
+			dataSegment.treeLevel.averageEnergy = averageEnergyNative[0];
+			dataSegment.treeLevel.averageEnergyWeight = averageEnergyWeightNative[0];
+			dataSegment.treeLevel.bestEnergy = bestEnergyNative[0];
+
+
+			// Update debug progress data
+			checked
+			{
+				processedLattices += dataSegment.lattices.Length;
+			}
+
+
+			// Clean up
+			childPoints.Dispose();
+			childLattices.Dispose();
+			parsedInput.Dispose();
+			averageEnergyNative.Dispose();
+			averageEnergyWeightNative.Dispose();
+			bestEnergyNative.Dispose();
+			randomValues.Dispose();
+			indices.Dispose();
+			dataSegment.Dispose();
+			outputPoints.Dispose();
+			outputLattices.Dispose();
+		}
+		private void FinalizeSegment(SimulationDataSegment dataSegment)
+		{
+			int bestLatticeIndex = FindBestLattice(dataSegment);
+			if (outputLattice.Value == null || dataSegment.lattices[bestLatticeIndex].energy <= outputLattice.Value.energy)
+			{
+				OutputLattice(dataSegment, bestLatticeIndex);
+			}
+
+			dataSegment.Dispose();
 		}
 		#endregion
 
@@ -219,7 +254,7 @@ namespace ProteinFolding
 			jobHandle = filteredCopyJob.Schedule(indices.Length, 1);
 			jobHandle.Complete();
 		}
-		private void GenerateChildLattices(NativeArray<Point> childPoints, NativeArray<LatticeInfo> childLattices, NativeArray<bool> parsedInput)
+		private JobHandle GenerateChildLattices(NativeArray<Point> points, NativeArray<LatticeInfo> lattices, NativeArray<Point> childPoints, NativeArray<LatticeInfo> childLattices, NativeArray<bool> parsedInput, int currentTreeLevel)
 		{
 			LatticeJob initialLatticeJob = new LatticeJob()
 			{
@@ -233,12 +268,10 @@ namespace ProteinFolding
 				currentProteinStringIndex = currentTreeLevel
 			};
 
-			JobHandle jobHandle = initialLatticeJob.Schedule(lattices.Length, 100);
-			jobHandle.Complete();
+			return initialLatticeJob.Schedule(lattices.Length, 10);
 		}
-		private void GenerateIndicesFilter(ref NativeArray<LatticeInfo> childLattices, float averageEnergy, int bestEnergy, NativeList<int> indices, NativeArray<float> randomValues)
+		private JobHandle GenerateIndicesFilter(JobHandle dependencies, ref NativeArray<LatticeInfo> childLattices, NativeArray<float> averageEnergy, NativeArray<int> bestEnergy, NativeList<int> indices, NativeArray<float> randomValues, int currentTreeLevel)
 		{
-			JobHandle jobHandle;
 			LatticeFilterJob latticeFilterJob = new LatticeFilterJob()
 			{
 				lattices = childLattices,
@@ -249,12 +282,10 @@ namespace ProteinFolding
 				pruningProbability02 = (float)pruningProbability02.Value,
 				lastPointIsHydrophobic = parsedInputPersistent[currentTreeLevel],
 			};
-			jobHandle = latticeFilterJob.ScheduleAppend(indices, childLattices.Length, 1);
-			jobHandle.Complete();
-
-			Debug.Log($"Generated filtered indices - filtered {childLattices.Length - indices.Length}/{childLattices.Length}.");
+			return latticeFilterJob.ScheduleAppend(indices, childLattices.Length, 1, dependencies);
+			//Debug.Log($"Generated filtered indices - filtered {childLattices.Length - indices.Length}/{childLattices.Length}.");
 		}
-		private static void CalculateAverageEnergy(NativeArray<LatticeInfo> childLattices, NativeArray<float> averageEnergy, NativeArray<int> averageEnergyWeight, NativeArray<int> bestEnergy)
+		private static JobHandle CalculateAverageEnergy(JobHandle dependencies, NativeArray<LatticeInfo> childLattices, NativeArray<float> averageEnergy, NativeArray<int> averageEnergyWeight, NativeArray<int> bestEnergy)
 		{
 			LatticesCalculateAverageEnergyJob latticesCalculateAverageEnergyJob = new LatticesCalculateAverageEnergyJob()
 			{
@@ -263,42 +294,68 @@ namespace ProteinFolding
 				averageEnergyWeight = averageEnergyWeight,
 				bestEnergy = bestEnergy
 			};
-			latticesCalculateAverageEnergyJob.Schedule().Complete();
+			return latticesCalculateAverageEnergyJob.Schedule(dependencies);
 
-			Debug.Log($"Calculated average energy: {averageEnergy[0]}, bestEnergy: {bestEnergy[0]}.");
+			//Debug.Log($"Calculated average energy: {averageEnergy[0]}, bestEnergy: {bestEnergy[0]}.");
 		}
-		#endregion
-
-
-		#region Random values generation
-		[ContextMenu("Regenerate random values array")]
-		public void RegenerateRandomValuesArray()
+		private void SegmentalizeOutputData(NativeArray<Point> unsegmentedPoints, NativeArray<LatticeInfo> unsegmentedLattices, SimulationTreeLevel nextTreeLevel)
 		{
-			// Generate random pruning values
-			NativeArray<float> randomValues = new NativeArray<float>(10000, Allocator.TempJob);
-			GenerateRandomElements(ref randomValues);
+			// Calculate data segment lattices count
+			int latticesInSingleSegment = maxPointsInDataSegment / latticeSize;
+			int outputSegmentsCount = unsegmentedLattices.Length / latticesInSingleSegment;
+			if (outputSegmentsCount * latticesInSingleSegment != unsegmentedLattices.Length) outputSegmentsCount++;
 
-			randomValuesPersistent = new float[10000];
-			randomValues.CopyTo(randomValuesPersistent);
+			NativeArray<JobHandle> copyJobHandles = new NativeArray<JobHandle>(outputSegmentsCount, Allocator.Temp, NativeArrayOptions.UninitializedMemory);
 
-			randomValues.Dispose();
+			int latticesLeftToCopy = unsegmentedLattices.Length;
+			for (int i = 0; i < outputSegmentsCount; i++)
+			{
+				int latticesInThisSegment = Math.Min(latticesInSingleSegment, latticesLeftToCopy);
+
+				// Create segment
+				SimulationDataSegment dataSegment = new SimulationDataSegment(new NativeArray<Point>(parsedInputPersistent.Length * latticesInThisSegment, Allocator.Persistent, NativeArrayOptions.UninitializedMemory),
+																  new NativeArray<LatticeInfo>(latticesInThisSegment, Allocator.Persistent, NativeArrayOptions.UninitializedMemory),
+																  nextTreeLevel);
+
+				// Copy data
+				CopySegmentDataJob copySegmentDataJob = new CopySegmentDataJob()
+				{
+					inputPoints = unsegmentedPoints,
+					inputLattices = unsegmentedLattices,
+					minIndex = i * latticesInSingleSegment,
+					latticeSize = parsedInputPersistent.Length,
+					latticesToCopy = latticesInThisSegment,
+					outputPoints = dataSegment.points,
+					outputLattices = dataSegment.lattices
+				};
+				copyJobHandles[i] = copySegmentDataJob.Schedule();
+
+				// Schedule segment for execution
+				dataSegments.Push(dataSegment);
+
+				latticesLeftToCopy -= latticesInSingleSegment;
+			}
+
+			JobHandle.CompleteAll(copyJobHandles);
+			copyJobHandles.Dispose();
 		}
-		public static void GenerateRandomElements(ref NativeArray<float> elements)
+		public static JobHandle GenerateRandomElementsArray(ref NativeArray<float> elements)
 		{
 			GenerateRandomElementsJob generateRandomElementsJob = new GenerateRandomElementsJob()
 			{
-				random = new Unity.Mathematics.Random((uint)UnityEngine.Random.Range(0, 645241)),
+				random = new Unity.Mathematics.Random((uint)UnityEngine.Random.Range(100, 645241)),
 				randomElements = elements
 			};
-			generateRandomElementsJob.Schedule().Complete();
+			return generateRandomElementsJob.Schedule();
 		}
 		#endregion
 
 
 		#region Output
-		[ContextMenu("Output best lattice")]
-		private void CreateOutputLattice()
+		private int FindBestLattice(SimulationDataSegment dataSegment)
 		{
+			LatticeInfo[] lattices = dataSegment.lattices.ToArray();
+
 			LatticeInfo bestLatticeInfo = new LatticeInfo();
 			int bestIndex = 0;
 			for (int i = 0; i < lattices.Length; i++)
@@ -310,28 +367,49 @@ namespace ProteinFolding
 				}
 			}
 
-			OutputLattice(bestIndex);
+			return bestIndex;
 		}
-		private void OutputLattice(int index)
-		{
-			outputLatticeIndex = index;
 
+		[ContextMenu("Output best lattice")]
+		private void CreateOutputLattice()
+		{
+			LatticeInfo bestLatticeInfo = new LatticeInfo();
+			int bestIndex = 0;
+			for (int i = 0; i < dataSegments.Peek().lattices.Length; i++)
+			{
+				if (dataSegments.Peek().lattices[i].energy < bestLatticeInfo.energy)
+				{
+					bestLatticeInfo = dataSegments.Peek().lattices[i];
+					bestIndex = i;
+				}
+			}
+
+			OutputLattice(dataSegments.Peek(), bestIndex);
+		}
+		private void OutputLattice(SimulationDataSegment dataSegment, int index)
+		{
 			outputLattice.Value = new Lattice(
-							points.GetSubArray(parsedInputPersistent.Length * index, parsedInputPersistent.Length).ToArray(),
+							dataSegment.points.GetSubArray(parsedInputPersistent.Length * index, parsedInputPersistent.Length).ToArray(),
 							parsedInputPersistent,
-							lattices[index].energy,
+							dataSegment.lattices[index].energy,
 							latticeSize);
-		}
 
-		[ContextMenu("Output next lattice")]
-		public void OutputNext()
-		{
-			OutputLattice(++outputLatticeIndex);
+			outputEnergy.Value = outputLattice.Value.energy;
 		}
-		[ContextMenu("Output prev lattice")]
-		public void OutputPrevious()
+		#endregion
+
+
+		#region Cleanup
+		private void OnDestroy()
 		{
-			OutputLattice(--outputLatticeIndex);
+			CleanUpDataSegments();
+		}
+		private void CleanUpDataSegments()
+		{
+			while (dataSegments.Count > 0)
+			{
+				dataSegments.Pop()?.Dispose();
+			}
 		}
 		#endregion
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace ProteinFolding
@@ -14,55 +15,37 @@ namespace ProteinFolding
 		[Header("Options")]
 		[HandleChanges] public LatticeReference lattice;
 		public FloatReference gridSpacing;
+		public FloatReference minUpdateInterval;
 
 		[Space]
 		public LatticePointVisual latticePointPrefab;
 
 		[Header("Runtime Variables")]
-		public LatticePointVisual[] spawnedPoints;
+		public List<LatticePointVisual> spawnedPoints = new List<LatticePointVisual>();
+		public DateTime lastUpdateTime = new DateTime(2000, 1, 1);
 
 		protected override void Init()
 		{
 			gridRect = gridRect ?? GetComponent<RectTransform>();
-			GenerateBaseLatticeVisualization();
 		}
 
 		protected override void ApplySet()
 		{
-			Debug.Log(lattice.Value);
+			if ((DateTime.Now - lastUpdateTime).TotalSeconds < minUpdateInterval) return;
+			lastUpdateTime = DateTime.Now;
 
-			if (IsCurrentLatticeVisualizationValid() == false) GenerateBaseLatticeVisualization();
-			if (lattice.Value.size == 0) return;
+			if (lattice.Value == null || lattice.Value.size == 0) return;
 
-			gridSpacing.Value = gridRect.rect.width / lattice.Value.size;
-
-			for (int x = 0; x < lattice.Value.size; x++)
-			{
-				for (int y = 0; y < lattice.Value.size; y++)
-				{
-					int i = Index(y, x);
-
-					spawnedPoints[i].x = x;
-					spawnedPoints[i].y = y;
-					spawnedPoints[i].gridSpacing = gridSpacing;
-					spawnedPoints[i].UpdatePositionSize();
-
-					spawnedPoints[i].IsActive = lattice.Value.IsOccupied(x, y);
-					spawnedPoints[i].IsHydrophobic = lattice.Value.IsHydrophobic(x, y);
-					spawnedPoints[i].BindingDirection = lattice.Value.BindingDirection(x, y);
-
-					spawnedPoints[i].value = lattice.Value.GetPoint(x, y).point.conformationIndex;
-					spawnedPoints[i].index = lattice.Value.Index(x, y);
-				}
-			}
+			DisplayLatticeSubset(lattice.Value.minOccupiedX, lattice.Value.minOccupiedY, lattice.Value.maxSpanXY);
 		}
 		private bool IsCurrentLatticeVisualizationValid()
 		{
+			if (lattice.Value == null) return spawnedPoints == null;
 			if (lattice.Value.size == 0 && spawnedPoints != null) return false;
 			if (lattice.Value.size > 0 && spawnedPoints == null) return false;
 
 			if (lattice.Value.size == 0 && spawnedPoints == null) return true;
-			if (lattice.Value.size * lattice.Value.size != spawnedPoints.Length) return false;
+			if (lattice.Value.size * lattice.Value.size != spawnedPoints.Count) return false;
 
 			foreach (var spawnedPoint in spawnedPoints)
 			{
@@ -71,27 +54,88 @@ namespace ProteinFolding
 
 			return true;
 		}
-		protected void GenerateBaseLatticeVisualization()
+
+
+		#region Lattice subset display
+		public void DisplayLatticeSubset(int minX, int minY, int size)
 		{
-			CleanUpSpawnedPoints();
+			GenerateSpawnedPoints(size);
 
-			if (lattice.Value.size == 0)
+			gridSpacing.Value = gridRect.rect.width / size;
+
+			for (int x = 0; x < size; x++)
 			{
-				if (spawnedPoints == null) return;
-				return;
-			}
-
-			spawnedPoints = new LatticePointVisual[lattice.Value.size * lattice.Value.size];
-
-			for (int y = 0; y < lattice.Value.size; y++)
-			{
-				for (int x = 0; x < lattice.Value.size; x++)
+				for (int y = 0; y < size; y++)
 				{
-					spawnedPoints[Index(y, x)] = Instantiate(latticePointPrefab, transform);
+					LatticePointVisual point = spawnedPoints[Index(y, x, size)];
+
+					point.x = x;
+					point.y = y;
+
+					point.debugOriginalX = x + minX;
+					point.debugOriginalY = y + minY;
+
+					point.gridSpacing = gridSpacing;
+					point.UpdatePositionSize();
+
+					point.IsActive = lattice.Value.IsOccupied(x + minX, y + minY);
+					point.IsHydrophobic = lattice.Value.IsHydrophobic(x + minX, y + minY);
+					point.BindingDirection = lattice.Value.BindingDirection(x + minX, y + minY);
+
+					point.value = lattice.Value.GetPoint(x + minX, y + minY).point.conformationIndex;
+					point.index = lattice.Value.Index(x + minX, y + minY);
 				}
 			}
 		}
+		#endregion
 
+
+		#region Spawning points
+		private void GenerateSpawnedPoints(int size)
+		{
+			if (size <= 0)
+			{
+				CleanUpSpawnedPoints();
+				return;
+			}
+
+			int sizeDelta = size * size - spawnedPoints.Count;
+
+			if (sizeDelta < 0)
+			{
+				DespawnPoints(-sizeDelta);
+			}
+
+			if (sizeDelta > 0)
+			{
+				SpawnPoints(sizeDelta);
+			}
+		}
+
+		private void SpawnPoints(int numPointsToSpawn)
+		{
+			for (int i = 0; i < numPointsToSpawn; i++)
+			{
+				spawnedPoints.Add(Instantiate(latticePointPrefab, transform));
+			}
+		}
+		private void DespawnPoints(int numPointsToRemove)
+		{
+			for (int i = 0; i < numPointsToRemove; i++)
+			{
+				var pointToRemove = spawnedPoints.Last();
+
+				if (pointToRemove)
+				{
+					spawnedPoints.Remove(pointToRemove);
+					Destroy(pointToRemove.gameObject);
+				}
+				else
+				{
+					spawnedPoints.RemoveAt(spawnedPoints.Count - 1);
+				}
+			}
+		}
 		private void CleanUpSpawnedPoints()
 		{
 			if (spawnedPoints == null) return;
@@ -103,10 +147,11 @@ namespace ProteinFolding
 			spawnedPoints = null;
 		}
 
-		private int Index(int y, int x)
+		private int Index(int y, int x, int size)
 		{
-			return x + y * lattice.Value.size;
+			return x + y * size;
 		}
+		#endregion
 
 
 		#region Debug		

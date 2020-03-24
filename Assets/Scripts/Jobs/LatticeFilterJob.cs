@@ -21,9 +21,9 @@ namespace ProteinFolding
 		[ReadOnly]
 		public float pruningProbability02;
 		[ReadOnly]
-		public float averageEnergy;
+		public NativeArray<float> averageEnergy;
 		[ReadOnly]
-		public int bestEnergy;
+		public NativeArray<int> bestEnergy;
 
 		public bool lastPointIsHydrophobic;
 
@@ -33,9 +33,9 @@ namespace ProteinFolding
 			{
 				if (lastPointIsHydrophobic) return true;
 
-				if (lattices[index].energy <= bestEnergy) return true;
+				if (lattices[index].energy <= bestEnergy[0]) return true;
 
-				if (lattices[index].energy <= averageEnergy)
+				if (lattices[index].energy <= averageEnergy[0])
 				{
 					return random[index] > pruningProbability01;
 				}

@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Unity.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace ProteinFolding
@@ -18,6 +19,13 @@ namespace ProteinFolding
 		public int size;
 		public int energy;
 
+		public int minOccupiedX;
+		public int maxOccupiedX;
+		public int minOccupiedY;
+		public int maxOccupiedY;
+		public int spanX;
+		public int spanY;
+		public int maxSpanXY;
 
 		#region Creating Lattices
 		public Lattice(Point[] points, bool[] parsedInput, int energy, int size)
@@ -26,6 +34,23 @@ namespace ProteinFolding
 			this.parsedInput = parsedInput;
 			this.size = size;
 			this.energy = energy;
+
+			CalculateMinMaxXY();
+		}
+		private void CalculateMinMaxXY()
+		{
+			if (points == null) return;
+
+			// Find min occupied x
+			minOccupiedX = points.Min((point) => GetX(point.conformationIndex));
+			maxOccupiedX = points.Max((point) => GetX(point.conformationIndex));
+			spanX = maxOccupiedX - minOccupiedX + 1;
+
+			minOccupiedY = points.Min((point) => GetY(point.conformationIndex));
+			maxOccupiedY = points.Max((point) => GetY(point.conformationIndex));
+			spanY = maxOccupiedY - minOccupiedY + 1;
+
+			maxSpanXY = math.max(spanX, spanY);
 		}
 		#endregion
 
@@ -59,6 +84,16 @@ namespace ProteinFolding
 		public int Index(int x, int y)
 		{
 			return x + y * size;
+		}
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public int GetX(int index)
+		{
+			return index % size;
+		}
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public int GetY(int index)
+		{
+			return index / size;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]

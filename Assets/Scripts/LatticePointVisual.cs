@@ -20,6 +20,10 @@ public class LatticePointVisual : MonoBehaviour
 	[SerializeField] protected Direction bindingDirection;
 	public int x;
 	public int y;
+
+	public int debugOriginalX;
+	public int debugOriginalY;
+
 	public float gridSpacing;
 	public int index;
 	public int value;

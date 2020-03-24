@@ -277,6 +277,161 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58228654}
   m_CullTransparentMesh: 0
+--- !u!1 &226208542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 226208543}
+  - component: {fileID: 226208545}
+  - component: {fileID: 226208544}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &226208543
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226208542}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1976013206}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &226208544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226208542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Stop
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_outlineColor:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontSize: 24
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_textAlignment: 514
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_firstOverflowCharacterIndex: -1
+  m_linkedTextComponent: {fileID: 0}
+  m_isLinkedTextComponent: 0
+  m_isTextTruncated: 0
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_ignoreRectMaskCulling: 0
+  m_ignoreCulling: 1
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_VertexBufferAutoSizeReduction: 1
+  m_firstVisibleCharacter: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_textInfo:
+    textComponent: {fileID: 226208544}
+    characterCount: 4
+    spriteCount: 0
+    spaceCount: 0
+    wordCount: 1
+    linkCount: 0
+    lineCount: 1
+    pageCount: 1
+    materialCount: 1
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_spriteAnimator: {fileID: 0}
+  m_hasFontAssetChanged: 0
+  m_subTextObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &226208545
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226208542}
+  m_CullTransparentMesh: 0
 --- !u!1 &342862149
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,6 +482,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &436781032
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 436781033}
+  - component: {fileID: 436781034}
+  m_Layer: 5
+  m_Name: OutputEnergy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &436781033
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436781032}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 677433066}
+  - {fileID: 1831089173}
+  - {fileID: 1421585003}
+  - {fileID: 2007304427}
+  - {fileID: 1225047475}
+  - {fileID: 680328644}
+  m_Father: {fileID: 444111402}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -16, y: 16}
+  m_SizeDelta: {x: 300, y: 150}
+  m_Pivot: {x: 1, y: 0}
+--- !u!114 &436781034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436781032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 10
+    m_Right: 10
+    m_Top: 10
+    m_Bottom: 10
+  m_ChildAlignment: 0
+  m_Spacing: 5
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
 --- !u!1 &444111398
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,6 +642,7 @@ RectTransform:
   - {fileID: 1772610520}
   - {fileID: 1937513408}
   - {fileID: 1977994589}
+  - {fileID: 436781033}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -439,6 +662,8 @@ GameObject:
   - component: {fileID: 457617176}
   - component: {fileID: 457617178}
   - component: {fileID: 457617177}
+  - component: {fileID: 457617180}
+  - component: {fileID: 457617179}
   m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
@@ -583,6 +808,280 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 457617175}
   m_CullTransparentMesh: 0
+--- !u!114 &457617179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457617175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a0cbb028cf7d72448273ba6c82fe949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    setOnAwake:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnStart:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnEnable:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnLateUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValidate:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnReplaceVariable:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValueChanged:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setInEditMode:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    debugEnabled:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+  outputTextSetter: {fileID: 0}
+  output:
+    useConstant: 1
+    constantValue: 
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  formatString:
+    useConstant: 1
+    constantValue: 'Pruning probability 01: {0:F2}'
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  values:
+    useConstant: 1
+    constantValue:
+      elements:
+      - {fileID: 11400000, guid: 04110053b8f842540862f15b91427761, type: 2}
+      debugEnabled: 0
+      debugCollectionUpdated: 1
+      debugElementAdded: 1
+      debugElementRemoved: 1
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+--- !u!114 &457617180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457617175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4684850230b58c149a32329c635b3423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    setOnAwake:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnStart:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnEnable:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnLateUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValidate:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnReplaceVariable:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValueChanged:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setInEditMode:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    debugEnabled:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+  text: {fileID: 0}
+  value:
+    useConstant: 1
+    constantValue: 
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,7 +1287,7 @@ MonoBehaviour:
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
   m_isDefaultMaterial: 0
-  m_padding: 1.25
+  m_padding: 0
   m_canvasRenderer: {fileID: 572170035}
   m_TextComponent: {fileID: 58228656}
   m_materialReferenceIndex: 1
@@ -799,6 +1298,554 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 572170032}
+  m_CullTransparentMesh: 0
+--- !u!1 &677433065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 677433066}
+  - component: {fileID: 677433069}
+  - component: {fileID: 677433068}
+  - component: {fileID: 677433067}
+  m_Layer: 5
+  m_Name: Background Shadow (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &677433066
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677433065}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436781033}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 22, y: 22}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &677433067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677433065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 1
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 2
+--- !u!114 &677433068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677433065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.29803923}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: fa167ceb096c6a147a4b95c41f592a08, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &677433069
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677433065}
+  m_CullTransparentMesh: 0
+--- !u!1 &680328643
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 680328644}
+  - component: {fileID: 680328649}
+  - component: {fileID: 680328648}
+  - component: {fileID: 680328647}
+  - component: {fileID: 680328646}
+  - component: {fileID: 680328645}
+  m_Layer: 5
+  m_Name: Text (TMP) (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &680328644
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680328643}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436781033}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &680328645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680328643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a0cbb028cf7d72448273ba6c82fe949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    setOnAwake:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnStart:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnEnable:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnLateUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValidate:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnReplaceVariable:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValueChanged:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setInEditMode:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    debugEnabled:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+  outputTextSetter: {fileID: 680328646}
+  output:
+    useConstant: 1
+    constantValue: 
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  formatString:
+    useConstant: 1
+    constantValue: '{0:asDateTimeSeconds:mm:ss:ff}'
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  values:
+    useConstant: 1
+    constantValue:
+      elements:
+      - {fileID: 11400000, guid: 3ca90ecad61ded44eab7cb4f26bec976, type: 2}
+      debugEnabled: 0
+      debugCollectionUpdated: 1
+      debugElementAdded: 1
+      debugElementRemoved: 1
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+--- !u!114 &680328646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680328643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4684850230b58c149a32329c635b3423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    setOnAwake:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnStart:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnEnable:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnLateUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValidate:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnReplaceVariable:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValueChanged:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setInEditMode:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    debugEnabled:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+  text: {fileID: 0}
+  value:
+    useConstant: 1
+    constantValue: 
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+--- !u!114 &680328647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680328643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: 1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
+--- !u!114 &680328648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680328643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: '0
+
+'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281545523
+  m_fontColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_outlineColor:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_textAlignment: 258
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_firstOverflowCharacterIndex: -1
+  m_linkedTextComponent: {fileID: 0}
+  m_isLinkedTextComponent: 0
+  m_isTextTruncated: 0
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_ignoreRectMaskCulling: 0
+  m_ignoreCulling: 1
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_VertexBufferAutoSizeReduction: 1
+  m_firstVisibleCharacter: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_textInfo:
+    textComponent: {fileID: 680328648}
+    characterCount: 2
+    spriteCount: 0
+    spaceCount: 1
+    wordCount: 1
+    linkCount: 0
+    lineCount: 1
+    pageCount: 1
+    materialCount: 1
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_spriteAnimator: {fileID: 0}
+  m_hasFontAssetChanged: 0
+  m_subTextObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &680328649
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680328643}
   m_CullTransparentMesh: 0
 --- !u!1 &747528906
 GameObject:
@@ -1069,6 +2116,8 @@ GameObject:
   - component: {fileID: 855330943}
   - component: {fileID: 855330945}
   - component: {fileID: 855330944}
+  - component: {fileID: 855330947}
+  - component: {fileID: 855330946}
   m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
@@ -1215,6 +2264,280 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 855330942}
   m_CullTransparentMesh: 0
+--- !u!114 &855330946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855330942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a0cbb028cf7d72448273ba6c82fe949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    setOnAwake:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnStart:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnEnable:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnLateUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValidate:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnReplaceVariable:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValueChanged:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setInEditMode:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    debugEnabled:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+  outputTextSetter: {fileID: 0}
+  output:
+    useConstant: 1
+    constantValue: 
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  formatString:
+    useConstant: 1
+    constantValue: 'Pruning probability 02: {0:F2}'
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  values:
+    useConstant: 1
+    constantValue:
+      elements:
+      - {fileID: 11400000, guid: 89a7f010a6a220d4ba430617179d4b10, type: 2}
+      debugEnabled: 0
+      debugCollectionUpdated: 1
+      debugElementAdded: 1
+      debugElementRemoved: 1
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+--- !u!114 &855330947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855330942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4684850230b58c149a32329c635b3423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    setOnAwake:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnStart:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnEnable:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnLateUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValidate:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnReplaceVariable:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValueChanged:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setInEditMode:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    debugEnabled:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+  text: {fileID: 0}
+  value:
+    useConstant: 1
+    constantValue: 
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
 --- !u!1 &1079211410
 GameObject:
   m_ObjectHideFlags: 0
@@ -1728,6 +3051,182 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205422276}
   m_CullTransparentMesh: 0
+--- !u!1 &1225047474
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1225047475}
+  - component: {fileID: 1225047478}
+  - component: {fileID: 1225047477}
+  - component: {fileID: 1225047476}
+  m_Layer: 5
+  m_Name: Text (TMP) (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1225047475
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225047474}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436781033}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1225047476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225047474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: 1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
+--- !u!114 &1225047477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225047474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Processing time
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281545523
+  m_fontColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_outlineColor:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontSize: 14
+  m_fontSizeBase: 14
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_textAlignment: 257
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_firstOverflowCharacterIndex: -1
+  m_linkedTextComponent: {fileID: 0}
+  m_isLinkedTextComponent: 0
+  m_isTextTruncated: 0
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_ignoreRectMaskCulling: 0
+  m_ignoreCulling: 1
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_VertexBufferAutoSizeReduction: 1
+  m_firstVisibleCharacter: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_textInfo:
+    textComponent: {fileID: 1225047477}
+    characterCount: 15
+    spriteCount: 0
+    spaceCount: 1
+    wordCount: 2
+    linkCount: 0
+    lineCount: 1
+    pageCount: 1
+    materialCount: 1
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_spriteAnimator: {fileID: 0}
+  m_hasFontAssetChanged: 0
+  m_subTextObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1225047478
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225047474}
+  m_CullTransparentMesh: 0
 --- !u!1 &1307945720
 GameObject:
   m_ObjectHideFlags: 0
@@ -2142,6 +3641,182 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339258917}
+  m_CullTransparentMesh: 0
+--- !u!1 &1421585002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1421585003}
+  - component: {fileID: 1421585006}
+  - component: {fileID: 1421585005}
+  - component: {fileID: 1421585004}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1421585003
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421585002}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436781033}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1421585004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421585002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: 1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
+--- !u!114 &1421585005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421585002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Output Energy
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281545523
+  m_fontColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_outlineColor:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontSize: 14
+  m_fontSizeBase: 14
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_textAlignment: 257
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_firstOverflowCharacterIndex: -1
+  m_linkedTextComponent: {fileID: 0}
+  m_isLinkedTextComponent: 0
+  m_isTextTruncated: 0
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_ignoreRectMaskCulling: 0
+  m_ignoreCulling: 1
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_VertexBufferAutoSizeReduction: 1
+  m_firstVisibleCharacter: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_textInfo:
+    textComponent: {fileID: 1421585005}
+    characterCount: 13
+    spriteCount: 0
+    spaceCount: 1
+    wordCount: 2
+    linkCount: 0
+    lineCount: 1
+    pageCount: 1
+    materialCount: 1
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_spriteAnimator: {fileID: 0}
+  m_hasFontAssetChanged: 0
+  m_subTextObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1421585006
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421585002}
   m_CullTransparentMesh: 0
 --- !u!1 &1422412455
 GameObject:
@@ -2570,10 +4245,30 @@ MonoBehaviour:
     debugVariableReplacements: 1
     debugFailedVariableReplacements: 0
     debugChanges: 1
-  outputEnergy:
+  maxPointsInDataSegment:
     useConstant: 1
-    constantValue: 0
+    constantValue: 1000000
     variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  maxFrameTimeMs:
+    useConstant: 1
+    constantValue: 30
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  outputEnergy:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 6bba6c18dc4d9e347ba502c8674c3feb, type: 2}
     _usesTemporaryVariable: 0
     debugEnabled: 0
     debugLogAll: 1
@@ -2587,6 +4282,13 @@ MonoBehaviour:
       parsedInput: 
       size: 0
       energy: 0
+      minOccupiedX: 0
+      maxOccupiedX: 0
+      minOccupiedY: 0
+      maxOccupiedY: 0
+      spanX: 0
+      spanY: 0
+      maxSpanXY: 0
     variable: {fileID: 11400000, guid: 6c047ba8ce785e341a7efc71acb309c4, type: 2}
     _usesTemporaryVariable: 0
     debugEnabled: 0
@@ -2594,14 +4296,43 @@ MonoBehaviour:
     debugVariableReplacements: 1
     debugFailedVariableReplacements: 0
     debugChanges: 1
-  parsedInputPersistent: 00000100000101000000000101000000000101000000000101
   outputLatticeIndex: 0
+  executionTimeSeconds:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 3ca90ecad61ded44eab7cb4f26bec976, type: 2}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
   suspendExecution: 0
   stepByStepExecution: 0
   latticeSize: 52
+  processedLattices: 0
+  latticesPerSecond:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 30b57784e33e59647be13987ff857b53, type: 2}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  performanceMeasurementInterval:
+    useConstant: 1
+    constantValue: 100
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
   randomValuesPersistent: []
-  currentTreeLevel: 6
-  lastBestEnergy: -1
+  treeLevels: []
 --- !u!4 &1494294019
 Transform:
   m_ObjectHideFlags: 0
@@ -2726,6 +4457,7 @@ GameObject:
   - component: {fileID: 1772610520}
   - component: {fileID: 1772610522}
   - component: {fileID: 1772610521}
+  - component: {fileID: 1772610523}
   m_Layer: 5
   m_Name: InputStringUI
   m_TagString: Untagged
@@ -2748,6 +4480,7 @@ RectTransform:
   - {fileID: 2074301219}
   - {fileID: 568184385}
   - {fileID: 1958782660}
+  - {fileID: 1976013206}
   m_Father: {fileID: 444111402}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2789,6 +4522,192 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772610519}
   m_CullTransparentMesh: 0
+--- !u!114 &1772610523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772610519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80a92a8059598244ea12bbfee1c63a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    setOnAwake:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnStart:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnEnable:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnLateUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValidate:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnReplaceVariable:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValueChanged:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setInEditMode:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    debugEnabled:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+  value:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: db8c604ae25332c46976fb405b4a44e7, type: 2}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  onlySetIfValueDiffers:
+    useConstant: 1
+    constantValue: 1
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  onValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  onValueTrue:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1958782659}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1976013205}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  onValueFalse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1958782659}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1976013205}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1786825174
 GameObject:
   m_ObjectHideFlags: 0
@@ -2956,6 +4875,100 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1792757312}
   m_CullTransparentMesh: 0
+--- !u!1 &1831089172
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1831089173}
+  - component: {fileID: 1831089176}
+  - component: {fileID: 1831089175}
+  - component: {fileID: 1831089174}
+  m_Layer: 5
+  m_Name: Background (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1831089173
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831089172}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436781033}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1831089174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831089172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 1
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 2
+--- !u!114 &1831089175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831089172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 6d4ed5c9e6becc141ac95db32ea21ce4, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1831089176
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831089172}
+  m_CullTransparentMesh: 0
 --- !u!1 &1860333440
 GameObject:
   m_ObjectHideFlags: 0
@@ -3060,6 +5073,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1937513408}
   - component: {fileID: 1937513409}
+  - component: {fileID: 1937513410}
   m_Layer: 5
   m_Name: LatticeVisualizer
   m_TagString: Untagged
@@ -3083,8 +5097,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 2000, y: 2000}
+  m_AnchoredPosition: {x: 0, y: 60}
+  m_SizeDelta: {x: 880, y: 880}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1937513409
 MonoBehaviour:
@@ -3093,7 +5107,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937513407}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 366405e99f4ef1a4296aa5895220fd8a, type: 3}
   m_Name: 
@@ -3207,6 +5221,13 @@ MonoBehaviour:
       parsedInput: 
       size: 0
       energy: 0
+      minOccupiedX: 0
+      maxOccupiedX: 0
+      minOccupiedY: 0
+      maxOccupiedY: 0
+      spanX: 0
+      spanY: 0
+      maxSpanXY: 0
     variable: {fileID: 11400000, guid: 6c047ba8ce785e341a7efc71acb309c4, type: 2}
     _usesTemporaryVariable: 0
     debugEnabled: 0
@@ -3224,9 +5245,31 @@ MonoBehaviour:
     debugVariableReplacements: 1
     debugFailedVariableReplacements: 0
     debugChanges: 1
+  minUpdateInterval:
+    useConstant: 1
+    constantValue: 0.5
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
   latticePointPrefab: {fileID: 8256642756342002574, guid: 4cf39df6b2b5be244bc0e5675bc7cb34,
     type: 3}
   spawnedPoints: []
+--- !u!225 &1937513410
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937513407}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1958782659
 GameObject:
   m_ObjectHideFlags: 0
@@ -3242,7 +5285,7 @@ GameObject:
   - component: {fileID: 1958782661}
   - component: {fileID: 1958782665}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Execute Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3484,6 +5527,263 @@ MonoBehaviour:
   OnClick:
     inspectedEvents:
     - {fileID: 11400000, guid: af8667c7d317b4e42aff04e29cc548a7, type: 2}
+--- !u!1 &1976013205
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1976013206}
+  - component: {fileID: 1976013211}
+  - component: {fileID: 1976013210}
+  - component: {fileID: 1976013209}
+  - component: {fileID: 1976013208}
+  - component: {fileID: 1976013207}
+  m_Layer: 5
+  m_Name: Stop Execution Button
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1976013206
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976013205}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 226208543}
+  m_Father: {fileID: 1772610520}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1976013207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976013205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 624c80afcfea3e94e868bbbe1d1d2b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    setOnAwake:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnStart:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnEnable:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnLateUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValidate:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnReplaceVariable:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValueChanged:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setInEditMode:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    debugEnabled:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+  button: {fileID: 0}
+  OnClick:
+    inspectedEvents:
+    - {fileID: 11400000, guid: 2ac39f62d8a0dab4e8a706bf0afe2d2c, type: 2}
+--- !u!114 &1976013208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976013205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 200
+  m_PreferredHeight: 40
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
+--- !u!114 &1976013209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976013205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1976013210}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1976013210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976013205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.8627451, g: 0.1960784, b: 0.27900612, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 6d4ed5c9e6becc141ac95db32ea21ce4, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1976013211
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976013205}
+  m_CullTransparentMesh: 0
 --- !u!1 &1977994588
 GameObject:
   m_ObjectHideFlags: 0
@@ -3522,7 +5822,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 16, y: 16}
-  m_SizeDelta: {x: 300, y: 400}
+  m_SizeDelta: {x: 300, y: 140}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1977994590
 MonoBehaviour:
@@ -3549,6 +5849,460 @@ MonoBehaviour:
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!1 &2007304426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2007304427}
+  - component: {fileID: 2007304432}
+  - component: {fileID: 2007304431}
+  - component: {fileID: 2007304430}
+  - component: {fileID: 2007304429}
+  - component: {fileID: 2007304428}
+  m_Layer: 5
+  m_Name: Text (TMP) (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2007304427
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007304426}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436781033}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2007304428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007304426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a0cbb028cf7d72448273ba6c82fe949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    setOnAwake:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnStart:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnEnable:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnLateUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValidate:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnReplaceVariable:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValueChanged:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setInEditMode:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    debugEnabled:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+  outputTextSetter: {fileID: 2007304429}
+  output:
+    useConstant: 1
+    constantValue: 
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  formatString:
+    useConstant: 1
+    constantValue: '{0}'
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+  values:
+    useConstant: 1
+    constantValue:
+      elements:
+      - {fileID: 11400000, guid: 6bba6c18dc4d9e347ba502c8674c3feb, type: 2}
+      debugEnabled: 0
+      debugCollectionUpdated: 1
+      debugElementAdded: 1
+      debugElementRemoved: 1
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+--- !u!114 &2007304429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007304426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4684850230b58c149a32329c635b3423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    setOnAwake:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnStart:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnEnable:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnLateUpdate:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValidate:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnReplaceVariable:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setOnValueChanged:
+      useConstant: 1
+      constantValue: 1
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    setInEditMode:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+    debugEnabled:
+      useConstant: 1
+      constantValue: 0
+      variable: {fileID: 0}
+      _usesTemporaryVariable: 0
+      debugEnabled: 0
+      debugLogAll: 1
+      debugVariableReplacements: 1
+      debugFailedVariableReplacements: 0
+      debugChanges: 1
+  text: {fileID: 0}
+  value:
+    useConstant: 1
+    constantValue: 
+    variable: {fileID: 0}
+    _usesTemporaryVariable: 0
+    debugEnabled: 0
+    debugLogAll: 1
+    debugVariableReplacements: 1
+    debugFailedVariableReplacements: 0
+    debugChanges: 1
+--- !u!114 &2007304430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007304426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: 1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
+--- !u!114 &2007304431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007304426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: '0
+
+'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281545523
+  m_fontColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_outlineColor:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_textAlignment: 258
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_firstOverflowCharacterIndex: -1
+  m_linkedTextComponent: {fileID: 0}
+  m_isLinkedTextComponent: 0
+  m_isTextTruncated: 0
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_ignoreRectMaskCulling: 0
+  m_ignoreCulling: 1
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_VertexBufferAutoSizeReduction: 1
+  m_firstVisibleCharacter: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_textInfo:
+    textComponent: {fileID: 2007304431}
+    characterCount: 2
+    spriteCount: 0
+    spaceCount: 1
+    wordCount: 1
+    linkCount: 0
+    lineCount: 1
+    pageCount: 1
+    materialCount: 1
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_spriteAnimator: {fileID: 0}
+  m_hasFontAssetChanged: 0
+  m_subTextObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &2007304432
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007304426}
+  m_CullTransparentMesh: 0
 --- !u!1 &2074301218
 GameObject:
   m_ObjectHideFlags: 0
